@@ -3,30 +3,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 
-// const mainHtmlPage = [
-//   new HtmlWebpackPlugin({
-//     template: "./src/index.html",
-//     filename: "index.html",
-//     chunks: ["index"],
-//   }),
-// ];
-
-// const htmlPluginEntries = mainHtmlPage.concat(
-//   pages.map(
-//     (page) =>
-//       new HtmlWebpackPlugin({
-//         template: `./src/pages/${page}/${page}.html`,
-//         filename: `${page}.html`,
-//         chunks: [page],
-//       })
-//   )
-// );
-
-// const pages = ["maradona", "dibuja"];
 module.exports = {
-  // target: "web",
-  mode: "development",
-  devtool: "inline-source-map",
   plugins: [
     new CopyWebpackPlugin({
       patterns: [
@@ -102,17 +79,6 @@ module.exports = {
         type: "asset/resource",
       },
     ],
-  },
-  // Spin up a server for quick development
-  devServer: {
-    // watchFiles: ["src/*.html", "src/*/*/*.html"],
-    static: path.resolve(__dirname, "./dist"),
-    hot: true,
-    open: true,
-  },
-  watchOptions: {
-    poll: 1000,
-    ignored: "/node_modules/",
   },
   entry: {
     index: "./src/index.js",
