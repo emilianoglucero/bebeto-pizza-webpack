@@ -1,0 +1,239 @@
+body {
+  font-family: "Comic Sans MS";
+  background-color: aquamarine;
+  color: violet;
+  margin: 0px auto;
+  max-width: 1150px;
+}
+
+#loadingVoka {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: url("media/loadingVoka.gif") no-repeat center center;
+}
+
+#img-voka-1 {
+  position: absolute;
+  top: 10%;
+  left: 14%;
+}
+#img-voka-2 {
+  position: absolute;
+  top: 65%;
+  left: 9%;
+}
+#img-voka-3 {
+  position: absolute;
+  top: 30%;
+  left: 11%;
+}
+#img-voka-4 {
+  position: absolute;
+  top: 130%;
+  left: 59%;
+}
+#img-voka-5 {
+  position: absolute;
+  top: 130%;
+  left: 70%;
+}
+#img-voka-6 {
+  position: absolute;
+  top: 150%;
+  left: 80%;
+}
+#img-voka-7 {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+}
+#img-voka-8 {
+  position: absolute;
+  top: 120%;
+  left: 100%;
+}
+#img-voka-9 {
+  position: absolute;
+  top: 40%;
+  left: 80%;
+}
+#img-voka-10 {
+  position: absolute;
+  top: 100%;
+  left: 100%;
+}
+#img-voka-11 {
+  position: absolute;
+  top: 54%;
+  left: 45%;
+}
+#img-voka-12 {
+  position: absolute;
+  top: 190%;
+  left: 100%;
+}
+#img-voka-13 {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+}
+
+#overlay {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  -o-transform: scaleX(-1);
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+  -ms-filter: fliph; /*IE*/
+  filter: fliph; /*IE*/
+
+  width: 600px;
+  height: 450px;
+}
+
+#videoel {
+  position: absolute;
+  left: 21rem;
+  top: 16rem;
+}
+
+#container {
+  /*position : relative;
+            width : 370px;
+            margin : 0px auto;*/
+  left: 30px;
+  position: absolute;
+  top: 800px;
+}
+
+#realpageVoka {
+  display: block;
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 600px;
+}
+#ismobileVoka {
+  display: block;
+}
+
+#sketch,
+#filter {
+  display: none;
+}
+
+h2 {
+  font-weight: 400;
+}
+
+.btn {
+  font-family: "Lato";
+  font-size: 16px;
+}
+
+#controls {
+  position: absolute;
+  right: 600px;
+  text-align: center;
+  top: 1300px;
+}
+
+#emotion_container {
+  position: absolute;
+  top: 1200px;
+  width: 600px;
+}
+
+#emotion_icons {
+  height: 50px;
+  padding-left: 40px;
+}
+
+.emotion_icon {
+  width: 80px;
+  height: 80px;
+  margin-top: 5px;
+  /*margin-left : 13px;*/
+  margin-left: 35px;
+}
+
+#emotion_chart,
+#emotion_icons {
+  margin: 0 auto;
+  width: 400px;
+}
+
+#icon1,
+#icon2,
+#icon3,
+#icon4,
+#icon5,
+#icon6 {
+  visibility: hidden;
+}
+
+/* d3 */
+.bar {
+  fill: steelblue;
+  fill-opacity: 0.9;
+}
+#record_button {
+  display: none;
+  margin-right: 100px;
+}
+#countdown {
+  display: none;
+}
+
+/*estilos para el posicionamiento del texto*/
+#voca-titulo {
+  position: absolute;
+  top: 3px;
+  right: 20px;
+}
+
+#voca-instruccionestitulo {
+  position: absolute;
+  left: 700px;
+  font-size: 70px;
+}
+
+#voca-amigx1 {
+  margin-left: 80px;
+}
+
+#voca-amigx2 {
+  position: absolute;
+  right: 30px;
+}
+
+#voca-amigx3 {
+  position: absolute;
+  top: 600px;
+}
+
+#voca-amigx4 {
+  position: absolute;
+  top: 640px;
+  left: 50px;
+}
+
+#voca-amigx5 {
+  position: absolute;
+  top: 800px;
+  left: 800px;
+}
+
+#voca-amigx6 {
+  position: absolute;
+  top: 1300px;
+  left: 1000px;
+}
+
+#voca-amigx7 {
+  position: absolute;
+  top: 500px;
+  left: 100px;
+}
