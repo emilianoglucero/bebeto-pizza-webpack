@@ -10,7 +10,7 @@ module.exports = merge(common, {
   // Spin up a server for quick development
   devServer: {
     // watchFiles: ["src/*.html", "src/*/*/*.html"],
-    static: path.resolve(__dirname, "./dist"),
+    static: path.resolve(__dirname, "dist"),
     hot: true,
     open: true,
   },
