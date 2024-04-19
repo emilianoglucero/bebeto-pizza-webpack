@@ -90,8 +90,9 @@ module.exports = {
     zarandraca: "./src/pages/zarandraca/zarandraca.js",
   },
   output: {
-    filename: "[name].bundle.js",
     path: path.resolve(__dirname, "dist"),
+    filename: "[name].bundle.js",
+    publicPath: "/",
     clean: true,
   },
   optimization: {
