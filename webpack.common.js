@@ -38,17 +38,17 @@ module.exports = {
       inject: true,
       cache: false,
     }),
-    new HtmlWebpackTagsPlugin({
-      files: ["./src/pages/maradona/maradona.html"],
-      tags: [
-        "./src/lib/jQuery-3.3.1.js",
-        "./src/lib/p5.js",
-        "./src/lib/p5.dom.js",
-        "./src/lib/p5.sound.js",
-        "./src/pages/maradona/sketch.js",
-      ],
-      append: true,
-    }),
+    // new HtmlWebpackTagsPlugin({
+    //   files: ["./src/pages/maradona/maradona.html"],
+    //   tags: [
+    //     "./src/lib/jQuery-3.3.1.js",
+    //     "./src/lib/p5.js",
+    //     "./src/lib/p5.dom.js",
+    //     "./src/lib/p5.sound.js",
+    //     "./src/pages/maradona/sketch.js",
+    //   ],
+    //   append: true,
+    // }),
     // this plugin inject the correct assets as script tags in the html file otherwise the assets are not found
     new HtmlWebpackDeployPlugin({
       files: ["maradona.html"],
@@ -72,7 +72,7 @@ module.exports = {
           },
           {
             from: "./src/pages/maradona/sketch.js",
-            to: "./lib",
+            to: "./maradona/js",
           },
         ],
         scripts: [
@@ -89,7 +89,7 @@ module.exports = {
             path: "lib/p5.sound.js",
           },
           {
-            path: "lib/sketch.js",
+            path: "maradona/js/sketch.js",
           },
         ],
       },
@@ -99,15 +99,91 @@ module.exports = {
       filename: `dibuja.html`,
       inject: true,
     }),
+    new HtmlWebpackDeployPlugin({
+      files: ["dibuja.html"],
+      assets: {
+        copy: [
+          {
+            from: "./src/pages/dibuja/js/cursor-effect-dibuja.js",
+            to: "dibuja/js",
+          },
+          {
+            from: "./src/pages/dibuja/js/sketch.js",
+            to: "dibuja/js",
+          },
+        ],
+        scripts: [
+          {
+            path: "dibuja/js/cursor-effect-dibuja.js",
+          },
+          {
+            path: "dibuja/js/sketch.js",
+          },
+        ],
+      },
+    }),
     new HtmlWebpackPlugin({
       template: `./src/pages/voca/voca.html`,
       filename: `voca.html`,
       inject: true,
     }),
+    new HtmlWebpackDeployPlugin({
+      files: ["voca.html"],
+      assets: {
+        copy: [
+          {
+            from: "./src/pages/voca/js/cursor-effect-abri.js",
+            to: "voca/js",
+          },
+          {
+            from: "./src/pages/voca/js/libs/utils.js",
+            to: "voca/js",
+          },
+        ],
+        scripts: [
+          {
+            path: "voca/js/cursor-effect-abri.js",
+          },
+          {
+            path: "voca/js/utils.js",
+          },
+        ],
+      },
+    }),
     new HtmlWebpackPlugin({
       template: `./src/pages/zarandraca/zarandraca.html`,
       filename: `zarandraca.html`,
       inject: true,
+    }),
+    new HtmlWebpackDeployPlugin({
+      files: ["zarandraca.html"],
+      assets: {
+        copy: [
+          {
+            from: "./src/pages/zarandraca/phaser.js",
+            to: "zarandraca/js",
+          },
+          {
+            from: "./src/pages/zarandraca/main.js",
+            to: "zarandraca/js",
+          },
+          {
+            from: "./src/pages/zarandraca/jumble.js",
+            to: "zarandraca/js",
+          },
+        ],
+        scripts: [
+          {
+            path: "zarandraca/js/phaser.js",
+          },
+          {
+            path: "zarandraca/js/main.js",
+          },
+          {
+            path: "zarandraca/js/jumble.js",
+          },
+        ],
+      },
     }),
     new HtmlWebpackPlugin({
       template: `./src/pages/screenshots/screenshots.html`,
@@ -118,6 +194,29 @@ module.exports = {
       template: `./src/pages/compraventa/compraventa.html`,
       filename: `compraventa.html`,
       inject: true,
+    }),
+    new HtmlWebpackDeployPlugin({
+      files: ["compraventa.html"],
+      assets: {
+        copy: [
+          {
+            from: "./src/pages/compraventa/static/js/2.357e6aad.chunk.js",
+            to: "compraventa/js",
+          },
+          {
+            from: "./src/pages/compraventa/static/js/main.1395158f.chunk.js",
+            to: "compraventa/js",
+          },
+        ],
+        scripts: [
+          {
+            path: "compraventa/js/2.357e6aad.chunk.js",
+          },
+          {
+            path: "compraventa/js/main.1395158f.chunk.js",
+          },
+        ],
+      },
     }),
     new MiniCssExtractPlugin({
       filename: "[name].css",
