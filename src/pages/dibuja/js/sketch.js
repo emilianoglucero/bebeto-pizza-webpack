@@ -14,7 +14,7 @@ function setup() {
       "./dibuja/assets/img/lavagna-min.png",
       "./dibuja/assets/img/cristinabw-min.png",
       "./dibuja/assets/img/alberto-min.png",
-      "./dibuja//assetsimg/espert-min.png",
+      "./dibuja/assetsimg/espert-min.png",
       "./dibuja/assets/img/centurion-min.png",
     ]),
     (i = Math.floor(11 * Math.random())),
@@ -46,25 +46,66 @@ function keyPressed() {
     "5" == key && (size = strokeWeight(30)),
     "6" == key && (size = strokeWeight(40));
 }
+
+function savePaintingDetails(author, filename, cloudImagePath) {
+  $.ajax({
+    method: "POST",
+    url: "https://bebeto-pizza-backend.vercel.app/api/userPainting",
+    data: {
+      paintName: filename,
+      artistName: author,
+      paintDataUrl: cloudImagePath,
+    },
+  })
+    .done(function (msg) {
+      alert("tu dibujo ya fue guardado y sera expuesto por un tiempito?");
+      setTimeout(function () {
+        location.reload();
+      }, 2e3);
+    })
+    .fail(function (msg) {
+      console.log(msg);
+      alert("hubo un error al guardar tu dibujo, intenta de nuevo");
+    });
+}
+
 function saveMyCanvas() {
   if (!confirm("seguro que queres publicar tu dibujo??¿")) return !1;
   for (
-    var e = prompt("firma la obra ! podes poner solamente hasta 3 caracteres");
-    3 < e.length;
+    var author = prompt(
+      "firma la obra ! podes poner solamente hasta 3 caracteres"
+    );
+    3 < author.length;
 
   ) {
     alert("acordate que tenes que poner 3 o menos caracteres/palabras/cosas");
-    e = prompt("firma la obra ! podes poner hasta solamente 3 caracteres");
+    author = prompt("firma la obra ! podes poner hasta solamente 3 caracteres");
   }
-  $.ajax({
-    method: "POST",
-    url: "upload.php",
-    data: { photo: photo, author: e },
-  }),
-    alert("tu dibujo ya fue guardado y sera expuesto por un tiempito?"),
-    setTimeout(function () {
-      location.reload();
-    }, 2e3);
+  let canvas = document.getElementById("myCanvas");
+
+  canvas.toBlob(function (blob) {
+    var formData = new FormData();
+    let date = new Date().toISOString();
+    let uniqueId = Math.random().toString(36).substr(2, 9);
+    let filename = `${author}_${date}_${uniqueId}.png`;
+    const cloudImagePath = `https://storage.googleapis.com/bebeto-pizza-dibuja/dibuja-paintings/${filename}`;
+    formData.append("image", blob, filename);
+    $.ajax({
+      method: "POST",
+      url: "https://bebeto-pizza-backend.vercel.app/upload",
+      // url: "http://localhost:3000/upload",
+      data: formData,
+      processData: false,
+      contentType: false,
+    })
+      .done(function (msg) {
+        return savePaintingDetails(author, filename, cloudImagePath);
+      })
+      .fail(function (msg) {
+        console.log(msg);
+        alert("hubo un error al guardar tu dibujo, intenta de nuevo");
+      });
+  });
 }
 $(window).ready(function () {
   $("#loadingDibuja").hide();

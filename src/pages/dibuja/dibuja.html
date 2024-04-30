@@ -1,6 +1,6 @@
 <html>
   <head>
-    <title>♤💣 𝓒ｏĹσŘㄖＥ𝒶 Ữη 𝐏𝔬𝓛𝓘тᶤ𝓬Ｏ 👍🐸</title>
+    <title>♤💣 𝓒ｏĹσŘㄖＥ𝒶 Ữη empresario 👍🐸</title>
     <link href="../../favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <meta charset="UTF-8" />
 
@@ -169,6 +169,44 @@
         <div id="size-6">6: malisima</div>
       </label>
     </div>
+
+    <script>
+      $.ajax({
+        url: "https://bebeto-pizza-backend.vercel.app/api/userPainting", // replace with your API endpoint
+        method: "GET",
+        success: function (data) {
+          console.log(data);
+          // list all the elements in data and sort them by date
+          data.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+          let paintingsList = "";
+          data.forEach((item, index) => {
+            paintingsList += `
+            <div class="img-container">
+              <div class="img">
+                <a target="_blank" href="${item.paintDataUrl}">
+                  <img src="${
+                    item.paintDataUrl
+                  }" alt="jejejejj" width="300" height="200">
+                </a>
+                <div class="desc">
+                autor: ${item.artistName} <br>
+                fechayhora: ${new Date(item.createdAt).toLocaleDateString(
+                  "es-ES",
+                  {
+                    day: "2-digit",
+                    month: "2-digit",
+                    year: "numeric",
+                  }
+                )}
+                </div>
+              </div>
+            </div>
+          `;
+          });
+          $(".img-container").html(paintingsList);
+        },
+      });
+    </script>
 
     <div class="img-container"></div>
   </body>
