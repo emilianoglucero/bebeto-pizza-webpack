@@ -310,6 +310,36 @@ function main() {
     scoreSnd.play();
   }
 
+  function checkUserScore(response, userScore) {
+    response.sort((a, b) => b.score - a.score);
+    const top35 = response.slice(0, 35);
+    const userPosition = top35.findIndex((user) => user.score < userScore);
+    return userPosition === -1 ? -1 : userPosition + 1;
+  }
+
+  function postData(score, author) {
+    $.ajax({
+      method: "POST",
+      url: "https://bebeto-pizza-backend.vercel.app/api/userScore",
+      data: {
+        score: score,
+        userName: author,
+      },
+    })
+      .done(function (response) {
+        console.log("Success:", response);
+        alert("listo !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+        location.reload();
+      })
+      .fail(function (jqXHR, textStatus, errorThrown) {
+        console.error("Error:", textStatus, errorThrown);
+        alert(
+          "uyyyyy algo salió mal :( tenes que volver a intentarlo, sorry not sorry"
+        );
+        location.reload();
+      });
+  }
+
   function setGameOver() {
     gameOver = true;
     instText.setText("TOCALE LA CABEZA AL FLACO\nPARA PROBAR OTRA VEZ");
@@ -323,64 +353,31 @@ function main() {
 
     alert(score);
     //var global = this; // in global scope.
-    var inserted;
 
     // Save it!
     $.ajax({
-      method: "POST",
-      url: "upload.php",
-      data: {
-        hiscore: score,
-      },
+      method: "GET",
+      url: "https://bebeto-pizza-backend.vercel.app/api/userScore",
       success: function (response) {
-        //una vez que el archivo recibe el request lo procesa y lo devuelve
-        //console.log(global.inserted);
-        inserted = response;
-        //console.log(inserted);
-        //console.log(global.inserted);
-        //elijo una funcion con distintos dialogos de forma random
-        /*var iamachine = 3;
-                            var randmachine = Math.floor((Math.random() * iamachine) + 1);                       
-                            if (randmachine == 1) {
-                                insertScore(inserted);
-                            }
-                            if (randmachine == 2) {
-                                insertScore(inserted);
-                            }
-                            if (randmachine == 3) {
-                               insertScore(inserted);
-                            }
-                            
-                            },*/
-        //ocultamos el boton de mostrar muchos videos en chromw porque es cheto y no funca
-        var is_chrome =
-          navigator.userAgent.toLowerCase().indexOf("chrome") > -1;
-
-        if (is_chrome) {
-          console.log("no uses chrome careta, abrí firefox");
-          if (inserted == 1) {
-            //console.log('inserted1');
-            var windowName = "userConsole";
-            var popUp = window.open(
-              "http://www.correomagico.com/imagenes/th_300/felicitaciones_cartel_th.gif"
-            );
-            if (popUp == null || typeof popUp == "undefined") {
-              bootbox.alert({
-                message:
-                  "EUU EUUuuEUUuu euu CUCHAME UNA COSITA, TENES QUE HACER ALGO SUPER FACIL PARA PODER SEGUIR, POSTA ES UNA PAVADA ENORME, UNA COSA DE LOCOS LO FACIL QUE ES.<br>COMO TENES CHROME QUE ES MAS VIGILANTE QUE VOS, TENES QUE DESHABILITAR EL BLOQUEO DE VENTANITAS EMERGENTES,SINO TODO VA A ANDAR MAL Y VA A SER MUY VERGONZOSO:(:(:( <img class='bottom' src='https://support.pearson.com/getsupport/servlet/rtaImage?eid=ka0b0000000DfC1&feoid=00Nb000000A84sX&refid=0EMb0000001N3jN'>",
-                className: "bb-alternate-modal",
-                callback: function () {
-                  insertScore(inserted);
-                },
-              });
-            } else {
-              insertScore(inserted);
-            }
+        const isUserInRanking = checkUserScore(response, score) !== -1;
+          var windowName = "userConsole";
+          var popUp = window.open(
+            "http://www.correomagico.com/imagenes/th_300/felicitaciones_cartel_th.gif"
+          );
+          if (popUp == null || typeof popUp == "undefined") {
+            bootbox.alert({
+              message:
+                "EUU EUUuuEUUuu euu CUCHAME UNA COSITA, TENES QUE HACER ALGO SUPER FACIL PARA PODER SEGUIR, POSTA ES UNA PAVADA ENORME, UNA COSA DE LOCOS LO FACIL QUE ES.<br>COMO TENES CHROME QUE ES MAS VIGILANTE QUE VOS, TENES QUE DESHABILITAR EL BLOQUEO DE VENTANITAS EMERGENTES,SINO TODO VA A ANDAR MAL Y VA A SER MUY VERGONZOSO:(:(:( <img class='bottom' src='https://support.pearson.com/getsupport/servlet/rtaImage?eid=ka0b0000000DfC1&feoid=00Nb000000A84sX&refid=0EMb0000001N3jN'>",
+              className: "bb-alternate-modal",
+              callback: function () {
+                insertScore(isUserInRanking);
+              },
+            });
           } else {
-            insertScore(inserted);
+            insertScore(isUserInRanking);
           }
         } else {
-          insertScore(inserted);
+          insertScore(isUserInRanking);
         }
       },
     });
@@ -390,10 +387,10 @@ function main() {
      * Si es 2 = hay registros en ese puesto y no lo superaste, por lo tanto perdiste y no escribis nada
      */
 
-    function insertScore(inserted) {
+    function insertScore(isUserInRanking) {
       //console.log(inserted);
 
-      if (inserted == 1) {
+      if (isUserInRanking) {
         var dialog = bootbox.dialog({
           // title: 'A custom dialog with buttons and callbacks',
           message:
@@ -538,24 +535,10 @@ function main() {
                                                                                                             }
 
                                                                                                             // Save it!
-                                                                                                            $.ajax(
-                                                                                                              {
-                                                                                                                method:
-                                                                                                                  "POST",
-                                                                                                                url: "insert.php",
-                                                                                                                data: {
-                                                                                                                  hiscore:
-                                                                                                                    score,
-                                                                                                                  author:
-                                                                                                                    author,
-                                                                                                                },
-                                                                                                              }
+                                                                                                            postData(
+                                                                                                              score,
+                                                                                                              author
                                                                                                             );
-
-                                                                                                            alert(
-                                                                                                              "listo !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-                                                                                                            );
-                                                                                                            location.reload();
                                                                                                           },
                                                                                                       }
                                                                                                     );
@@ -606,24 +589,10 @@ function main() {
                                                                                                           }
 
                                                                                                           // Save it!
-                                                                                                          $.ajax(
-                                                                                                            {
-                                                                                                              method:
-                                                                                                                "POST",
-                                                                                                              url: "insert.php",
-                                                                                                              data: {
-                                                                                                                hiscore:
-                                                                                                                  score,
-                                                                                                                author:
-                                                                                                                  author,
-                                                                                                              },
-                                                                                                            }
+                                                                                                          postData(
+                                                                                                            score,
+                                                                                                            author
                                                                                                           );
-
-                                                                                                          alert(
-                                                                                                            "listo !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-                                                                                                          );
-                                                                                                          location.reload();
                                                                                                         },
                                                                                                     }
                                                                                                   );
@@ -727,24 +696,10 @@ function main() {
                                                                                                             }
 
                                                                                                             // Save it!
-                                                                                                            $.ajax(
-                                                                                                              {
-                                                                                                                method:
-                                                                                                                  "POST",
-                                                                                                                url: "insert.php",
-                                                                                                                data: {
-                                                                                                                  hiscore:
-                                                                                                                    score,
-                                                                                                                  author:
-                                                                                                                    author,
-                                                                                                                },
-                                                                                                              }
+                                                                                                            postData(
+                                                                                                              score,
+                                                                                                              author
                                                                                                             );
-
-                                                                                                            alert(
-                                                                                                              "listo !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-                                                                                                            );
-                                                                                                            location.reload();
                                                                                                           },
                                                                                                       }
                                                                                                     );
@@ -795,24 +750,10 @@ function main() {
                                                                                                           }
 
                                                                                                           // Save it!
-                                                                                                          $.ajax(
-                                                                                                            {
-                                                                                                              method:
-                                                                                                                "POST",
-                                                                                                              url: "insert.php",
-                                                                                                              data: {
-                                                                                                                hiscore:
-                                                                                                                  score,
-                                                                                                                author:
-                                                                                                                  author,
-                                                                                                              },
-                                                                                                            }
+                                                                                                          postData(
+                                                                                                            score,
+                                                                                                            author
                                                                                                           );
-
-                                                                                                          alert(
-                                                                                                            "listo !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-                                                                                                          );
-                                                                                                          location.reload();
                                                                                                         },
                                                                                                     }
                                                                                                   );
@@ -874,22 +815,10 @@ function main() {
                                                                       }
 
                                                                       // Save it!
-                                                                      $.ajax({
-                                                                        method:
-                                                                          "POST",
-                                                                        url: "insert.php",
-                                                                        data: {
-                                                                          hiscore:
-                                                                            score,
-                                                                          author:
-                                                                            author,
-                                                                        },
-                                                                      });
-
-                                                                      alert(
-                                                                        "listo !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+                                                                      postData(
+                                                                        score,
+                                                                        author
                                                                       );
-                                                                      location.reload();
                                                                     },
                                                                 },
                                                                 ok: {
@@ -1081,24 +1010,10 @@ function main() {
                                                                                       }
 
                                                                                       // Save it!
-                                                                                      $.ajax(
-                                                                                        {
-                                                                                          method:
-                                                                                            "POST",
-                                                                                          url: "insert.php",
-                                                                                          data: {
-                                                                                            hiscore:
-                                                                                              score,
-                                                                                            author:
-                                                                                              author,
-                                                                                          },
-                                                                                        }
+                                                                                      postData(
+                                                                                        score,
+                                                                                        author
                                                                                       );
-
-                                                                                      alert(
-                                                                                        "listo !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-                                                                                      );
-                                                                                      location.reload();
                                                                                     },
                                                                                 }
                                                                               );
@@ -1326,24 +1241,10 @@ function main() {
                                                                                       }
 
                                                                                       // Save it!
-                                                                                      $.ajax(
-                                                                                        {
-                                                                                          method:
-                                                                                            "POST",
-                                                                                          url: "insert.php",
-                                                                                          data: {
-                                                                                            hiscore:
-                                                                                              score,
-                                                                                            author:
-                                                                                              author,
-                                                                                          },
-                                                                                        }
+                                                                                      postData(
+                                                                                        score,
+                                                                                        author
                                                                                       );
-
-                                                                                      alert(
-                                                                                        "listo !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-                                                                                      );
-                                                                                      location.reload();
                                                                                     },
                                                                                 }
                                                                               );
@@ -1541,24 +1442,10 @@ function main() {
                                                                                       }
 
                                                                                       // Save it!
-                                                                                      $.ajax(
-                                                                                        {
-                                                                                          method:
-                                                                                            "POST",
-                                                                                          url: "insert.php",
-                                                                                          data: {
-                                                                                            hiscore:
-                                                                                              score,
-                                                                                            author:
-                                                                                              author,
-                                                                                          },
-                                                                                        }
+                                                                                      postData(
+                                                                                        score,
+                                                                                        author
                                                                                       );
-
-                                                                                      alert(
-                                                                                        "listo !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-                                                                                      );
-                                                                                      location.reload();
                                                                                     },
                                                                                 }
                                                                               );
@@ -2058,24 +1945,10 @@ function main() {
                                                                                                             }
 
                                                                                                             // Save it!
-                                                                                                            $.ajax(
-                                                                                                              {
-                                                                                                                method:
-                                                                                                                  "POST",
-                                                                                                                url: "insert.php",
-                                                                                                                data: {
-                                                                                                                  hiscore:
-                                                                                                                    score,
-                                                                                                                  author:
-                                                                                                                    author,
-                                                                                                                },
-                                                                                                              }
+                                                                                                            postData(
+                                                                                                              score,
+                                                                                                              author
                                                                                                             );
-
-                                                                                                            alert(
-                                                                                                              "listo !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-                                                                                                            );
-                                                                                                            location.reload();
                                                                                                           },
                                                                                                       }
                                                                                                     );
@@ -2126,24 +1999,10 @@ function main() {
                                                                                                           }
 
                                                                                                           // Save it!
-                                                                                                          $.ajax(
-                                                                                                            {
-                                                                                                              method:
-                                                                                                                "POST",
-                                                                                                              url: "insert.php",
-                                                                                                              data: {
-                                                                                                                hiscore:
-                                                                                                                  score,
-                                                                                                                author:
-                                                                                                                  author,
-                                                                                                              },
-                                                                                                            }
+                                                                                                          postData(
+                                                                                                            score,
+                                                                                                            author
                                                                                                           );
-
-                                                                                                          alert(
-                                                                                                            "listo !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-                                                                                                          );
-                                                                                                          location.reload();
                                                                                                         },
                                                                                                     }
                                                                                                   );
@@ -2222,22 +2081,10 @@ function main() {
                                                                       }
 
                                                                       // Save it!
-                                                                      $.ajax({
-                                                                        method:
-                                                                          "POST",
-                                                                        url: "insert.php",
-                                                                        data: {
-                                                                          hiscore:
-                                                                            score,
-                                                                          author:
-                                                                            author,
-                                                                        },
-                                                                      });
-
-                                                                      alert(
-                                                                        "listo !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+                                                                      postData(
+                                                                        score,
+                                                                        author
                                                                       );
-                                                                      location.reload();
                                                                     },
                                                                 },
                                                               },
@@ -2297,24 +2144,10 @@ function main() {
                                                                                       }
 
                                                                                       // Save it!
-                                                                                      $.ajax(
-                                                                                        {
-                                                                                          method:
-                                                                                            "POST",
-                                                                                          url: "insert.php",
-                                                                                          data: {
-                                                                                            hiscore:
-                                                                                              score,
-                                                                                            author:
-                                                                                              author,
-                                                                                          },
-                                                                                        }
+                                                                                      postData(
+                                                                                        score,
+                                                                                        author
                                                                                       );
-
-                                                                                      alert(
-                                                                                        "listo !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-                                                                                      );
-                                                                                      location.reload();
                                                                                     },
                                                                                 }
                                                                               );
@@ -2371,24 +2204,10 @@ function main() {
                                                                                               }
 
                                                                                               // Save it!
-                                                                                              $.ajax(
-                                                                                                {
-                                                                                                  method:
-                                                                                                    "POST",
-                                                                                                  url: "insert.php",
-                                                                                                  data: {
-                                                                                                    hiscore:
-                                                                                                      score,
-                                                                                                    author:
-                                                                                                      author,
-                                                                                                  },
-                                                                                                }
+                                                                                              postData(
+                                                                                                score,
+                                                                                                author
                                                                                               );
-
-                                                                                              alert(
-                                                                                                "listo !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-                                                                                              );
-                                                                                              location.reload();
                                                                                             },
                                                                                         }
                                                                                       );
@@ -2471,24 +2290,10 @@ function main() {
                                                                                       }
 
                                                                                       // Save it!
-                                                                                      $.ajax(
-                                                                                        {
-                                                                                          method:
-                                                                                            "POST",
-                                                                                          url: "insert.php",
-                                                                                          data: {
-                                                                                            hiscore:
-                                                                                              score,
-                                                                                            author:
-                                                                                              author,
-                                                                                          },
-                                                                                        }
+                                                                                      postData(
+                                                                                        score,
+                                                                                        author
                                                                                       );
-
-                                                                                      alert(
-                                                                                        "listo !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-                                                                                      );
-                                                                                      location.reload();
                                                                                     },
                                                                                 }
                                                                               );
@@ -2538,24 +2343,10 @@ function main() {
                                                                                       }
 
                                                                                       // Save it!
-                                                                                      $.ajax(
-                                                                                        {
-                                                                                          method:
-                                                                                            "POST",
-                                                                                          url: "insert.php",
-                                                                                          data: {
-                                                                                            hiscore:
-                                                                                              score,
-                                                                                            author:
-                                                                                              author,
-                                                                                          },
-                                                                                        }
+                                                                                      postData(
+                                                                                        score,
+                                                                                        author
                                                                                       );
-
-                                                                                      alert(
-                                                                                        "listo !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-                                                                                      );
-                                                                                      location.reload();
                                                                                     },
                                                                                 }
                                                                               );
@@ -2622,24 +2413,10 @@ function main() {
                                                                                       }
 
                                                                                       // Save it!
-                                                                                      $.ajax(
-                                                                                        {
-                                                                                          method:
-                                                                                            "POST",
-                                                                                          url: "insert.php",
-                                                                                          data: {
-                                                                                            hiscore:
-                                                                                              score,
-                                                                                            author:
-                                                                                              author,
-                                                                                          },
-                                                                                        }
+                                                                                      postData(
+                                                                                        score,
+                                                                                        author
                                                                                       );
-
-                                                                                      alert(
-                                                                                        "listo !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-                                                                                      );
-                                                                                      location.reload();
                                                                                     },
                                                                                 }
                                                                               );
@@ -2689,24 +2466,10 @@ function main() {
                                                                                       }
 
                                                                                       // Save it!
-                                                                                      $.ajax(
-                                                                                        {
-                                                                                          method:
-                                                                                            "POST",
-                                                                                          url: "insert.php",
-                                                                                          data: {
-                                                                                            hiscore:
-                                                                                              score,
-                                                                                            author:
-                                                                                              author,
-                                                                                          },
-                                                                                        }
+                                                                                      postData(
+                                                                                        score,
+                                                                                        author
                                                                                       );
-
-                                                                                      alert(
-                                                                                        "listo !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-                                                                                      );
-                                                                                      location.reload();
                                                                                     },
                                                                                 }
                                                                               );
@@ -2812,24 +2575,10 @@ function main() {
                                                                             }
 
                                                                             // Save it!
-                                                                            $.ajax(
-                                                                              {
-                                                                                method:
-                                                                                  "POST",
-                                                                                url: "insert.php",
-                                                                                data: {
-                                                                                  hiscore:
-                                                                                    score,
-                                                                                  author:
-                                                                                    author,
-                                                                                },
-                                                                              }
+                                                                            postData(
+                                                                              score,
+                                                                              author
                                                                             );
-
-                                                                            alert(
-                                                                              "listo !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-                                                                            );
-                                                                            location.reload();
                                                                           },
                                                                       }
                                                                     );
@@ -2866,19 +2615,7 @@ function main() {
                                                         }
 
                                                         // Save it!
-                                                        $.ajax({
-                                                          method: "POST",
-                                                          url: "insert.php",
-                                                          data: {
-                                                            hiscore: score,
-                                                            author: author,
-                                                          },
-                                                        });
-
-                                                        alert(
-                                                          "listo !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-                                                        );
-                                                        location.reload();
+                                                        postData(score, author);
                                                       },
                                                     },
                                                   },
@@ -2940,19 +2677,7 @@ function main() {
                                                         }
 
                                                         // Save it!
-                                                        $.ajax({
-                                                          method: "POST",
-                                                          url: "insert.php",
-                                                          data: {
-                                                            hiscore: score,
-                                                            author: author,
-                                                          },
-                                                        });
-
-                                                        alert(
-                                                          "listo !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-                                                        );
-                                                        location.reload();
+                                                        postData(score, author);
                                                       },
                                                     },
                                                     ok: {
@@ -3163,24 +2888,10 @@ function main() {
                                                                                                                               }
 
                                                                                                                               // Save it!
-                                                                                                                              $.ajax(
-                                                                                                                                {
-                                                                                                                                  method:
-                                                                                                                                    "POST",
-                                                                                                                                  url: "insert.php",
-                                                                                                                                  data: {
-                                                                                                                                    hiscore:
-                                                                                                                                      score,
-                                                                                                                                    author:
-                                                                                                                                      author,
-                                                                                                                                  },
-                                                                                                                                }
+                                                                                                                              postData(
+                                                                                                                                score,
+                                                                                                                                author
                                                                                                                               );
-
-                                                                                                                              alert(
-                                                                                                                                "listo !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-                                                                                                                              );
-                                                                                                                              location.reload();
                                                                                                                             },
                                                                                                                         }
                                                                                                                       );
@@ -3299,24 +3010,10 @@ function main() {
                                                                                                                                                     }
 
                                                                                                                                                     // Save it!
-                                                                                                                                                    $.ajax(
-                                                                                                                                                      {
-                                                                                                                                                        method:
-                                                                                                                                                          "POST",
-                                                                                                                                                        url: "insert.php",
-                                                                                                                                                        data: {
-                                                                                                                                                          hiscore:
-                                                                                                                                                            score,
-                                                                                                                                                          author:
-                                                                                                                                                            author,
-                                                                                                                                                        },
-                                                                                                                                                      }
+                                                                                                                                                    postData(
+                                                                                                                                                      score,
+                                                                                                                                                      author
                                                                                                                                                     );
-
-                                                                                                                                                    alert(
-                                                                                                                                                      "listo !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-                                                                                                                                                    );
-                                                                                                                                                    location.reload();
                                                                                                                                                   },
                                                                                                                                               }
                                                                                                                                             );
@@ -3388,24 +3085,10 @@ function main() {
                                                                                                   }
 
                                                                                                   // Save it!
-                                                                                                  $.ajax(
-                                                                                                    {
-                                                                                                      method:
-                                                                                                        "POST",
-                                                                                                      url: "insert.php",
-                                                                                                      data: {
-                                                                                                        hiscore:
-                                                                                                          score,
-                                                                                                        author:
-                                                                                                          author,
-                                                                                                      },
-                                                                                                    }
+                                                                                                  postData(
+                                                                                                    score,
+                                                                                                    author
                                                                                                   );
-
-                                                                                                  alert(
-                                                                                                    "listo !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-                                                                                                  );
-                                                                                                  location.reload();
                                                                                                 },
                                                                                             }
                                                                                           );
@@ -3480,24 +3163,10 @@ function main() {
                                                                               }
 
                                                                               // Save it!
-                                                                              $.ajax(
-                                                                                {
-                                                                                  method:
-                                                                                    "POST",
-                                                                                  url: "insert.php",
-                                                                                  data: {
-                                                                                    hiscore:
-                                                                                      score,
-                                                                                    author:
-                                                                                      author,
-                                                                                  },
-                                                                                }
+                                                                              postData(
+                                                                                score,
+                                                                                author
                                                                               );
-
-                                                                              alert(
-                                                                                "listo !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-                                                                              );
-                                                                              location.reload();
                                                                             },
                                                                         }
                                                                       );
@@ -3547,24 +3216,10 @@ function main() {
                                                                               }
 
                                                                               // Save it!
-                                                                              $.ajax(
-                                                                                {
-                                                                                  method:
-                                                                                    "POST",
-                                                                                  url: "insert.php",
-                                                                                  data: {
-                                                                                    hiscore:
-                                                                                      score,
-                                                                                    author:
-                                                                                      author,
-                                                                                  },
-                                                                                }
+                                                                              postData(
+                                                                                score,
+                                                                                author
                                                                               );
-
-                                                                              alert(
-                                                                                "listo !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-                                                                              );
-                                                                              location.reload();
                                                                             },
                                                                         }
                                                                       );
@@ -3919,24 +3574,10 @@ function main() {
                                                                                       }
 
                                                                                       // Save it!
-                                                                                      $.ajax(
-                                                                                        {
-                                                                                          method:
-                                                                                            "POST",
-                                                                                          url: "insert.php",
-                                                                                          data: {
-                                                                                            hiscore:
-                                                                                              score,
-                                                                                            author:
-                                                                                              author,
-                                                                                          },
-                                                                                        }
+                                                                                      postData(
+                                                                                        score,
+                                                                                        author
                                                                                       );
-
-                                                                                      alert(
-                                                                                        "listo !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-                                                                                      );
-                                                                                      location.reload();
                                                                                     },
                                                                                 }
                                                                               );
@@ -3988,22 +3629,10 @@ function main() {
                                                                       }
 
                                                                       // Save it!
-                                                                      $.ajax({
-                                                                        method:
-                                                                          "POST",
-                                                                        url: "insert.php",
-                                                                        data: {
-                                                                          hiscore:
-                                                                            score,
-                                                                          author:
-                                                                            author,
-                                                                        },
-                                                                      });
-
-                                                                      alert(
-                                                                        "listo !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+                                                                      postData(
+                                                                        score,
+                                                                        author
                                                                       );
-                                                                      location.reload();
                                                                     },
                                                                 },
                                                               },

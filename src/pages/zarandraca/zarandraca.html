@@ -59,20 +59,42 @@
 
       gtag("config", "UA-114029730-1");
     </script>
+    <script>
+      $.ajax({
+        url: "https://bebeto-pizza-backend.vercel.app/api/userScore", // replace with your API endpoint
+        method: "GET",
+        success: function (data) {
+          // Sort the data by score in descending order
+          data.sort((a, b) => b.score - a.score);
+
+          let scoreList = "";
+          data.forEach((item, index) => {
+            scoreList += `
+        <div class="score__item">
+          <p>Puesto: ${index + 1}</p>
+          <p>Puntaje: ${item.score}</p>
+          <p>Nombre: ${item.userName}</p>
+          <p>Fecha: ${new Date(item.createdAt).toLocaleDateString("es-ES", {
+            day: "2-digit",
+            month: "2-digit",
+            year: "numeric",
+          })}</p>
+        </div>
+      `;
+          });
+
+          $(".score").html(scoreList);
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+          console.error("Error:", textStatus, errorThrown);
+        },
+      });
+    </script>
   </head>
   <body>
     <div id="screen"></div>
     <div class="main-score">
-      <!-- <?php
-              include_once 'Score.php';
-              $score = new Score();
-              $score->mostrar($conexion->pdo);
-            ?> -->
+      <div class="score"></div>
     </div>
-    <!-- <script src="phaser.js"></script>
-    <script src="main.js"></script>
-    <script src="jumble.js">
-      $('.score').jumble([180,160,90],[230,20,130],true,false,200);
-    </script> -->
   </body>
 </html>
