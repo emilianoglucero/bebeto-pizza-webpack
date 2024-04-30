@@ -358,29 +358,41 @@ function main() {
     $.ajax({
       method: "GET",
       url: "https://bebeto-pizza-backend.vercel.app/api/userScore",
-      success: function (response) {
+    })
+      .done(function (response) {
         const isUserInRanking = checkUserScore(response, score) !== -1;
-          var windowName = "userConsole";
-          var popUp = window.open(
+        console.log("isUserInRanking", isUserInRanking);
+        let popUp;
+        if (isUserInRanking) {
+          popUp = window.open(
             "http://www.correomagico.com/imagenes/th_300/felicitaciones_cartel_th.gif"
           );
-          if (popUp == null || typeof popUp == "undefined") {
-            bootbox.alert({
-              message:
-                "EUU EUUuuEUUuu euu CUCHAME UNA COSITA, TENES QUE HACER ALGO SUPER FACIL PARA PODER SEGUIR, POSTA ES UNA PAVADA ENORME, UNA COSA DE LOCOS LO FACIL QUE ES.<br>COMO TENES CHROME QUE ES MAS VIGILANTE QUE VOS, TENES QUE DESHABILITAR EL BLOQUEO DE VENTANITAS EMERGENTES,SINO TODO VA A ANDAR MAL Y VA A SER MUY VERGONZOSO:(:(:( <img class='bottom' src='https://support.pearson.com/getsupport/servlet/rtaImage?eid=ka0b0000000DfC1&feoid=00Nb000000A84sX&refid=0EMb0000001N3jN'>",
-              className: "bb-alternate-modal",
-              callback: function () {
-                insertScore(isUserInRanking);
-              },
-            });
-          } else {
-            insertScore(isUserInRanking);
-          }
+        } else {
+          popUp = window.open(
+            "https://media.tenor.com/GeaXeW1-lqwAAAAM/que-mal.gif"
+          );
+        }
+
+        if (popUp == null || typeof popUp == "undefined") {
+          bootbox.alert({
+            message:
+              "EUU EUUuuEUUuu euu CUCHAME UNA COSITA, TENES QUE HACER ALGO SUPER FACIL PARA PODER SEGUIR, POSTA ES UNA PAVADA ENORME, UNA COSA DE LOCOS LO FACIL QUE ES.<br>COMO TENES CHROME QUE ES MAS VIGILANTE QUE VOS, TENES QUE DESHABILITAR EL BLOQUEO DE VENTANITAS EMERGENTES,SINO TODO VA A ANDAR MAL Y VA A SER MUY VERGONZOSO:(:(:( <img class='bottom' src='https://support.pearson.com/getsupport/servlet/rtaImage?eid=ka0b0000000DfC1&feoid=00Nb000000A84sX&refid=0EMb0000001N3jN'>",
+            className: "bb-alternate-modal",
+            callback: function () {
+              insertScore(isUserInRanking);
+            },
+          });
         } else {
           insertScore(isUserInRanking);
         }
-      },
-    });
+      })
+      .fail(function (jqXHR, textStatus, errorThrown) {
+        console.error("Error:", textStatus, errorThrown);
+        alert(
+          "uyyyyy algo salió mal :( tenes que volver a intentarlo, sorry not sorry"
+        );
+        location.reload();
+      });
 
     /*
      * Si es 1 = no hay registros en ese puesto o superaste la puntuacion de ese puesto, por lo tanto puede escribir su record
