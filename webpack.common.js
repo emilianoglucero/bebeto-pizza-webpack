@@ -38,17 +38,6 @@ module.exports = {
       inject: true,
       cache: false,
     }),
-    // new HtmlWebpackTagsPlugin({
-    //   files: ["./src/pages/maradona/maradona.html"],
-    //   tags: [
-    //     "./src/lib/jQuery-3.3.1.js",
-    //     "./src/lib/p5.js",
-    //     "./src/lib/p5.dom.js",
-    //     "./src/lib/p5.sound.js",
-    //     "./src/pages/maradona/sketch.js",
-    //   ],
-    //   append: true,
-    // }),
     // this plugin inject the correct assets as script tags in the html file otherwise the assets are not found
     new HtmlWebpackDeployPlugin({
       files: ["maradona.html"],
@@ -173,6 +162,9 @@ module.exports = {
           },
         ],
         scripts: [
+          {
+            path: "lib/jQuery-3.3.1.js",
+          },
           {
             path: "zarandraca/js/phaser.js",
           },
