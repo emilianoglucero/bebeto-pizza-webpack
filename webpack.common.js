@@ -184,6 +184,22 @@ module.exports = {
       inject: true,
       chunks: ["screenshots"],
     }),
+    new HtmlWebpackDeployPlugin({
+      files: ["screenshots.html"],
+      assets: {
+        copy: [
+          {
+            from: "./src/pages/screenshots/js/main.js",
+            to: "screenshots/js",
+          },
+        ],
+        scripts: [
+          {
+            path: "screenshots/js/main.js",
+          },
+        ],
+      },
+    }),
     new HtmlWebpackPlugin({
       template: `./src/pages/compraventa/compraventa.html`,
       filename: `compraventa.html`,

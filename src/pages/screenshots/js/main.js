@@ -1,69 +1,446 @@
-// Your Three.js code goes here
-// For example, you can create a scene, add objects, and animate them
-// Don't forget to import Three.js at the beginning of your code
-// import * as THREE from "three";
-// import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import * as THREE from "three";
+
+import Stats from "three/addons/libs/stats.module.js";
+
+import { NURBSCurve } from "three/addons/curves/NURBSCurve.js";
+import { NURBSSurface } from "three/addons/curves/NURBSSurface.js";
+import { NURBSVolume } from "three/addons/curves/NURBSVolume.js";
+import { ParametricGeometry } from "three/addons/geometries/ParametricGeometry.js";
 import { OrbitControls } from "https://cdn.jsdelivr.net/npm/three/examples/jsm/controls/OrbitControls.js";
-// Create a scene
-const scene = new THREE.Scene();
+import { TrackballControls } from "https://cdn.jsdelivr.net/npm/three/examples/jsm/controls/TrackballControls.js";
+import { TextGeometry } from "https://cdn.jsdelivr.net/npm/three/examples/jsm/geometries/TextGeometry.js";
+import { FontLoader } from "https://cdn.jsdelivr.net/npm/three/examples/jsm/loaders/FontLoader.js";
 
-// Create a camera
-const camera = new THREE.PerspectiveCamera(
-  45,
-  window.innerWidth / window.innerHeight,
-  0.1,
-  50
-);
-camera.position.z = 5;
+let container, stats;
 
-//background color of the scene is set to white
-scene.background = new THREE.Color(0xffffff);
+let camera, scene, renderer;
+let group;
+let controls;
+let text;
 
-// Create a renderer
-const renderer = new THREE.WebGLRenderer();
-renderer.setSize(window.innerWidth, window.innerHeight);
-document.body.appendChild(renderer.domElement);
+let targetRotation = 0;
+let targetRotationOnPointerDown = 0;
 
-// create orbit controls
-const controls = new OrbitControls(camera, renderer.domElement);
-controls.enableDamping = true;
+let pointerX = 0;
+let pointerXOnPointerDown = 0;
 
-// Create a geometry
-const geometry = new THREE.BoxGeometry();
+let windowHalfX = window.innerWidth / 2;
 
-// Create a material
-const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
+init();
+animate();
 
-// Create a mesh
-// const cube = new THREE.Mesh(geometry, material);
-// scene.add(cube);
+function init() {
+  container = document.createElement("div");
+  document.body.appendChild(container);
 
-//Create a plane that receives shadows and has an image texture
-const planeGeometry = new THREE.PlaneGeometry(5, 5);
-const screenshot1Material = new THREE.MeshBasicMaterial({
-  map: new THREE.TextureLoader().load("./img/screenshots/screenshots-1.jpg"),
-  side: THREE.DoubleSide,
-});
-const screenshot2Material = new THREE.MeshBasicMaterial({
-  map: new THREE.TextureLoader().load("./img/screenshots/screenshots-2.jpg"),
-  side: THREE.DoubleSide,
-});
-const screenshot1 = new THREE.Mesh(planeGeometry, screenshot1Material);
-const screenshot2 = new THREE.Mesh(planeGeometry, screenshot2Material);
+  camera = new THREE.PerspectiveCamera(
+    60,
+    window.innerWidth / window.innerHeight,
+    1,
+    1000
+  );
 
-scene.add(screenshot1, screenshot2);
+  camera.position.set(0, 150, 750);
 
-// Animate the cube
-function animate() {
-  requestAnimationFrame(animate);
-  // required if controls.enableDamping or controls.autoRotate are set to true
-  controls.update();
+  scene = new THREE.Scene();
+  scene.background = new THREE.Color(0x27fff2);
 
-  // cube.rotation.x += 0.01;
-  // cube.rotation.y += 0.01;
+  scene.add(new THREE.AmbientLight(0xffffff));
 
-  renderer.render(scene, camera);
+  const light = new THREE.DirectionalLight(0xffffff, 3);
+  light.position.set(1, 1, 1);
+  scene.add(light);
+
+  group = new THREE.Group();
+  group.position.y = 50;
+  scene.add(group);
+
+  // Text geometry
+
+  const loader = new FontLoader();
+  loader.load(
+    "./img/screenshots/fonts/gentilis_regular.typeface.json",
+    function (font) {
+      var geometry = new TextGeometry("screenshots", {
+        font: font,
+        size: 80,
+        height: 2,
+        curveSegments: 12,
+        bevelEnabled: true,
+        bevelThickness: 10,
+        bevelSize: 2,
+        bevelOffset: 0,
+        bevelSegments: 5,
+      });
+
+      // Create a material
+      var material = new THREE.MeshBasicMaterial({ color: 0xffb6c1 });
+
+      // Create a mesh with the geometry and material
+      text = new THREE.Mesh(geometry, material);
+
+      // Add the text to the scene
+      scene.add(text);
+
+      //change the scale of the text
+      text.scale.set(0.5, 0.5, 0.5);
+
+      //change the position of the text
+      text.position.set(-75, 100, 0);
+    }
+  );
+
+  // NURBS curve
+
+  const nurbsControlPoints = [];
+  const nurbsKnots = [];
+  const nurbsDegree = 3;
+
+  for (let i = 0; i <= nurbsDegree; i++) {
+    nurbsKnots.push(0);
+  }
+
+  for (let i = 0, j = 20; i < j; i++) {
+    nurbsControlPoints.push(
+      new THREE.Vector4(
+        Math.random() * 400 - 200,
+        Math.random() * 400,
+        Math.random() * 400 - 200,
+        1 // weight of control point: higher means stronger attraction
+      )
+    );
+
+    const knot = (i + 1) / (j - nurbsDegree);
+    nurbsKnots.push(THREE.MathUtils.clamp(knot, 0, 1));
+  }
+
+  const nurbsCurve = new NURBSCurve(
+    nurbsDegree,
+    nurbsKnots,
+    nurbsControlPoints
+  );
+
+  const nurbsGeometry = new THREE.BufferGeometry();
+  nurbsGeometry.setFromPoints(nurbsCurve.getPoints(200));
+
+  const nurbsMaterial = new THREE.LineBasicMaterial({ color: 0x66ff66 });
+
+  const nurbsLine = new THREE.Line(nurbsGeometry, nurbsMaterial);
+  nurbsLine.position.set(0, -100, 0);
+  group.add(nurbsLine);
+
+  const nurbsControlPointsGeometry = new THREE.BufferGeometry();
+  nurbsControlPointsGeometry.setFromPoints(nurbsCurve.controlPoints);
+
+  const nurbsControlPointsMaterial = new THREE.LineBasicMaterial({
+    color: 0x66ff66,
+    // color: 0xff0000,
+    opacity: 0.25,
+    // transparent: true,
+  });
+
+  const nurbsControlPointsLine = new THREE.Line(
+    nurbsControlPointsGeometry,
+    nurbsControlPointsMaterial
+  );
+  nurbsControlPointsLine.position.copy(nurbsLine.position);
+  group.add(nurbsControlPointsLine);
+
+  // NURBS surface
+  {
+    const nsControlPoints = [
+      [
+        new THREE.Vector4(-200, -200, 100, 1),
+        new THREE.Vector4(-200, -100, -200, 1),
+        new THREE.Vector4(-200, 100, 250, 1),
+        new THREE.Vector4(-200, 200, -100, 1),
+      ],
+      [
+        new THREE.Vector4(0, -200, 0, 1),
+        new THREE.Vector4(0, -100, -100, 5),
+        new THREE.Vector4(0, 100, 150, 5),
+        new THREE.Vector4(0, 200, 0, 1),
+      ],
+      [
+        new THREE.Vector4(200, -200, -100, 1),
+        new THREE.Vector4(200, -100, 200, 1),
+        new THREE.Vector4(200, 100, -250, 1),
+        new THREE.Vector4(200, 200, 100, 1),
+      ],
+    ];
+    const degree1 = 2;
+    const degree2 = 3;
+    const knots1 = [0, 0, 0, 1, 1, 1];
+    const knots2 = [0, 0, 0, 0, 1, 1, 1, 1];
+    const nurbsSurface = new NURBSSurface(
+      degree1,
+      degree2,
+      knots1,
+      knots2,
+      nsControlPoints
+    );
+
+    const map = new THREE.TextureLoader().load(
+      "./img/screenshots/screenshots-1.jpg"
+    );
+    map.wrapS = map.wrapT = THREE.RepeatWrapping;
+    map.anisotropy = 16;
+    map.colorSpace = THREE.SRGBColorSpace;
+
+    function getSurfacePoint(u, v, target) {
+      return nurbsSurface.getPoint(u, v, target);
+    }
+
+    const geometry = new ParametricGeometry(getSurfacePoint, 20, 20);
+    const material = new THREE.MeshLambertMaterial({
+      map: map,
+      side: THREE.DoubleSide,
+    });
+    const object = new THREE.Mesh(geometry, material);
+    object.position.set(-400, 100, 0);
+    object.scale.multiplyScalar(1);
+    group.add(object);
+  }
+
+  // NURBS volume
+  {
+    const nsControlPoints = [
+      [
+        [
+          new THREE.Vector4(-200, -200, -200, 1),
+          new THREE.Vector4(-200, -200, 200, 1),
+        ],
+        [
+          new THREE.Vector4(-200, -100, -200, 1),
+          new THREE.Vector4(-200, -100, 200, 1),
+        ],
+        [
+          new THREE.Vector4(-200, 100, -200, 1),
+          new THREE.Vector4(-200, 100, 200, 1),
+        ],
+        [
+          new THREE.Vector4(-200, 200, -200, 1),
+          new THREE.Vector4(-200, 200, 200, 1),
+        ],
+      ],
+      [
+        [
+          new THREE.Vector4(0, -200, -200, 1),
+          new THREE.Vector4(0, -200, 200, 1),
+        ],
+        [
+          new THREE.Vector4(0, -100, -200, 1),
+          new THREE.Vector4(0, -100, 200, 1),
+        ],
+        [new THREE.Vector4(0, 100, -200, 1), new THREE.Vector4(0, 100, 200, 1)],
+        [new THREE.Vector4(0, 200, -200, 1), new THREE.Vector4(0, 200, 200, 1)],
+      ],
+      [
+        [
+          new THREE.Vector4(200, -200, -200, 1),
+          new THREE.Vector4(200, -200, 200, 1),
+        ],
+        [
+          new THREE.Vector4(200, -100, 0, 1),
+          new THREE.Vector4(200, -100, 100, 1),
+        ],
+        [
+          new THREE.Vector4(200, 100, 0, 1),
+          new THREE.Vector4(200, 100, 100, 1),
+        ],
+        [
+          new THREE.Vector4(200, 200, 0, 1),
+          new THREE.Vector4(200, 200, 100, 1),
+        ],
+      ],
+    ];
+    const degree1 = 2;
+    const degree2 = 3;
+    const degree3 = 1;
+    const knots1 = [0, 0, 0, 1, 1, 1];
+    const knots2 = [0, 0, 0, 0, 1, 1, 1, 1];
+    const knots3 = [0, 0, 1, 1];
+    const nurbsVolume = new NURBSVolume(
+      degree1,
+      degree2,
+      degree3,
+      knots1,
+      knots2,
+      knots3,
+      nsControlPoints
+    );
+
+    const map = new THREE.TextureLoader().load(
+      "./img/screenshots/screenshots-2.jpg"
+    );
+    map.wrapS = map.wrapT = THREE.RepeatWrapping;
+    map.anisotropy = 16;
+    map.colorSpace = THREE.SRGBColorSpace;
+
+    // Since ParametricGeometry() only support bi-variate parametric geometries
+    // we create evaluation functions for different surfaces with one of the three
+    // parameter values (u, v, w) kept constant and create multiple THREE.Mesh
+    // objects one for each surface
+    function getSurfacePointFront(u, v, target) {
+      return nurbsVolume.getPoint(u, v, 0, target);
+    }
+
+    function getSurfacePointMiddle(u, v, target) {
+      return nurbsVolume.getPoint(u, v, 0.5, target);
+    }
+
+    function getSurfacePointBack(u, v, target) {
+      return nurbsVolume.getPoint(u, v, 1, target);
+    }
+
+    function getSurfacePointTop(u, w, target) {
+      return nurbsVolume.getPoint(u, 1, w, target);
+    }
+
+    function getSurfacePointSide(v, w, target) {
+      return nurbsVolume.getPoint(0, v, w, target);
+    }
+
+    const geometryFront = new ParametricGeometry(getSurfacePointFront, 20, 20);
+    const materialFront = new THREE.MeshLambertMaterial({
+      map: map,
+      side: THREE.DoubleSide,
+    });
+    const objectFront = new THREE.Mesh(geometryFront, materialFront);
+    objectFront.position.set(400, 100, 0);
+    objectFront.scale.multiplyScalar(0.5);
+    group.add(objectFront);
+
+    const geometryMiddle = new ParametricGeometry(
+      getSurfacePointMiddle,
+      20,
+      20
+    );
+    const materialMiddle = new THREE.MeshLambertMaterial({
+      map: map,
+      side: THREE.DoubleSide,
+    });
+    const objectMiddle = new THREE.Mesh(geometryMiddle, materialMiddle);
+    objectMiddle.position.set(400, 100, 0);
+    objectMiddle.scale.multiplyScalar(0.5);
+    group.add(objectMiddle);
+
+    const geometryBack = new ParametricGeometry(getSurfacePointBack, 20, 20);
+    const materialBack = new THREE.MeshLambertMaterial({
+      map: map,
+      side: THREE.DoubleSide,
+    });
+    const objectBack = new THREE.Mesh(geometryBack, materialBack);
+    objectBack.position.set(400, 100, 0);
+    objectBack.scale.multiplyScalar(0.5);
+    group.add(objectBack);
+
+    const geometryTop = new ParametricGeometry(getSurfacePointTop, 20, 20);
+    const materialTop = new THREE.MeshLambertMaterial({
+      map: map,
+      side: THREE.DoubleSide,
+    });
+    const objectTop = new THREE.Mesh(geometryTop, materialTop);
+    objectTop.position.set(400, 100, 0);
+    objectTop.scale.multiplyScalar(0.5);
+    group.add(objectTop);
+
+    const geometrySide = new ParametricGeometry(getSurfacePointSide, 20, 20);
+    const materialSide = new THREE.MeshLambertMaterial({
+      map: map,
+      side: THREE.DoubleSide,
+    });
+    const objectSide = new THREE.Mesh(geometrySide, materialSide);
+    objectSide.position.set(400, 100, 0);
+    objectSide.scale.multiplyScalar(0.5);
+    group.add(objectSide);
+  }
+
+  //
+
+  renderer = new THREE.WebGLRenderer({ antialias: true });
+  renderer.setPixelRatio(window.devicePixelRatio);
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  container.appendChild(renderer.domElement);
+
+  createControls(camera);
+
+  stats = new Stats();
+  container.appendChild(stats.dom);
+
+  container.style.touchAction = "none";
+  container.addEventListener("pointerdown", onPointerDown);
+
+  //
+
+  window.addEventListener("resize", onWindowResize);
 }
 
-animate();
+function onWindowResize() {
+  const aspect = window.innerWidth / window.innerHeight;
+
+  camera.aspect = aspect;
+  camera.updateProjectionMatrix();
+
+  renderer.setSize(window.innerWidth, window.innerHeight);
+
+  controls.handleResize();
+}
+
+function createControls(camera) {
+  controls = new TrackballControls(camera, renderer.domElement);
+
+  controls.rotateSpeed = 1.0;
+  controls.zoomSpeed = 1.2;
+  controls.panSpeed = 0.8;
+
+  controls.keys = ["KeyA", "KeyS", "KeyD"];
+}
+
+//
+
+function onPointerDown(event) {
+  if (event.isPrimary === false) return;
+
+  pointerXOnPointerDown = event.clientX - windowHalfX;
+  targetRotationOnPointerDown = targetRotation;
+
+  document.addEventListener("pointermove", onPointerMove);
+  document.addEventListener("pointerup", onPointerUp);
+}
+
+function onPointerMove(event) {
+  if (event.isPrimary === false) return;
+
+  pointerX = event.clientX - windowHalfX;
+
+  targetRotation =
+    targetRotationOnPointerDown + (pointerX - pointerXOnPointerDown) * 0.02;
+}
+
+function onPointerUp() {
+  if (event.isPrimary === false) return;
+
+  document.removeEventListener("pointermove", onPointerMove);
+  document.removeEventListener("pointerup", onPointerUp);
+}
+
+//
+
+function animate() {
+  requestAnimationFrame(animate);
+
+  controls.update();
+
+  // Rotate the text
+  if (text) {
+    text.rotation.y += 0.01;
+  }
+
+  render();
+  stats.update();
+}
+
+function render() {
+  renderer.render(scene, camera);
+}
