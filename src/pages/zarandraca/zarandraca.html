@@ -9,7 +9,8 @@
     <!-- <link rel="apple-touch-icon" href="assets/icon.png" />
     <link rel="apple-touch-icon" sizes="120x120" href="assets/icon-120.png" /> -->
 
-    <script language="javascript" src="../../lib/jQuery-3.3.1.js"></script>
+    <!-- <script language="javascript" src="../../lib/jQuery-3.3.1.js"></script> -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 
     <link
       rel="stylesheet"
@@ -61,7 +62,7 @@
     </script>
     <script>
       $.ajax({
-        url: "https://bebeto-pizza-backend.vercel.app/api/userScore", // replace with your API endpoint
+        url: "https://bebeto-pizza-backend.vercel.app/api/userScore",
         method: "GET",
         success: function (data) {
           // Sort the data by score in descending order
