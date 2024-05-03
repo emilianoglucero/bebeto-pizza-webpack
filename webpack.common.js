@@ -179,9 +179,9 @@ module.exports = {
       },
     }),
     new HtmlWebpackPlugin({
-      template: `./src/pages/screenshots/screenshots.html`,
+      template: `./src/pages/screenshots/screenshots.ejs`,
       filename: `screenshots.html`,
-      inject: true,
+      inject: false,
       chunks: ["screenshots"],
     }),
     new HtmlWebpackDeployPlugin({
