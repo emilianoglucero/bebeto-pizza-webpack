@@ -6,8 +6,6 @@
  */
 
 (function emojiCursor() {
-  console.log("emoji cursorrr");
-
   var possibleEmoji = [
     "😍",
     "🍔",

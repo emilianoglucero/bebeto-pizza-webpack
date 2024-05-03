@@ -26,7 +26,6 @@ var myMake = [
 ];
 var x = Math.floor(Math.random() * 3);
 var randomSound = myMake[x];
-console.log(randomSound);
 
 WebFontConfig = {
   google: { families: ["Press+Start+2P::latin"] },
@@ -327,7 +326,6 @@ function main() {
       },
     })
       .done(function (response) {
-        console.log("Success:", response);
         alert("listo !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
         location.reload();
       })
@@ -361,7 +359,6 @@ function main() {
     })
       .done(function (response) {
         const isUserInRanking = checkUserScore(response, score) !== -1;
-        console.log("isUserInRanking", isUserInRanking);
         let popUp;
         if (isUserInRanking) {
           popUp = window.open(
@@ -400,8 +397,6 @@ function main() {
      */
 
     function insertScore(isUserInRanking) {
-      //console.log(inserted);
-
       if (isUserInRanking) {
         var dialog = bootbox.dialog({
           // title: 'A custom dialog with buttons and callbacks',

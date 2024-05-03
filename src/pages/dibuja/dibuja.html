@@ -190,7 +190,6 @@
         url: "https://bebeto-pizza-backend.vercel.app/api/userPainting", // replace with your API endpoint
         method: "GET",
         success: function (data) {
-          console.log(data);
           // list all the elements in data and sort them by date
           data.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
           let paintingsList = "";

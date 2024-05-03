@@ -6,8 +6,6 @@
  */
 
 (function emojiCursor() {
-  console.log("cursorrr");
-
   var possibleEmoji = ["¯¯̿̿¯̿̿'̿̿̿̿̿̿̿'̿̿'̿̿̿̿̿'̿̿̿)͇̿̿)̿̿̿̿ '̵͇̿̿̿̿̿̿̿̿=(•̪̀●́)=o/̵͇̿̿/'̿̿ ̿ ̿̿", "👁️", "😹🇲"];
   var width = window.innerWidth;
   var height = window.innerHeight;
