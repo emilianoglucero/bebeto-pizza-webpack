@@ -25,6 +25,28 @@ function setup() {
     c.id("myCanvas"),
     (col = color(0)),
     (size = strokeWeight(10));
+
+  // Select the divs and set the mouseClicked function
+  select("#circle-black").mouseClicked(() => {
+    col = color(0, 0, 0);
+  });
+  select("#circle-blue").mouseClicked(() => {
+    col = color(0, 19, 255);
+  });
+  select("#circle-green").mouseClicked(() => {
+    col = color(31, 255, 0);
+  });
+  select("#circle-purple").mouseClicked(() => {
+    col = color(133, 0, 242);
+  });
+  select("#circle-red").mouseClicked(() => {
+    col = color(255, 0, 0);
+  });
+  // Get the select element and set the changed function
+  select("#stroke-width").changed(function () {
+    let strokeWidth = this.value();
+    size = strokeWeight(strokeWidth);
+  });
 }
 function draw() {
   var e = document.getElementById("myCanvas");

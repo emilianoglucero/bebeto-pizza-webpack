@@ -251,3 +251,38 @@ div.desc {
   top: 130%;
   left: 14%;
 }
+
+/* color circles */
+.paint-options {
+  position: absolute;
+  top: 40%;
+  left: 32%;
+}
+
+.circle {
+  width: 6rem;
+  height: 6rem;
+  border-radius: 50%; /* This makes the divs circular */
+  display: inline-block; /* This makes the divs sit side by side */
+  margin-right: 1rem; /* This adds some space between the circles */
+}
+
+#circle-black {
+  background-color: black;
+}
+
+#circle-blue {
+  background-color: blue;
+}
+
+#circle-green {
+  background-color: rgb(31, 255, 0);
+}
+
+#circle-purple {
+  background-color: rgb(133, 0, 242);
+}
+
+#circle-red {
+  background-color: red;
+}
