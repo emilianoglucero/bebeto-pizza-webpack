@@ -163,9 +163,6 @@ module.exports = {
         ],
         scripts: [
           {
-            path: "lib/jQuery-3.3.1.js",
-          },
-          {
             path: "zarandraca/js/phaser.js",
           },
           {
