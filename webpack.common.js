@@ -30,6 +30,7 @@ module.exports = {
       template: `./src/index.html`,
       filename: `index.html`,
       inject: true,
+      chunks: ["index"],
     }),
     new HtmlWebpackPlugin({
       // chunksSortMode: 'none'
@@ -87,6 +88,7 @@ module.exports = {
       template: `./src/pages/dibuja/dibuja.html`,
       filename: `dibuja.html`,
       inject: true,
+      chunks: ["dibuja"],
     }),
     new HtmlWebpackDeployPlugin({
       files: ["dibuja.html"],
@@ -115,6 +117,7 @@ module.exports = {
       template: `./src/pages/voca/voca.html`,
       filename: `voca.html`,
       inject: true,
+      chunks: ["voca"],
     }),
     new HtmlWebpackDeployPlugin({
       files: ["voca.html"],
@@ -143,6 +146,7 @@ module.exports = {
       template: `./src/pages/zarandraca/zarandraca.html`,
       filename: `zarandraca.html`,
       inject: true,
+      chunks: ["zarandraca"],
     }),
     new HtmlWebpackDeployPlugin({
       files: ["zarandraca.html"],
@@ -178,11 +182,13 @@ module.exports = {
       template: `./src/pages/screenshots/screenshots.html`,
       filename: `screenshots.html`,
       inject: true,
+      chunks: ["screenshots"],
     }),
     new HtmlWebpackPlugin({
       template: `./src/pages/compraventa/compraventa.html`,
       filename: `compraventa.html`,
       inject: true,
+      chunks: ["compraventa"],
     }),
     new HtmlWebpackDeployPlugin({
       files: ["compraventa.html"],
