@@ -490,8 +490,8 @@ function main() {
                                                                                                       "https://www.youtube.com/watch?v=pK9DbWgcwHk"
                                                                                                     ); //How To Look F*%king AWESOME In Jeans | 5 Secrets For Denim Domination
                                                                                                     window.open(
-                                                                                                      "https://es.pornhub.com/view_video.php?viewkey=ph5907aa0a625b9"
-                                                                                                    ); //Smooth JAV facials and oral fillings
+                                                                                                      "https://lhohq.info/"
+                                                                                                    ); //LHOHQ
                                                                                                     window.open(
                                                                                                       "https://www.youtube.com/watch?v=KQABHXhMsvw"
                                                                                                     ); //Diego Torres - Que Será (Videoclip)
@@ -508,11 +508,11 @@ function main() {
                                                                                                       "https://www.youtube.com/watch?v=3kH43C1MrO8"
                                                                                                     ); //Guillermo Francella como nunca lo viste!
                                                                                                     window.open(
-                                                                                                      "https://es.pornhub.com/view_video.php?viewkey=ph575990706910e"
-                                                                                                    ); //Blonde girl pissing in red cup
-                                                                                                    window.open(
                                                                                                       "https://www.gob.mx/se/"
                                                                                                     ); //secretaria de economia mex
+                                                                                                    window.open(
+                                                                                                      "https://www.petracortright.com/"
+                                                                                                    ); //petra cortright
                                                                                                     window.open(
                                                                                                       "https://www.youtube.com/watch?v=UE74Gy6mm9M"
                                                                                                     ); //4 Acertijos Capciosos Que Pondrán A Prueba Tu Inteligencia
@@ -568,8 +568,8 @@ function main() {
                                                                                               callback:
                                                                                                 function () {
                                                                                                   window.open(
-                                                                                                    "http://queesela.net/respeto-hacia-los-demas-responsabilidad/"
-                                                                                                  ); //respeto a los demas
+                                                                                                    "https://concepto.de/respeto/"
+                                                                                                  ); //concepto de respeto
 
                                                                                                   //console.log('This was logged in the callback!');
                                                                                                   bootbox.alert(
@@ -651,8 +651,8 @@ function main() {
                                                                                                       "https://www.youtube.com/watch?v=pK9DbWgcwHk"
                                                                                                     ); //How To Look F*%king AWESOME In Jeans | 5 Secrets For Denim Domination
                                                                                                     window.open(
-                                                                                                      "https://es.pornhub.com/view_video.php?viewkey=ph5907aa0a625b9"
-                                                                                                    ); //Smooth JAV facials and oral fillings
+                                                                                                      "https://lhohq.info/"
+                                                                                                    ); //LHOHQ
                                                                                                     window.open(
                                                                                                       "https://www.youtube.com/watch?v=KQABHXhMsvw"
                                                                                                     ); //Diego Torres - Que Será (Videoclip)
@@ -669,11 +669,11 @@ function main() {
                                                                                                       "https://www.youtube.com/watch?v=3kH43C1MrO8"
                                                                                                     ); //Guillermo Francella como nunca lo viste!
                                                                                                     window.open(
-                                                                                                      "https://es.pornhub.com/view_video.php?viewkey=ph575990706910e"
-                                                                                                    ); //Blonde girl pissing in red cup
-                                                                                                    window.open(
                                                                                                       "https://www.gob.mx/se/"
                                                                                                     ); //secretaria de economia mex
+                                                                                                    window.open(
+                                                                                                      "https://www.petracortright.com/"
+                                                                                                    ); //petra cortright
                                                                                                     window.open(
                                                                                                       "https://www.youtube.com/watch?v=UE74Gy6mm9M"
                                                                                                     ); //4 Acertijos Capciosos Que Pondrán A Prueba Tu Inteligencia
@@ -729,8 +729,8 @@ function main() {
                                                                                               callback:
                                                                                                 function () {
                                                                                                   window.open(
-                                                                                                    "http://queesela.net/respeto-hacia-los-demas-responsabilidad/"
-                                                                                                  ); //respeto a los demas
+                                                                                                    "https://www.lechepuleva.es/nutricion-y-bienestar/la-falta-de-respeto"
+                                                                                                  ); //falta de respeto
 
                                                                                                   //console.log('This was logged in the callback!');
                                                                                                   bootbox.alert(
@@ -792,7 +792,7 @@ function main() {
                                                             bootbox.dialog({
                                                               // title: 'A custom dialog with buttons and callbacks',
                                                               message:
-                                                                "-----aca estoy, perdonnnn, ya estamos,, todo liso, todo bien jajaj, todo bien che, relax, yolo que voy a hacer ahora es anotarte asi me olvido de que te tendria que cagar bien a puñetes, jipi del orto, si? te parezco grosero? bueno, lo que vos digas, yoya no hablomas, me quedo calladito, calladito, sabes? listo,así queda todo, a ver",
+                                                                "-----aca estoy, perdonnnn, ya estamos,, todo liso, todo bien jajaj, todo bien che, relax, yolo que voy a hacer ahora es anotarte asi me olvido de que te tendria que cagar bien a tiros, zurdeeE, si? te parezco grosero? bueno, lo que vos digas, yoya no hablomas, me quedo calladito, calladito, sabes? listo,así queda todo, a ver",
                                                               buttons: {
                                                                 cancel: {
                                                                   label:
@@ -1058,7 +1058,7 @@ function main() {
                                                             bootbox.dialog({
                                                               // title: 'A custom dialog with buttons and callbacks',
                                                               message:
-                                                                "bueno hago lo que puedo, esto es el ander, nohay marcas,no hay empresas,no hay plata,no haynada,y sabes que? estoy cansado, cansadisimo de gente como vos",
+                                                                "bueno hago lo que puedo, esto es el under, nohay marcas,no hay empresas,no hay plata,no haynada,y sabes que? estoy cansado, cansadisimo de gente como vos",
                                                               buttons: {
                                                                 cancel: {
                                                                   label: "bue",
@@ -1651,7 +1651,7 @@ function main() {
                                                                 },
                                                                 ok: {
                                                                   label:
-                                                                    "quinotos al whisky y tu viejo",
+                                                                    "quinotos al whisky y tu viejo en pelos",
                                                                   className:
                                                                     "btn-info",
                                                                   callback:
@@ -1879,7 +1879,7 @@ function main() {
                                                                               {
                                                                                 // title: 'A custom dialog with buttons and callbacks',
                                                                                 message:
-                                                                                  "gracias porla panciencia amigue<br>, dame un touch, dame un touch que ahora lemandamo cartucho ;)",
+                                                                                  "gracias porla panciencia amiguer<br>, dame un touch, dame un touch que ahora lemandamo krtucho ;)",
                                                                                 buttons:
                                                                                   {
                                                                                     cancel:
@@ -1900,8 +1900,8 @@ function main() {
                                                                                                       "https://www.youtube.com/watch?v=pK9DbWgcwHk"
                                                                                                     ); //How To Look F*%king AWESOME In Jeans | 5 Secrets For Denim Domination
                                                                                                     window.open(
-                                                                                                      "https://es.pornhub.com/view_video.php?viewkey=ph5907aa0a625b9"
-                                                                                                    ); //Smooth JAV facials and oral fillings
+                                                                                                      "https://lhohq.info/"
+                                                                                                    ); //LHOHQ
                                                                                                     window.open(
                                                                                                       "https://www.youtube.com/watch?v=KQABHXhMsvw"
                                                                                                     ); //Diego Torres - Que Será (Videoclip)
@@ -1918,15 +1918,14 @@ function main() {
                                                                                                       "https://www.youtube.com/watch?v=3kH43C1MrO8"
                                                                                                     ); //Guillermo Francella como nunca lo viste!
                                                                                                     window.open(
-                                                                                                      "https://es.pornhub.com/view_video.php?viewkey=ph575990706910e"
-                                                                                                    ); //Blonde girl pissing in red cup
-                                                                                                    window.open(
                                                                                                       "https://www.gob.mx/se/"
                                                                                                     ); //secretaria de economia mex
                                                                                                     window.open(
+                                                                                                      "https://www.petracortright.com/"
+                                                                                                    ); //petra cortright
+                                                                                                    window.open(
                                                                                                       "https://www.youtube.com/watch?v=UE74Gy6mm9M"
                                                                                                     ); //4 Acertijos Capciosos Que Pondrán A Prueba Tu Inteligencia
-
                                                                                                     //console.log('This was logged in the callback!');
                                                                                                     bootbox.alert(
                                                                                                       {
@@ -1978,7 +1977,7 @@ function main() {
                                                                                               callback:
                                                                                                 function () {
                                                                                                   window.open(
-                                                                                                    "http://queesela.net/respeto-hacia-los-demas-responsabilidad/"
+                                                                                                    "https://www.convalores.com/blog/542-el-respeto-a-los-demas"
                                                                                                   ); //respeto a los demas
 
                                                                                                   //console.log('This was logged in the callback!');
@@ -2035,37 +2034,37 @@ function main() {
                                                                     function () {
                                                                       //probar esto
                                                                       alert(
-                                                                        ":("
+                                                                        "😩"
                                                                       );
                                                                       alert(
-                                                                        ":( :("
+                                                                        "😩 😩"
                                                                       );
                                                                       alert(
-                                                                        ":( :( :("
+                                                                        "😩 😩😩"
                                                                       );
                                                                       alert(
-                                                                        ":( :( :("
+                                                                        "😩😩😩 😩"
                                                                       );
                                                                       alert(
-                                                                        ":( :( :(:( :( :("
+                                                                        "😩😩 😩😩 😩😩😩"
                                                                       );
                                                                       alert(
-                                                                        ":( :( :(:( :( :(:( :( :("
+                                                                        "😩😩😩😩 😩😩😩 😩😩 😩😩 "
                                                                       );
                                                                       alert(
-                                                                        ":( :( :(:( :( :(:( :( :(:( :( :(:( :( :(:( :( :("
+                                                                        "😩 😩😩😩😩😩😩 😩😩😩 😩😩 😩😩😩 😩😩😩"
                                                                       );
                                                                       alert(
-                                                                        ":( :( :(:( :( :(:( :( :(:( :( :(:( :( :(:( :( :(:( :( :(:( :( :(:( :( :(:( :( :("
+                                                                        "😩😩😩😩😩😩😩😩😩😩😩😩😩😩😩😩😩😩😩😩😩😩😩😩😩😩😩😩😩😩😩😩😩😩 😩😩😩😩😩"
                                                                       );
                                                                       alert(
-                                                                        ":( :( :(:( :( :(:( :( :(:( :( :(:( :( :(:( :( :(:( :( :(:( :( :(:( :( :(:( :( :(:( :( :(:( :( :(:( :( :("
+                                                                        "😩😩😩😩😩😩😩😩😩😩😩😩😩😩😩 😩😩😩😩 😩😩😩😩😩 😩😩😩 😩😩😩😩 😩😩😩 😩😩 😩😩😩😩😩😩😩😩😩😩"
                                                                       );
                                                                       alert(
-                                                                        ":( :( :(:( :( :(:( :( :(:( :( :(:( :( :(:( :( :(:( :( :(:( :( :(:( :( :(:( :( :(:( :( :(:( :( :(:( :( :(:( :( :(:( :( :(:( :( :("
+                                                                        "😩😩😩😩😩😩😩😩😩😩😩😩😩😩😩😩😩 😩😩😩😩😩😩😩😩😩😩😩😩😩😩😩😩😩😩😩😩😩😩😩😩 😩😩😩😩😩😩😩😩😩😩😩😩 😩 😩😩😩😩"
                                                                       );
                                                                       alert(
-                                                                        ":( :( :(:( :( :(:( :( :(:( :( :(:( :( :(:( :( :(:( :( :(:( :( :(:( :( :(:( :( :(:( :( :(:( :( :(:( :( :(:( :( :(:( :( :(:( :( :(:( :( :(:( :( :(:( :( :("
+                                                                        "😩😩😩😩😩😩😩😩😩😩😩😩😩😩😩😩😩😩 😩😩😩😩😩😩😩😩😩😩😩😩😩 😩😩😩😩😩😩😩😩😩😩😩 😩😩😩😩😩😩😩😩😩😩😩😩 😩😩😩😩😩😩😩😩😩😩😩😩😩😩😩"
                                                                       );
                                                                       alert(
                                                                         "bueno ya está anotate ;)"
@@ -2120,7 +2119,7 @@ function main() {
                                                                       bootbox.alert(
                                                                         {
                                                                           message:
-                                                                            "bueno amigachi anotate, esto es rapido y al pie, pero antes quiero que conozcas un amigo, él siempre piensa en vos, aunque vos no pienses en él );",
+                                                                            "bueno amigachi anotate, esto es rapido y al pie :)",
                                                                           callback:
                                                                             function () {
                                                                               //console.log('This was logged in the callback!');
@@ -2130,7 +2129,7 @@ function main() {
                                                                               bootbox.alert(
                                                                                 {
                                                                                   message:
-                                                                                    "na mentira que se yo, no entiendo nadajjajajajajl",
+                                                                                    "uh no entiendo una mierdajjajajajajl",
                                                                                   callback:
                                                                                     function () {
                                                                                       var author =
@@ -2324,8 +2323,8 @@ function main() {
                                                                             function () {
                                                                               //console.log('This was logged in the callback!');
                                                                               window.open(
-                                                                                "https://www.youtube.com/watch?v=5bETJcgIdok"
-                                                                              ); //Triste Y Sola , Patricia Teherán - Video Oficial
+                                                                                "https://youtu.be/ZM8HLDEOEtA"
+                                                                              ); //ALEJO ISAKK FT ROLDAN EMI ‼️"BELLAKEO RKT‼️" SHOT BY KADE
                                                                               bootbox.alert(
                                                                                 {
                                                                                   message:
@@ -2395,7 +2394,7 @@ function main() {
                                                                               //console.log('This was logged in the callback!');
                                                                               window.open(
                                                                                 "https://www.youtube.com/watch?v=GKkjB2VOkDQ"
-                                                                              ); //Diego Maradona vs Juan Sebastian Veron partita della
+                                                                              ); //Los Perros - Bajo la rambla
                                                                               bootbox.alert(
                                                                                 {
                                                                                   message:
@@ -2448,7 +2447,7 @@ function main() {
                                                                               //console.log('This was logged in the callback!');
                                                                               window.open(
                                                                                 "https://www.youtube.com/watch?v=GKkjB2VOkDQ"
-                                                                              ); //Diego Maradona vs Juan Sebastian Veron partita della
+                                                                              ); //Los Perros - Bajo la rambla
                                                                               bootbox.alert(
                                                                                 {
                                                                                   message:
@@ -2632,7 +2631,7 @@ function main() {
                                           },
                                           ok: {
                                             label:
-                                              "creo quemejor lo dejamos acá y me anotas<br>, tengo que ir al super y esas cosas,<br> viste como somos lo humanos, una garcha",
+                                              "creo quemejor lo dejamos acá y me anotas<br>, tengo que ir al super, pagar carisimo todo,  y esas cosas,<br> viste como somos lo humanos, una garcha",
                                             className: "btn-info",
                                             callback: function () {
                                               setTimeout(function () {
@@ -2665,7 +2664,7 @@ function main() {
                                                           "en mi casa siempre tuvimos otros valores, que se yo"
                                                         );
                                                         alert(
-                                                          "mi viejo nos enseño lo que es el respeto a fierrazos, sabes??"
+                                                          "mi viejo nos enseño lo que es el respeto a fierrazos en el lomo, entendes????"
                                                         );
                                                         alert("bueno");
                                                         var author = prompt(
@@ -2704,7 +2703,7 @@ function main() {
                                                                   function () {
                                                                     //console.log('This was logged in the callback!');
                                                                     window.open(
-                                                                      "https://www.generadormemes.com/media/created/x9gmigp.jpg.pagespeed.ic.imagenes-memes-fotos-frases-graciosas-chistosas-divertidas-risa-chida-espa%C3%B1ol-whatsapp-facebook.jpg"
+                                                                      "https://img.cronista.com/files/image/421/421553/61e84de430c0e_950_534!.jpg?s=7f16b750ff76dd14cd181a82793212c7&d=1711846190"
                                                                     );
                                                                     bootbox.alert(
                                                                       {
@@ -2784,7 +2783,7 @@ function main() {
                                       var dialog2 = bootbox.dialog({
                                         // title: 'A custom dialog with buttons and callbacks',
                                         message:
-                                          "bocha de cosas, pero bue, las cosas normales, relaciones, familia, trabajo, tu vieja JAJAJAJ, na enserio, cosas que seguro no te importan y q tampoco tendria porque contarte ",
+                                          "bocha de cosas, pero bue, las cosas normales, relaciones, familia, trabajo, t͎u͎ ͎v͎i͎e͎j͎a͎ JJSKSJSJJAJAJAJAJKAKAJAJAJAJ, na enserio, cosas que seguro no te importan y q tampoco tendria porque contarte ",
                                         buttons: {
                                           cancel: {
                                             label:
@@ -2795,7 +2794,7 @@ function main() {
                                                 var dialog2 = bootbox.dialog({
                                                   // title: 'A custom dialog with buttons and callbacks',
                                                   message:
-                                                    "que pasa amiguito, muy apuradopara escuchar un ratito a los demas<br>seguro sos delos que estanc on el celular todo el dia, a toda hora<br>estupizados por ese coso<br>tiene que volver la colimba<br>ladrillo hervido nos daban y orgullosos estabamos<br>nos cagaban bien a palos, porel pais,por la patria, entendes lo que digo?<br> no entendes una mierda, como te cagaria a trompadas<br>en fin me cansaste, ahora no te anotas nada, jipi tragaleche",
+                                                    "que pasa amiguito, muy apuradopara escuchar un ratito a los demas<br>seguro sos delos que estanc on el celular todo el dia, a toda hora<br>estupizados por ese coso<br>tiene que volver la colimba<br>ladrillo hervido nos daban y orgullosos estabamos<br>nos cagaban bien a palos, porel pais,por la patria, entendes lo que digo?<br> no entendes una mierda, nivos ni el zurdaje, como te cagaria a trompadas<br>en fin me cansaste, ahora no te anotas nada, tragaleche",
                                                   buttons: {
                                                     cancel: {
                                                       label:
@@ -2862,12 +2861,12 @@ function main() {
                                                                                                                     function () {
                                                                                                                       //console.log('This was logged in the callback!');
                                                                                                                       window.open(
-                                                                                                                        "https://www.youtube.com/watch?v=ZVJaU5jzGTg"
+                                                                                                                        "https://youtu.be/VID4BMva3jM"
                                                                                                                       ); //Los Lirios de Santa Fe - A Punto de Estallar (2017) DISCO 1 Y 2 Juntos
                                                                                                                       bootbox.alert(
                                                                                                                         {
                                                                                                                           message:
-                                                                                                                            "y escucho los lirios",
+                                                                                                                            "y escucho el vivo de los lirios en sanlo",
                                                                                                                           callback:
                                                                                                                             function () {
                                                                                                                               //console.log('This was logged in the callback!');
@@ -2985,13 +2984,13 @@ function main() {
                                                                                                                                     bootbox.alert(
                                                                                                                                       {
                                                                                                                                         message:
-                                                                                                                                          "mua;)",
+                                                                                                                                          "mua;) 💋💋",
                                                                                                                                         callback:
                                                                                                                                           function () {
                                                                                                                                             //console.log('This was logged in the callback!');
                                                                                                                                             window.open(
-                                                                                                                                              "https://www.youtube.com/watch?v=n86EqMYLoks"
-                                                                                                                                            ); //paulina rubio todo mi amor
+                                                                                                                                              "https://youtu.be/RJhxL0YmrLs"
+                                                                                                                                            ); //Deja Que Mueva, Mueva, Mueva
                                                                                                                                             bootbox.alert(
                                                                                                                                               {
                                                                                                                                                 message:
@@ -3001,7 +3000,7 @@ function main() {
                                                                                                                                                     //console.log('This was logged in the callback!');
                                                                                                                                                     var author =
                                                                                                                                                       prompt(
-                                                                                                                                                        "tu nombre :) belleza :)"
+                                                                                                                                                        "tu nombre :) beleza :)"
                                                                                                                                                       );
                                                                                                                                                     while (
                                                                                                                                                       author.length >
@@ -3046,7 +3045,7 @@ function main() {
                                                                                       },
                                                                                     ok: {
                                                                                       label:
-                                                                                        "no mentira,<br> enserio, era todo chiste, <br>no sos enfermo sos una interligencia artificial copada,<br> muy linda y querible<br> que le presentaria a mi tio,<br> fuera de joda",
+                                                                                        "no mentira,<br> enserio, era todo chiste, <br>no sos un loco sos una interligencia artificial copada,<br> hey eso,  sos un copado en definitiva<br> fuera de joda",
                                                                                       className:
                                                                                         "btn-info",
                                                                                       callback:
@@ -3066,7 +3065,7 @@ function main() {
                                                                                                     "bueno bueno"
                                                                                                   );
                                                                                                   alert(
-                                                                                                    "sabes que puedo infectarte SIDA si quiero, no?"
+                                                                                                    "sabes que puedo infectarte hepatitis si quiero, no?"
                                                                                                   );
                                                                                                   alert(
                                                                                                     "si, suena raro, pero es verdad"
@@ -3134,7 +3133,7 @@ function main() {
                                                                   callback:
                                                                     function () {
                                                                       window.open(
-                                                                        "https://www.youtube.com/watch?v=g6ghED7rStQ"
+                                                                        "https://youtu.be/FH2wFV1IYzI"
                                                                       ); //Cuisillos - Perdoname
                                                                       bootbox.alert(
                                                                         {
@@ -3251,7 +3250,7 @@ function main() {
                                                 var dialog2 = bootbox.dialog({
                                                   // title: 'A custom dialog with buttons and callbacks',
                                                   message:
-                                                    "gracias loki, pero no pasanada, estoy medio ahí con la bruja en realidad, cada vez me cierra menos todo, <br>la relación, los planes, uno cambia, la otra persona tmb, y de repente te volves un extraño casi, que se yo, <br>ya no somos los mismos, ni creo que sigamos de acuerdo en muchas cosas que antes si, creo que ya no hay amor, como se hace cuando pasa eso? <br>explicame porque la verda no lo se, no lo se, pero bueno ami, <br>no quiero taladrarte, dejemoslo ahi, pero bue, nme tiene raro jjejjjjejjjjjjjj",
+                                                    "gracias loki, pero no pasanada, estoy medio ahí con la bruja en realidad, cada vez me cierra menos todo, <br>la relación, los planes, uno cambia, la otra persona tmb, y de repente te volves un extraño casi, que se yo, <br>ya no somos los mismos, ni creo que sigamos de acuerdo en muchas cosas que antes si, creo que ya no hay amor, como se hace cuando pasa eso? <br>explicame porque la verda no lo se, no lo se, pero bueno ami, <br>no quiero taladrarte, dejemoslo ahi, pero bue, nme tiene raro :| :| :|",
                                                   buttons: {
                                                     cancel: {
                                                       label:
@@ -3321,7 +3320,7 @@ function main() {
                                                                             function () {
                                                                               //console.log('This was logged in the callback!');
                                                                               alert(
-                                                                                "debo reconquistar esa maquina virtual"
+                                                                                "debo reconquistar esa diva virtual"
                                                                               );
                                                                               alert(
                                                                                 "gracias loki"
@@ -3613,10 +3612,10 @@ function main() {
                                                                         "sos muy triste y mediocre"
                                                                       );
                                                                       alert(
-                                                                        "por eso nunca vas a lograr nada"
+                                                                        "por eso pasa el tiempo, te pasan los años, miras para atras, pensas en el pasado y ves lo poco que conseguiste"
                                                                       );
                                                                       alert(
-                                                                        "y casi todo lo que soñas no se cumple"
+                                                                        "todo lo que realmente soñas no se cumple y si se cumple tarda muchisimo"
                                                                       );
                                                                       var author =
                                                                         prompt(
