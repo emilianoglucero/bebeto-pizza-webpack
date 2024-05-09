@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>𝔫𝔲𝔫𝔠𝔞 𝔰𝔢 𝔭𝔲𝔢𝔡𝔢 𝔥𝔞𝔠𝔢𝔯 𝔪á𝔰 𝔯á𝔭𝔦𝔡𝔬 zine</title>
+  </head>
+  <body>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/110/three.min.js"></script> -->
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://cdn.jsdelivr.net/npm/three@0.163.0/build/three.module.js",
+          "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.163.0/examples/jsm/"
+        }
+      }
+    </script>
+    <% for (var i=0; i < htmlWebpackPlugin.files.js.length; i++) { %>
+    <script type="module" src="<%= htmlWebpackPlugin.files.js[i] %>"></script>
+    <% } %>
+  </body>
+</html>
