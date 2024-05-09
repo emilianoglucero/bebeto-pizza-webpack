@@ -13,6 +13,9 @@ module.exports = {
     publicPath: "",
     // filename: "[name].[contenthash].js",
   },
+  resolve: {
+    modules: ["node_modules"], // This tells webpack to look in node_modules for modules
+  },
   plugins: [
     new CopyWebpackPlugin({
       patterns: [
@@ -201,6 +204,35 @@ module.exports = {
       },
     }),
     new HtmlWebpackPlugin({
+      template: `./src/pages/nuncasepuedehacermasrapido/nuncasepuedehacermasrapido.html`,
+      filename: `nuncasepuedehacermasrapido.html`,
+      inject: true,
+      chunks: ["nuncasepuedehacermasrapido"],
+    }),
+    new HtmlWebpackDeployPlugin({
+      files: ["nuncasepuedehacermasrapido.html"],
+      assets: {
+        copy: [
+          {
+            from: "./src/pages/nuncasepuedehacermasrapido/static/js/453.2232a744.chunk.js",
+            to: "nuncasepuedehacermasrapido/js",
+          },
+          {
+            from: "./src/pages/nuncasepuedehacermasrapido/static/js/main.237181f3.js",
+            to: "nuncasepuedehacermasrapido/js",
+          },
+        ],
+        scripts: [
+          {
+            path: "nuncasepuedehacermasrapido/js/453.2232a744.chunk.js",
+          },
+          {
+            path: "nuncasepuedehacermasrapido/js/main.237181f3.js",
+          },
+        ],
+      },
+    }),
+    new HtmlWebpackPlugin({
       template: `./src/pages/compraventa/compraventa.html`,
       filename: `compraventa.html`,
       inject: true,
@@ -236,6 +268,11 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.js$/, // Use Babel for all .js files
+        exclude: /node_modules/, // Don't use Babel for files in node_modules
+        use: "babel-loader", // Use Babel
+      },
+      {
         test: /\.css$/i,
         use: [MiniCssExtractPlugin.loader, "css-loader"],
       },
@@ -265,6 +302,8 @@ module.exports = {
     voca: "./src/pages/voca/voca.js",
     compraventa: "./src/pages/compraventa/compraventa.js",
     zarandraca: "./src/pages/zarandraca/zarandraca.js",
+    nuncasepuedehacermasrapido:
+      "./src/pages/nuncasepuedehacermasrapido/nuncasepuedehacermasrapido.js",
   },
   optimization: {
     splitChunks: {
