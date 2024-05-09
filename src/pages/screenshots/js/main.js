@@ -6,7 +6,7 @@ import { NURBSCurve } from "three/addons/curves/NURBSCurve.js";
 import { NURBSSurface } from "three/addons/curves/NURBSSurface.js";
 import { NURBSVolume } from "three/addons/curves/NURBSVolume.js";
 import { ParametricGeometry } from "three/addons/geometries/ParametricGeometry.js";
-import { OrbitControls } from "https://cdn.jsdelivr.net/npm/three/examples/jsm/controls/OrbitControls.js";
+// import { OrbitControls } from "https://cdn.jsdelivr.net/npm/three/examples/jsm/controls/OrbitControls.js";
 import { TrackballControls } from "https://cdn.jsdelivr.net/npm/three/examples/jsm/controls/TrackballControls.js";
 import { TextGeometry } from "https://cdn.jsdelivr.net/npm/three/examples/jsm/geometries/TextGeometry.js";
 import { FontLoader } from "https://cdn.jsdelivr.net/npm/three/examples/jsm/loaders/FontLoader.js";
