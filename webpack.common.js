@@ -218,7 +218,7 @@ module.exports = {
             to: "nuncasepuedehacermasrapido/js",
           },
           {
-            from: "./src/pages/nuncasepuedehacermasrapido/static/js/main.237181f3.js",
+            from: "./src/pages/nuncasepuedehacermasrapido/static/js/main.fc0ae0f3.js",
             to: "nuncasepuedehacermasrapido/js",
           },
         ],
@@ -227,7 +227,7 @@ module.exports = {
             path: "nuncasepuedehacermasrapido/js/453.2232a744.chunk.js",
           },
           {
-            path: "nuncasepuedehacermasrapido/js/main.237181f3.js",
+            path: "nuncasepuedehacermasrapido/js/main.fc0ae0f3.js",
           },
         ],
       },
