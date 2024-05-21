@@ -1,6 +1,6 @@
 import * as THREE from "three";
 
-import Stats from "three/addons/libs/stats.module.js";
+// import Stats from "three/addons/libs/stats.module.js";
 
 import { NURBSCurve } from "three/addons/curves/NURBSCurve.js";
 import { NURBSSurface } from "three/addons/curves/NURBSSurface.js";
@@ -14,11 +14,12 @@ import { FontLoader } from "https://cdn.jsdelivr.net/npm/three/examples/jsm/load
 import { DRACOLoader } from "https://cdn.jsdelivr.net/npm/three/examples/jsm/loaders/DRACOLoader.js";
 import { GLTFLoader } from "https://cdn.jsdelivr.net/npm/three/examples/jsm/loaders/GLTFLoader.js";
 import { gsap } from "https://cdn.skypack.dev/gsap";
-import GUI from "https://cdn.jsdelivr.net/npm/three/examples/jsm/libs/dat.gui.module.js";
+// import GUI from "https://cdn.jsdelivr.net/npm/three/examples/jsm/libs/dat.gui.module.js";
 
-const gui = new GUI.GUI();
+// const gui = new GUI.GUI();
 
-let container, stats;
+let container;
+// let stats;
 
 let camera, scene, renderer;
 let group;
@@ -118,15 +119,15 @@ function init() {
     () => {
       gsap.to(overlayMaterial.uniforms.uAlpha, {
         value: 0,
-        duration: 2.5,
-        delay: 3,
+        duration: 3,
+        // delay: 0.5,
       });
-      console.log("loaded");
+      // console.log("loaded");
     },
 
     // Progress
     () => {
-      console.log("progress");
+      // console.log("progress");
     }
   );
 
@@ -525,8 +526,8 @@ function init() {
 
   createControls(camera);
 
-  stats = new Stats();
-  container.appendChild(stats.dom);
+  // stats = new Stats();
+  // container.appendChild(stats.dom);
 
   container.style.touchAction = "none";
   container.style.position = "fixed";
@@ -602,7 +603,7 @@ function animate() {
   }
 
   render();
-  stats.update();
+  // stats.update();
 }
 
 function render() {
