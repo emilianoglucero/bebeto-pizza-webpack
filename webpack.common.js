@@ -19,7 +19,10 @@ module.exports = {
   plugins: [
     new CopyWebpackPlugin({
       patterns: [
-        { from: "src/pages/screenshots/img", to: "img/screenshots" },
+        {
+          from: "src/pages/screenshots/assets",
+          to: "screenshots/assets/img/screenshots",
+        },
         { from: "src/pages/maradona/assets", to: "maradona/assets" },
         { from: "src/pages/compraventa/static/media", to: "static/media" },
         { from: "src/pages/zarandraca/assets", to: "zarandraca/assets" },

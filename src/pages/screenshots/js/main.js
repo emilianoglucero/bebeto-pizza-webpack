@@ -11,6 +11,13 @@ import { TrackballControls } from "https://cdn.jsdelivr.net/npm/three/examples/j
 import { TextGeometry } from "https://cdn.jsdelivr.net/npm/three/examples/jsm/geometries/TextGeometry.js";
 import { FontLoader } from "https://cdn.jsdelivr.net/npm/three/examples/jsm/loaders/FontLoader.js";
 
+import { DRACOLoader } from "https://cdn.jsdelivr.net/npm/three/examples/jsm/loaders/DRACOLoader.js";
+import { GLTFLoader } from "https://cdn.jsdelivr.net/npm/three/examples/jsm/loaders/GLTFLoader.js";
+import { gsap } from "https://cdn.skypack.dev/gsap";
+import GUI from "https://cdn.jsdelivr.net/npm/three/examples/jsm/libs/dat.gui.module.js";
+
+const gui = new GUI.GUI();
+
 let container, stats;
 
 let camera, scene, renderer;
@@ -31,19 +38,24 @@ animate();
 
 function init() {
   container = document.createElement("div");
+  //add a class to the container
+  container.classList.add("container");
   document.body.appendChild(container);
 
+  container.width = window.innerWidth;
+  container.height = window.innerHeight;
+
   camera = new THREE.PerspectiveCamera(
-    60,
+    90,
     window.innerWidth / window.innerHeight,
     1,
-    1000
+    3000
   );
 
-  camera.position.set(0, 150, 750);
+  camera.position.set(0, 400, 450);
 
   scene = new THREE.Scene();
-  scene.background = new THREE.Color(0x27fff2);
+  // scene.background = new THREE.Color(0x27fff2);
 
   scene.add(new THREE.AmbientLight(0xffffff));
 
@@ -55,11 +67,95 @@ function init() {
   group.position.y = 50;
   scene.add(group);
 
+  // Overlay intro screen
+  // Create a video element
+  const video = document.createElement("video");
+  video.src = "./screenshots/assets/img/screenshots/videos/loading.mp4";
+  video.load();
+  video.muted = true;
+  video.play();
+  video.loop = true;
+
+  // Create a video texture
+  const videoTexture = new THREE.VideoTexture(video);
+  videoTexture.minFilter = THREE.LinearFilter;
+  videoTexture.magFilter = THREE.LinearFilter;
+  videoTexture.format = THREE.RGBFormat;
+
+  // Overlay intro screen
+  const overlayGeometry = new THREE.PlaneGeometry(2, 2, 1, 1);
+  const overlayMaterial = new THREE.ShaderMaterial({
+    transparent: true,
+    uniforms: {
+      uAlpha: { value: 1.0 },
+      uTexture: { value: videoTexture },
+    },
+    vertexShader: `
+    varying vec2 vUv;
+    void main() {
+      vUv = uv;
+      gl_Position = vec4(position, 1.0);
+    }
+  `,
+    fragmentShader: `
+    uniform float uAlpha;
+    uniform sampler2D uTexture;
+    varying vec2 vUv;
+    void main() {
+      vec4 texture = texture2D(uTexture, vUv);
+      gl_FragColor = vec4(texture.rgb, uAlpha);
+    }
+  `,
+  });
+
+  const overlay = new THREE.Mesh(overlayGeometry, overlayMaterial);
+
+  scene.add(overlay);
+
+  // Loaders
+  const loadingManager = new THREE.LoadingManager(
+    // Loaded
+    () => {
+      gsap.to(overlayMaterial.uniforms.uAlpha, {
+        value: 0,
+        duration: 2.5,
+        delay: 3,
+      });
+      console.log("loaded");
+    },
+
+    // Progress
+    () => {
+      console.log("progress");
+    }
+  );
+
+  /**
+   * Cube Texture Loader
+   */
+  // ...
+  const cubeTextureLoader = new THREE.CubeTextureLoader(loadingManager);
+  /**
+   * Environment map
+   */
+  // LDR cube texture
+  const environmentMap = cubeTextureLoader.load([
+    "./screenshots/assets/img/screenshots/environmentMaps/sky/px.png",
+    "./screenshots/assets/img/screenshots/environmentMaps/sky/nx.png",
+    "./screenshots/assets/img/screenshots/environmentMaps/sky/py.png",
+    "./screenshots/assets/img/screenshots/environmentMaps/sky/ny.png",
+    "./screenshots/assets/img/screenshots/environmentMaps/sky/pz.png",
+    "./screenshots/assets/img/screenshots/environmentMaps/sky/nz.png",
+  ]);
+
+  scene.environment = environmentMap;
+  scene.background = environmentMap;
+
   // Text geometry
 
-  const loader = new FontLoader();
+  const loader = new FontLoader(loadingManager);
   loader.load(
-    "./img/screenshots/fonts/gentilis_regular.typeface.json",
+    "./screenshots/assets/img/screenshots/img/fonts/gentilis_regular.typeface.json",
     function (font) {
       var geometry = new TextGeometry("screenshots", {
         font: font,
@@ -89,6 +185,70 @@ function init() {
       text.position.set(-75, 100, 0);
     }
   );
+
+  // Load GLTF model with DRACO compression
+  const gltfLoader = new GLTFLoader(loadingManager);
+  const dracoLoader = new DRACOLoader(loadingManager);
+  dracoLoader.setDecoderPath(
+    "https://cdn.jsdelivr.net/npm/three@0.132.2/examples/js/libs/draco/"
+  );
+  gltfLoader.setDRACOLoader(dracoLoader);
+  // Define your models
+  const models = [
+    {
+      path: "./screenshots/assets/img/screenshots/models/plastic_chair/scene.gltf",
+      position: { x: -418, y: -76, z: 1 },
+      rotation: { x: 0, y: 8, z: 0 },
+      scale: 1.5,
+    },
+    {
+      path: "./screenshots/assets/img/screenshots/models/marlboro_cigarettes/scene.gltf",
+      position: { x: 45, y: 133, z: 100 },
+      rotation: { x: 0, y: 10, z: 0 },
+      scale: 0.6,
+    },
+    {
+      path: "./screenshots/assets/img/screenshots/models/snake-plant/scene.gltf",
+      position: { x: 67, y: 100, z: 133 },
+      rotation: { x: 0, y: 0, z: 0 },
+      scale: 85,
+    },
+  ];
+
+  // Create a new dat.GUI instance
+  // const gui = new dat.GUI();
+
+  // Load the models
+  models.forEach((model, index) => {
+    gltfLoader.load(
+      model.path,
+      function (gltf) {
+        gltf.scene.scale.set(model.scale, model.scale, model.scale);
+        gltf.scene.position.set(
+          model.position.x,
+          model.position.y,
+          model.position.z
+        );
+        gltf.scene.rotation.set(
+          model.rotation.x,
+          model.rotation.y,
+          model.rotation.z
+        );
+        scene.add(gltf.scene);
+
+        // Add the model to the GUI
+        // const folder = gui.addFolder(`Model ${index + 1}`);
+        // folder.add(gltf.scene.position, "x", -500, 500);
+        // folder.add(gltf.scene.position, "y", -500, 500);
+        // folder.add(gltf.scene.position, "z", -500, 500);
+        // folder.open();
+      },
+      undefined,
+      function (error) {
+        console.error("Error loading model:", error);
+      }
+    );
+  });
 
   // NURBS curve
 
@@ -181,7 +341,7 @@ function init() {
     );
 
     const map = new THREE.TextureLoader().load(
-      "./img/screenshots/screenshots-1.jpg"
+      "./screenshots/assets/img/screenshots/img/screenshots-1.jpg"
     );
     map.wrapS = map.wrapT = THREE.RepeatWrapping;
     map.anisotropy = 16;
@@ -271,7 +431,7 @@ function init() {
     );
 
     const map = new THREE.TextureLoader().load(
-      "./img/screenshots/screenshots-2.jpg"
+      "./screenshots/assets/img/screenshots/img/screenshots-2.jpg"
     );
     map.wrapS = map.wrapT = THREE.RepeatWrapping;
     map.anisotropy = 16;
@@ -307,7 +467,7 @@ function init() {
       side: THREE.DoubleSide,
     });
     const objectFront = new THREE.Mesh(geometryFront, materialFront);
-    objectFront.position.set(400, 100, 0);
+    objectFront.position.set(310, -10, 144);
     objectFront.scale.multiplyScalar(0.5);
     group.add(objectFront);
 
@@ -321,7 +481,7 @@ function init() {
       side: THREE.DoubleSide,
     });
     const objectMiddle = new THREE.Mesh(geometryMiddle, materialMiddle);
-    objectMiddle.position.set(400, 100, 0);
+    objectMiddle.position.set(365, 67, 100);
     objectMiddle.scale.multiplyScalar(0.5);
     group.add(objectMiddle);
 
@@ -331,7 +491,7 @@ function init() {
       side: THREE.DoubleSide,
     });
     const objectBack = new THREE.Mesh(geometryBack, materialBack);
-    objectBack.position.set(400, 100, 0);
+    objectBack.position.set(243, 100, 0);
     objectBack.scale.multiplyScalar(0.5);
     group.add(objectBack);
 
@@ -369,6 +529,10 @@ function init() {
   container.appendChild(stats.dom);
 
   container.style.touchAction = "none";
+  container.style.position = "fixed";
+  container.style.top = "0";
+  container.style.left = "0";
+  container.style.outline = "none";
   container.addEventListener("pointerdown", onPointerDown);
 
   //
