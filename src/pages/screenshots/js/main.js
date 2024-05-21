@@ -120,7 +120,7 @@ function init() {
       gsap.to(overlayMaterial.uniforms.uAlpha, {
         value: 0,
         duration: 3,
-        // delay: 0.5,
+        delay: 1,
       });
       // console.log("loaded");
     },
