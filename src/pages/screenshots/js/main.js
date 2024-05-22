@@ -6,7 +6,6 @@ import { NURBSCurve } from "three/addons/curves/NURBSCurve.js";
 import { NURBSSurface } from "three/addons/curves/NURBSSurface.js";
 import { NURBSVolume } from "three/addons/curves/NURBSVolume.js";
 import { ParametricGeometry } from "three/addons/geometries/ParametricGeometry.js";
-// import { OrbitControls } from "https://cdn.jsdelivr.net/npm/three/examples/jsm/controls/OrbitControls.js";
 import { TrackballControls } from "https://cdn.jsdelivr.net/npm/three/examples/jsm/controls/TrackballControls.js";
 import { TextGeometry } from "https://cdn.jsdelivr.net/npm/three/examples/jsm/geometries/TextGeometry.js";
 import { FontLoader } from "https://cdn.jsdelivr.net/npm/three/examples/jsm/loaders/FontLoader.js";
@@ -120,7 +119,7 @@ function init() {
       gsap.to(overlayMaterial.uniforms.uAlpha, {
         value: 0,
         duration: 3,
-        delay: 1,
+        delay: 0.5,
       });
       // console.log("loaded");
     },
@@ -342,7 +341,7 @@ function init() {
     );
 
     const map = new THREE.TextureLoader().load(
-      "./screenshots/assets/img/screenshots/img/screenshots-1.jpg"
+      "./screenshots/assets/img/screenshots/img/screenshots-1.png"
     );
     map.wrapS = map.wrapT = THREE.RepeatWrapping;
     map.anisotropy = 16;
