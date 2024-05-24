@@ -373,14 +373,13 @@ div.desc {
 .circles {
   display: flex;
   justify-content: center;
+  gap: 1rem;
 }
 
 .circle {
   width: 6rem;
   height: 6rem;
   border-radius: 50%; /* This makes the divs circular */
-  display: inline-block; /* This makes the divs sit side by side */
-  margin-right: 1rem; /* This adds some space between the circles */
   cursor: pointer; /* Pointer cursor to indicate it's clickable */
   user-select: none; /* Prevents text selection */
 }

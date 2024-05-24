@@ -72,6 +72,21 @@ function setup() {
       document.body.style.cursor = `url('${cursorImage}'), auto`;
     });
   });
+
+  // prevent scrolling while drawing
+  // Get the canvas element
+  let canvasElement = document.getElementById("myCanvas");
+
+  // Add the event listener to prevent scrolling while drawing
+  canvasElement.addEventListener(
+    "touchmove",
+    function (e) {
+      if (e.target == canvasElement) {
+        e.preventDefault();
+      }
+    },
+    { passive: false }
+  );
 }
 function draw() {
   var e = document.getElementById("myCanvas");
