@@ -3,28 +3,38 @@ function preload() {
   song = loadSound("./dibuja/assets/music/colorea.mp3");
 }
 function setup() {
+  document.body.style.cursor =
+    "url('./dibuja/assets/img/cursor/brush-black.png'), auto";
   song.loop(),
     (images = [
-      "./dibuja/assets/img/delcano-min.png",
-      "./dibuja/assets/img/menembw-min.png",
-      "./dibuja/assets/img/macribw-min.png",
-      "./dibuja/assets/img/lilitabw-min.png",
-      "./dibuja/assets/img/larretabw-min.png",
-      "./dibuja/assets/img/vidalbw-min.png",
-      "./dibuja/assets/img/lavagna-min.png",
-      "./dibuja/assets/img/cristinabw-min.png",
-      "./dibuja/assets/img/alberto-min.png",
-      "./dibuja/assetsimg/espert-min.png",
-      "./dibuja/assets/img/centurion-min.png",
-    ]),
-    (i = Math.floor(11 * Math.random())),
-    loadImage(images[i], function (e) {
-      image(e, 0, 0);
-    }),
-    (c = createCanvas(600, 400)).position(350, 100),
+      {
+        src: "./dibuja/assets/img/delcano-min.png",
+        name: "Delcano",
+        description:
+          "La carrera empresarial de Macri comenzó en la empresa familiar, el Grupo Socma (Sociedad Macri), un conglomerado industrial diversificado que incluía sectores como la construcción, la automotriz y la alimentación. A finales de la década de 1980, Mauricio asumió roles de liderazgo dentro del grupo, demostrando habilidades para la gestión y la expansión de negocios.",
+      },
+      {
+        src: "./dibuja/assets/img/macribw-min.png",
+        name: "Macri",
+        description:
+          "La carrera empresarial de Macri comenzó en la empresa familiar, el Grupo Socma (Sociedad Macri), un conglomerado industrial diversificado que incluía sectores como la construcción, la automotriz y la alimentación. A finales de la década de 1980, Mauricio asumió roles de liderazgo dentro del grupo, demostrando habilidades para la gestión y la expansión de negocios.",
+      },
+      // ... rest of the images
+    ]);
+  i = Math.floor(images.length * Math.random());
+  loadImage(images[i].src, function (e) {
+    image(e, 0, 0);
+    // Update the description div
+    let descriptionDiv = select(".description");
+    descriptionDiv.html(
+      `<h3>te tocó: ${images[i].name}</h3><p>${images[i].description}</p>`
+    );
+  });
+  (c = createCanvas(600, 400)),
+    // (c = createCanvas(600, 400)).position(350, 300),
     c.id("myCanvas"),
-    (col = color(0)),
-    (size = strokeWeight(10));
+    c.parent("canvas-container");
+  (col = color(0)), (size = strokeWeight(10));
 
   // Select the divs and set the mouseClicked function
   select("#circle-black").mouseClicked(() => {
@@ -36,8 +46,8 @@ function setup() {
   select("#circle-green").mouseClicked(() => {
     col = color(31, 255, 0);
   });
-  select("#circle-purple").mouseClicked(() => {
-    col = color(133, 0, 242);
+  select("#circle-yellow").mouseClicked(() => {
+    col = color(255, 255, 0);
   });
   select("#circle-red").mouseClicked(() => {
     col = color(255, 0, 0);
@@ -46,6 +56,13 @@ function setup() {
   select("#stroke-width").changed(function () {
     let strokeWidth = this.value();
     size = strokeWeight(strokeWidth);
+  });
+
+  document.querySelectorAll(".circle").forEach(function (div) {
+    div.addEventListener("click", function () {
+      const cursorImage = this.getAttribute("data-cursor");
+      document.body.style.cursor = `url('${cursorImage}'), auto`;
+    });
   });
 }
 function draw() {

@@ -1,21 +1,10 @@
-html,
 body {
-  height: 100%;
-}
-
-body {
-  /*background-image: url("img/fei.jpg");*/
-  background-color: #27fff2;
+  background-color: violet;
   color: yellow;
   font-family: comic sans ms;
-  /* margin: 0;
-  display: flex;*/
-
-  /* This centers our sketch horizontally. */
-  /* justify-content: center;*/
-
-  /* This centers our sketch vertically. */
-  /*align-items: center;*/
+  background: url("../assets/img/background/prettybluedotsbg.gif");
+  cursor: auto; /* Default cursor */
+  margin: 0;
 }
 
 #loadingDibuja {
@@ -25,36 +14,48 @@ body {
   background: url("../assets/img/loadingDibuja.gif") no-repeat center center;
 }
 
+.content-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.save-button {
+  display: flex;
+  gap: 22rem;
+  padding-top: 4rem;
+}
 #save {
-  position: absolute;
-  left: 400px;
-  top: 550px;
-  z-index: 999;
+  font-size: 2rem;
+  color: blue;
+  background-color: yellow;
+  background: linear-gradient(to bottom, #bcf733 5%, hsl(58, 100%, 50%) 100%);
+  box-shadow: 3px 4px 0px 0px hsla(58, 100%, 22%, 0.613);
+  border: 1px solid #bcf733;
+  text-decoration: none;
+  font-family: monospace;
+  padding: 16px 38px;
+  border-radius: 44px;
+  cursor: pointer;
+}
+#save:hover {
+  background: linear-gradient(to bottom, hsl(58, 100%, 50%) 5%, #bcf733 100%);
+  background-color: hsl(58, 100%, 50%);
 }
 
-.img-container {
-  left: 200px;
+#save:active {
   position: relative;
-  top: 400px;
+  top: 1px;
 }
-
-/*.label-color {
-    position: relative;
-    left: 100px;
-    top: 520px;
-  }
-
- .label-size {
-   /* left: 600px;
-    position: relative;
-    top: 450px;
-  }*/
 
 /* seccion para los tipos de colores*/
 #color-1 {
   position: absolute;
-  left: 200px;
-  top: 510px;
+  left: 16%;
+  top: 172%;
+  text-align: center;
+  font-size: 1.5rem;
+  max-width: 70%;
 }
 
 #color-2 {
@@ -98,75 +99,102 @@ body {
 }
 /* seccion para los tipos de trazo*/
 #size-title {
-  position: absolute;
-  top: 550px;
-  left: 700px;
-  font-size: 29px;
+  font-size: 1.5rem;
+  text-align: center;
+  width: 70%;
+  padding-top: 3rem;
 }
 
-#size-1 {
-  position: absolute;
-  top: 660px;
-  left: 630px;
-  font-size: 60px;
+.select-size {
+  padding-top: 5rem;
+  text-align: center;
+  font-size: 2rem;
+  padding-right: 2rem;
 }
 
-#size-2 {
-  position: absolute;
-  top: 685px;
-  left: 470px;
+#color-title {
+  display: flex;
+  gap: 2rem;
 }
 
-#size-3 {
-  position: absolute;
-  top: 600px;
-  left: 1300px;
+.titles {
+  padding-top: 4rem;
 }
 
-#size-4 {
-  position: absolute;
-  top: 530px;
-  left: 700px;
+#secondary-title {
+  font-size: 2rem;
+  text-align: center;
+  font-size: 2rem;
+  text-align: center;
+  margin-top: -6rem;
 }
 
-#size-5 {
-  position: absolute;
-  top: 800px;
-  left: 840px;
+#canvas-container {
+  padding-top: 4rem;
 }
 
-#size-6 {
-  position: absolute;
-  top: 640px;
-  left: 1200px;
-  font-size: 80px;
+.description-container {
+  display: flex;
+  max-width: 80%;
+  padding-top: 4rem;
+  font-size: 1.4rem;
+}
+
+.description-container h3 {
+  text-align: center;
+}
+
+.kitty-image {
+  padding-bottom: 0.7rem;
+}
+
+.cursor-brush-red {
+  cursor: url("../assets/img/cursor/brush-red.png"), auto;
+}
+.cursor-brush-yellow {
+  cursor: url("../assets/img/cursor/brush-yellow.png"), auto;
+}
+.cursor-brush-blue {
+  cursor: url("../assets/img/cursor/brush-blue.png"), auto;
+}
+.cursor-brush-green {
+  cursor: url("../assets/img/cursor/brush-green.png"), auto;
+}
+.cursor-brush-black {
+  cursor: url("../assets/img/cursor/brush-black.png"), auto;
 }
 
 /* seccion para las letras del titulo*/
 #titulo-1 {
+  font-size: 6rem;
 }
 
 #titulo-2 {
-  font-size: 50px;
+  font-size: 5rem;
+  color: red;
 }
 
 #titulo-3 {
-  font-size: 90px;
+  font-size: 5rem;
 }
 
 #titulo-4 {
-  font-size: 15px;
+  font-size: 7rem;
+  color: blue;
 }
 
 #titulo-5 {
+  font-size: 4rem;
+  color: blue;
 }
 
 #titulo-6 {
-  font-size: 100px;
+  font-size: 6rem;
 }
 
 #titulo-7 {
-  font-size: 20px;
+  font-size: 10rem;
+  color: red;
 }
 /*sacado de css*/
 
@@ -193,70 +221,67 @@ div.desc {
 
 #img-dibuja-1 {
   position: absolute;
-  top: 1%;
-  left: 6%;
+  top: 24%;
+  left: 9%;
 }
-#img-dibuja-2 {
-  position: absolute;
-  top: 50%;
-  left: 81%;
-}
-#img-dibuja-3 {
-  position: absolute;
-  top: 1%;
-  left: 50%;
-}
+
 #img-dibuja-4 {
   position: absolute;
-  top: 40%;
-  left: 15%;
+  top: 32%;
+  left: 84%;
 }
 #img-dibuja-5 {
   position: absolute;
-  top: 110%;
-  left: 85%;
+  top: 65%;
+  left: 81%;
 }
 #img-dibuja-6 {
   position: absolute;
-  top: 140%;
-  left: 75%;
+  top: 79%;
+  left: 91%;
 }
 #img-dibuja-7 {
   position: absolute;
-  top: 90%;
-  left: 55%;
+  top: 57%;
+  left: 7%;
 }
 #img-dibuja-8 {
   position: absolute;
-  top: 92%;
-  left: 5%;
+  top: 153%;
+  left: 20%;
 }
 #img-dibuja-9 {
   position: absolute;
-  top: 115%;
-  left: 46%;
+  top: 100%;
+  left: 15%;
 }
 #img-dibuja-10 {
   position: absolute;
-  top: 115%;
-  left: 110%;
+  top: 88%;
+  left: 3%;
 }
 #img-dibuja-11 {
   position: absolute;
-  top: 75%;
-  left: 15%;
+  top: 86%;
+  left: 76%;
 }
 #img-dibuja-12 {
   position: absolute;
-  top: 130%;
-  left: 14%;
+  top: 158%;
+  left: 73%;
 }
 
 /* color circles */
 .paint-options {
-  position: absolute;
-  top: 40%;
-  left: 32%;
+  padding-top: 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+.circles {
+  display: flex;
+  justify-content: center;
 }
 
 .circle {
@@ -265,6 +290,8 @@ div.desc {
   border-radius: 50%; /* This makes the divs circular */
   display: inline-block; /* This makes the divs sit side by side */
   margin-right: 1rem; /* This adds some space between the circles */
+  cursor: pointer; /* Pointer cursor to indicate it's clickable */
+  user-select: none; /* Prevents text selection */
 }
 
 #circle-black {
@@ -279,10 +306,34 @@ div.desc {
   background-color: rgb(31, 255, 0);
 }
 
-#circle-purple {
-  background-color: rgb(133, 0, 242);
+#circle-yellow {
+  background-color: yellow;
 }
 
 #circle-red {
   background-color: red;
+}
+
+.page-explanation-container {
+  font-size: 1.4rem;
+  text-align: center;
+}
+
+.select-brush-size {
+  font-size: 1.8rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+#stroke-width {
+  font-size: 2rem;
+}
+
+.paint-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding-top: 8rem;
+  max-width: 80%;
 }
