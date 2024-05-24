@@ -22,18 +22,26 @@ function setup() {
       // ... rest of the images
     ]);
   i = Math.floor(images.length * Math.random());
-  loadImage(images[i].src, function (e) {
-    image(e, 0, 0);
+  loadImage(images[i].src, function (img) {
+    if (windowWidth <= 550) {
+      image(img, 0, 0, 300, 200);
+    } else {
+      image(img, 0, 0, 600, 400);
+    }
     // Update the description div
     let descriptionDiv = select(".description");
     descriptionDiv.html(
       `<h3>te tocó: ${images[i].name}</h3><p>${images[i].description}</p>`
     );
   });
-  (c = createCanvas(600, 400)),
-    // (c = createCanvas(600, 400)).position(350, 300),
-    c.id("myCanvas"),
-    c.parent("canvas-container");
+  // Create the canvas with different dimensions based on the window width
+  if (windowWidth <= 550) {
+    c = createCanvas(300, 200);
+  } else {
+    c = createCanvas(600, 400);
+  }
+  // (c = createCanvas(600, 400)).position(350, 300),
+  c.id("myCanvas"), c.parent("canvas-container");
   (col = color(0)), (size = strokeWeight(10));
 
   // Select the divs and set the mouseClicked function

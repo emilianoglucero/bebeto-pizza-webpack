@@ -25,6 +25,7 @@ body {
   gap: 22rem;
   padding-top: 4rem;
 }
+
 #save {
   font-size: 2rem;
   color: blue;
@@ -38,6 +39,7 @@ body {
   border-radius: 44px;
   cursor: pointer;
 }
+
 #save:hover {
   background: linear-gradient(to bottom, hsl(58, 100%, 50%) 5%, #bcf733 100%);
   background-color: hsl(58, 100%, 50%);
@@ -46,6 +48,13 @@ body {
 #save:active {
   position: relative;
   top: 1px;
+}
+
+@media (max-width: 550px) {
+  /* Phones */
+  #save {
+    font-size: 1rem;
+  }
 }
 
 /* seccion para los tipos de colores*/
@@ -116,6 +125,12 @@ body {
   display: flex;
   gap: 2rem;
 }
+@media (max-width: 550px) {
+  /* Phones */
+  #color-title {
+    gap: 1.4rem;
+  }
+}
 
 .titles {
   padding-top: 4rem;
@@ -124,9 +139,21 @@ body {
 #secondary-title {
   font-size: 2rem;
   text-align: center;
-  font-size: 2rem;
-  text-align: center;
   margin-top: -6rem;
+}
+@media (max-width: 550px) {
+  /* Phones */
+  #secondary-title {
+    margin-top: -1.5rem;
+    font-size: 1.5rem;
+  }
+}
+
+/* Phones */
+@media (max-width: 550px) {
+  .secondary-title {
+    margin-top: -3rem;
+  }
 }
 
 #canvas-container {
@@ -196,7 +223,31 @@ body {
   font-size: 10rem;
   color: red;
 }
-/*sacado de css*/
+
+@media (max-width: 550px) {
+  /* Phones */
+  #titulo-1 {
+    font-size: 2.5rem;
+  }
+  #titulo-2 {
+    font-size: 1.5rem;
+  }
+  #titulo-3 {
+    font-size: 1.5rem;
+  }
+  #titulo-4 {
+    font-size: 2.5rem;
+  }
+  #titulo-5 {
+    font-size: 1.5rem;
+  }
+  #titulo-6 {
+    font-size: 2.5rem;
+  }
+  #titulo-7 {
+    font-size: 4.5rem;
+  }
+}
 
 div.img {
   margin: 5px;
@@ -271,6 +322,46 @@ div.desc {
   left: 73%;
 }
 
+@media (max-width: 1350px) {
+  /* Phones */
+  #img-dibuja-1 {
+    display: none;
+  }
+  #img-dibuja-2 {
+    display: none;
+  }
+  #img-dibuja-3 {
+    display: none;
+  }
+  #img-dibuja-4 {
+    display: none;
+  }
+  #img-dibuja-5 {
+    display: none;
+  }
+  #img-dibuja-6 {
+    display: none;
+  }
+  #img-dibuja-7 {
+    display: none;
+  }
+  #img-dibuja-8 {
+    display: none;
+  }
+  #img-dibuja-9 {
+    display: none;
+  }
+  #img-dibuja-10 {
+    display: none;
+  }
+  #img-dibuja-11 {
+    display: none;
+  }
+  #img-dibuja-12 {
+    display: none;
+  }
+}
+
 /* color circles */
 .paint-options {
   padding-top: 4rem;
@@ -292,6 +383,14 @@ div.desc {
   margin-right: 1rem; /* This adds some space between the circles */
   cursor: pointer; /* Pointer cursor to indicate it's clickable */
   user-select: none; /* Prevents text selection */
+}
+
+@media (max-width: 550px) {
+  /* Phones */
+  .circle {
+    width: 3rem;
+    height: 3rem;
+  }
 }
 
 #circle-black {
@@ -318,6 +417,13 @@ div.desc {
   font-size: 1.4rem;
   text-align: center;
 }
+@media (max-width: 1100px) {
+  /* Phones */
+  .page-explanation-container {
+    text-align: start;
+    max-width: 80%;
+  }
+}
 
 .select-brush-size {
   font-size: 1.8rem;
@@ -325,15 +431,32 @@ div.desc {
   justify-content: center;
   gap: 1rem;
 }
+
+@media (max-width: 550px) {
+  /* Phones */
+  .select-brush-size {
+    flex-direction: column;
+    font-size: 1.4rem;
+    align-items: center;
+  }
+}
+
 #stroke-width {
   font-size: 2rem;
 }
 
+@media (max-width: 550px) {
+  /* Phones */
+  #stroke-width {
+    font-size: 1rem;
+  }
+}
 .paint-container {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  padding-top: 8rem;
   max-width: 80%;
+  padding-top: 8rem;
+  padding-bottom: 4rem;
 }
