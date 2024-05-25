@@ -28,9 +28,6 @@
 
   <body>
     <div class="main-container">
-      <!-- preloading gifhttps://stackoverflow.com/questions/22131821/how-can-i-display-a-loading-gif-until-an-entire-html-page-has-been-loaded -->
-      <div id="loadingDibuja"></div>
-
       <div class="kitty-image-container">
         <div
           class="shake-crazy shake-constant shake-constant--hover"
@@ -109,6 +106,7 @@
         </div>
 
         <div id="canvas-container"></div>
+        <div id="loading-paint">cargando...</div>
 
         <div class="paint-options">
           <div class="circles">
@@ -195,6 +193,10 @@
           >
             <img src="./assets/img/gifs/BlinkCat.gif" alt="Smiley face" />
           </div>
+        </div>
+
+        <div id="loading-post-paint" style="display: none">
+          cargando...................................
         </div>
 
         <div class="paint-container"></div>

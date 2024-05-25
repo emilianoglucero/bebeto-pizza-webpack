@@ -1,4 +1,6 @@
 var c, photo, images;
+let loadingDivPaint = document.getElementById("loading-paint");
+
 function preload() {
   song = loadSound("./dibuja/assets/music/colorea.mp3");
 }
@@ -23,6 +25,8 @@ function setup() {
     ]);
   i = Math.floor(images.length * Math.random());
   loadImage(images[i].src, function (img) {
+    // Hide the loading div
+    loadingDivPaint.style.display = "none";
     if (windowWidth <= 550) {
       image(img, 0, 0, 300, 200);
     } else {
@@ -152,6 +156,11 @@ function saveMyCanvas() {
     let filename = `${author}_${date}_${uniqueId}.png`;
     const cloudImagePath = `https://storage.googleapis.com/bebeto-pizza-dibuja/dibuja-paintings/${filename}`;
     formData.append("image", blob, filename);
+
+    // Get the loading div and show it
+    let loadingDivPostPaint = document.getElementById("loading-post-paint");
+    loadingDivPostPaint.style.display = "block";
+
     $.ajax({
       method: "POST",
       url: "https://bebeto-pizza-backend.vercel.app/upload",
@@ -161,14 +170,15 @@ function saveMyCanvas() {
       contentType: false,
     })
       .done(function (msg) {
+        // Hide the loading div
+        loadingDivPostPaint.style.display = "none";
         return savePaintingDetails(author, filename, cloudImagePath);
       })
       .fail(function (msg) {
+        // Hide the loading div
+        loadingDivPostPaint.style.display = "none";
         console.log(msg);
         alert("hubo un error al guardar tu dibujo, intenta de nuevo");
       });
   });
 }
-$(window).ready(function () {
-  $("#loadingDibuja").hide();
-});

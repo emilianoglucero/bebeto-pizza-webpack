@@ -7,13 +7,6 @@ body {
   margin: 0;
 }
 
-#loadingDibuja {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: url("../assets/img/loadingDibuja.gif") no-repeat center center;
-}
-
 .content-container {
   display: flex;
   flex-direction: column;
@@ -458,4 +451,9 @@ div.desc {
   max-width: 80%;
   padding-top: 8rem;
   padding-bottom: 4rem;
+}
+
+#loading-post-paint {
+  font-size: 2rem;
+  margin-top: 4rem;
 }
