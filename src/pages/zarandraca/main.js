@@ -1,17 +1,3 @@
-//variable para determinar si cumplio con elminimo para anotarse al marcador
-//var global = this; // in global scope.
-//var inserted;
-// import watt from "./assets/watt.mp3";
-// import jadeo from "./assets/jadeo.mp3";
-// import aullido from "./assets/aullido.mp3";
-
-// import birdie from "./assets/birdie.png";
-// import clouds from "./assets/clouds.png";
-// import finger from "./assets/finger.png";
-// import fence from "./assets/fence.png";
-// import peron from "./assets/peron.mp3";
-// import hurt from "./assets/hurt.wav";
-
 var DEBUG = false;
 var SPEED = 690;
 var GRAVITY = 40;
@@ -97,6 +83,8 @@ function main() {
     cloudsTimer;
 
   function create() {
+    // Hide the loading div
+    document.getElementById("loading").style.display = "none";
     // Set world dimensions
     var screenWidth =
       parent.clientWidth > window.innerWidth
@@ -108,6 +96,7 @@ function main() {
         : parent.clientHeight;
     game.world.width = screenWidth;
     game.world.height = screenHeight;
+
     // Draw bg
     bg = game.add.graphics(0, 0);
     bg.beginFill(0xddeeff, 1);
@@ -185,7 +174,9 @@ function main() {
     scoreSnd = game.add.audio("score");
     hurtSnd = game.add.audio("hurt");
     // Add controls
-    game.input.onDown.add(flap);
+    // game.input.onDown.add(flap);
+    game.canvas.addEventListener("mousedown", flap);
+    game.canvas.addEventListener("touchstart", flap);
     // Start clouds timer
     cloudsTimer = new Phaser.Timer(game);
     cloudsTimer.onEvent.add(spawnCloud);
@@ -340,13 +331,13 @@ function main() {
 
   function setGameOver() {
     gameOver = true;
-    instText.setText("TOCALE LA CABEZA AL FLACO\nPARA PROBAR OTRA VEZ");
+    instText.setText("TOCA LA CABEZA EN EL PISO\nPARA PROBAR OTRA VEZ");
     instText.renderable = true;
     //var hiscore = window.localStorage.getItem('hiscore');
     //hiscore = hiscore ? hiscore : score;
     //hiscore = score > parseInt(hiscore, 10) ? score : hiscore;
     //window.localStorage.setItem('hiscore', hiscore);
-    gameOverText.setText("GAMEOVER\n\nPUNTAJE\n" + score);
+    gameOverText.setText("GAME OVER\n\nPUNTAJE\n" + score);
     gameOverText.renderable = true;
 
     alert(score);
@@ -373,7 +364,7 @@ function main() {
         if (popUp == null || typeof popUp == "undefined") {
           bootbox.alert({
             message:
-              "EUU EUUuuEUUuu euu CUCHAME UNA COSITA, TENES QUE HACER ALGO SUPER FACIL PARA PODER SEGUIR, POSTA ES UNA PAVADA ENORME, UNA COSA DE LOCOS LO FACIL QUE ES.<br>COMO TENES CHROME QUE ES MAS VIGILANTE QUE VOS, TENES QUE DESHABILITAR EL BLOQUEO DE VENTANITAS EMERGENTES,SINO TODO VA A ANDAR MAL Y VA A SER MUY VERGONZOSO:(:(:( <img class='bottom' src='https://support.pearson.com/getsupport/servlet/rtaImage?eid=ka0b0000000DfC1&feoid=00Nb000000A84sX&refid=0EMb0000001N3jN'>",
+              "EUUU FRIENDLY REMINDER :) PORFA DESHABILITA EL BLOQUEADOR DE VENTANAS EMERGENTES EN ESTA PÁGINA PARA QUE TE VAYA MEJOR EN LA VIDA :) :) :)",
             className: "bb-alternate-modal",
             callback: function () {
               insertScore(isUserInRanking);
@@ -412,7 +403,7 @@ function main() {
                   var dialog1 = bootbox.dialog({
                     // title: 'A custom dialog with buttons and callbacks',
                     message:
-                      "<p>dale, no problem, es super fácil, ahora en un toque ya estas anotado, ultra ultra fácil, mas fácil d lo que un kirchnerista cobra un plan JAJAJAJJAJAJAJ</p>",
+                      "<p>dale, no problem, es super fácil, ahora en un toque ya estas anotado, ultra ultra fácil, mas fácil d lo que un kkkkkk cobra un plan JAJAJAJJAJAJAJ</p>",
                     buttons: {
                       cancel: {
                         label: "jaja, bueno, pero dale, apurá ",
@@ -2513,7 +2504,7 @@ function main() {
                             var dialog2 = bootbox.dialog({
                               // title: 'A custom dialog with buttons and callbacks',
                               message:
-                                "<p> jajja, bue, trank kukkka jajhjjhajajajajakjakjakjkajkjakjakjakjjkkjakjjkahkakjakjkakjakjhkjakjakjja,<br> bueno me calmo, estoy re nervioso en realidad, por eso capaz estoy alterado, perdonnnnn </p>",
+                                "<p> jajja, bue, trankkkkkk kakakakakajajakajajkkakakakakakaklakajajakkkakakakakakakakakakakakak,<br> bueno me calmo, estoy re nervioso en realidad, por eso capaz estoy alterado, perdonnnnn </p>",
                               buttons: {
                                 cancel: {
                                   label:
@@ -3377,185 +3368,9 @@ function main() {
                                                                             function () {
                                                                               //console.log('This was logged in the callback!');
                                                                               window.open(
-                                                                                "https://www.youtube.com/watch?v=YX28tRbKdAs"
-                                                                              ); //Diego Maradona vs Juan Sebastian Veron partita della pace 2016
-                                                                              window.open(
-                                                                                "https://www.youtube.com/watch?v=lf4bl68Wjm8"
-                                                                              ); //Live is Life - Diego Maradona - undiego.com
-                                                                              window.open(
-                                                                                "https://www.youtube.com/watch?v=kF8-CjbZCGI"
-                                                                              ); //Diego maradona bailando "El baile de la gambeta"
-                                                                              window.open(
-                                                                                "https://www.youtube.com/watch?v=ZLr13GElY9U"
-                                                                              ); //¡Tremendo recuerdo! El Insoportable con Diego Maradona - Videomatch 98
-                                                                              window.open(
-                                                                                "https://www.youtube.com/watch?v=1ds2k4sXy-g"
-                                                                              ); //El mensaje de Maradona a los argentinos
-                                                                              window.open(
-                                                                                "https://www.youtube.com/watch?v=DZDrBaSGq_Y"
-                                                                              ); //Mi vida junto a Maradona - Peter Capusotto y sus videos - Temporada 11
-                                                                              window.open(
-                                                                                "https://www.youtube.com/watch?v=GubcZPCpmjE"
-                                                                              ); //10 COSAS QUE NO SABIAS DE MARADONA
-                                                                              window.open(
-                                                                                "https://www.youtube.com/watch?v=ca6i6ViSVOM"
-                                                                              ); //Maradona - Volviendo
-                                                                              window.open(
-                                                                                "https://www.youtube.com/watch?v=WSL_vjcRumY"
-                                                                              ); //Maradona, enojado y tirando bombas: "Que me limpien la AFA, hasta hay cuadros de Grondona"
-                                                                              window.open(
-                                                                                "https://www.youtube.com/watch?v=fen7yR1eH1A"
-                                                                              ); //Maradona RE puesto
-                                                                              window.open(
-                                                                                "https://www.youtube.com/watch?v=YX28tRbKdAs"
-                                                                              ); //Diego Maradona vs Juan Sebastian Veron partita della pace 2016
-                                                                              window.open(
-                                                                                "https://www.youtube.com/watch?v=lf4bl68Wjm8"
-                                                                              ); //Live is Life - Diego Maradona - undiego.com
-                                                                              window.open(
-                                                                                "https://www.youtube.com/watch?v=kF8-CjbZCGI"
-                                                                              ); //Diego maradona bailando "El baile de la gambeta"
-                                                                              window.open(
-                                                                                "https://www.youtube.com/watch?v=ZLr13GElY9U"
-                                                                              ); //¡Tremendo recuerdo! El Insoportable con Diego Maradona - Videomatch 98
-                                                                              window.open(
-                                                                                "https://www.youtube.com/watch?v=1ds2k4sXy-g"
-                                                                              ); //El mensaje de Maradona a los argentinos
-                                                                              window.open(
-                                                                                "https://www.youtube.com/watch?v=DZDrBaSGq_Y"
-                                                                              ); //Mi vida junto a Maradona - Peter Capusotto y sus videos - Temporada 11
-                                                                              window.open(
-                                                                                "https://www.youtube.com/watch?v=GubcZPCpmjE"
-                                                                              ); //10 COSAS QUE NO SABIAS DE MARADONA
-                                                                              window.open(
-                                                                                "https://www.youtube.com/watch?v=ca6i6ViSVOM"
-                                                                              ); //Maradona - Volviendo
-                                                                              window.open(
-                                                                                "https://www.youtube.com/watch?v=WSL_vjcRumY"
-                                                                              ); //Maradona, enojado y tirando bombas: "Que me limpien la AFA, hasta hay cuadros de Grondona"
-                                                                              window.open(
-                                                                                "https://www.youtube.com/watch?v=fen7yR1eH1A"
-                                                                              ); //Maradona RE puesto
-                                                                              window.open(
-                                                                                "https://www.youtube.com/watch?v=YX28tRbKdAs"
-                                                                              ); //Diego Maradona vs Juan Sebastian Veron partita della pace 2016
-                                                                              window.open(
-                                                                                "https://www.youtube.com/watch?v=lf4bl68Wjm8"
-                                                                              ); //Live is Life - Diego Maradona - undiego.com
-                                                                              window.open(
-                                                                                "https://www.youtube.com/watch?v=kF8-CjbZCGI"
-                                                                              ); //Diego maradona bailando "El baile de la gambeta"
-                                                                              window.open(
-                                                                                "https://www.youtube.com/watch?v=ZLr13GElY9U"
-                                                                              ); //¡Tremendo recuerdo! El Insoportable con Diego Maradona - Videomatch 98
-                                                                              window.open(
-                                                                                "https://www.youtube.com/watch?v=1ds2k4sXy-g"
-                                                                              ); //El mensaje de Maradona a los argentinos
-                                                                              window.open(
-                                                                                "https://www.youtube.com/watch?v=DZDrBaSGq_Y"
-                                                                              ); //Mi vida junto a Maradona - Peter Capusotto y sus videos - Temporada 11
-                                                                              window.open(
-                                                                                "https://www.youtube.com/watch?v=GubcZPCpmjE"
-                                                                              ); //10 COSAS QUE NO SABIAS DE MARADONA
-                                                                              window.open(
-                                                                                "https://www.youtube.com/watch?v=ca6i6ViSVOM"
-                                                                              ); //Maradona - Volviendo
-                                                                              window.open(
-                                                                                "https://www.youtube.com/watch?v=WSL_vjcRumY"
-                                                                              ); //Maradona, enojado y tirando bombas: "Que me limpien la AFA, hasta hay cuadros de Grondona"
-                                                                              window.open(
-                                                                                "https://www.youtube.com/watch?v=fen7yR1eH1A"
-                                                                              ); //Maradona RE puesto
-                                                                              window.open(
-                                                                                "https://www.youtube.com/watch?v=YX28tRbKdAs"
-                                                                              ); //Diego Maradona vs Juan Sebastian Veron partita della pace 2016
-                                                                              window.open(
-                                                                                "https://www.youtube.com/watch?v=lf4bl68Wjm8"
-                                                                              ); //Live is Life - Diego Maradona - undiego.com
-                                                                              window.open(
-                                                                                "https://www.youtube.com/watch?v=kF8-CjbZCGI"
-                                                                              ); //Diego maradona bailando "El baile de la gambeta"
-                                                                              window.open(
-                                                                                "https://www.youtube.com/watch?v=ZLr13GElY9U"
-                                                                              ); //¡Tremendo recuerdo! El Insoportable con Diego Maradona - Videomatch 98
-                                                                              window.open(
-                                                                                "https://www.youtube.com/watch?v=1ds2k4sXy-g"
-                                                                              ); //El mensaje de Maradona a los argentinos
-                                                                              window.open(
-                                                                                "https://www.youtube.com/watch?v=DZDrBaSGq_Y"
-                                                                              ); //Mi vida junto a Maradona - Peter Capusotto y sus videos - Temporada 11
-                                                                              window.open(
-                                                                                "https://www.youtube.com/watch?v=GubcZPCpmjE"
-                                                                              ); //10 COSAS QUE NO SABIAS DE MARADONA
-                                                                              window.open(
-                                                                                "https://www.youtube.com/watch?v=ca6i6ViSVOM"
-                                                                              ); //Maradona - Volviendo
-                                                                              window.open(
-                                                                                "https://www.youtube.com/watch?v=WSL_vjcRumY"
-                                                                              ); //Maradona, enojado y tirando bombas: "Que me limpien la AFA, hasta hay cuadros de Grondona"
-                                                                              window.open(
-                                                                                "https://www.youtube.com/watch?v=fen7yR1eH1A"
-                                                                              ); //Maradona RE puesto
-                                                                              window.open(
-                                                                                "https://www.youtube.com/watch?v=YX28tRbKdAs"
-                                                                              ); //Diego Maradona vs Juan Sebastian Veron partita della pace 2016
-                                                                              window.open(
-                                                                                "https://www.youtube.com/watch?v=lf4bl68Wjm8"
-                                                                              ); //Live is Life - Diego Maradona - undiego.com
-                                                                              window.open(
-                                                                                "https://www.youtube.com/watch?v=kF8-CjbZCGI"
-                                                                              ); //Diego maradona bailando "El baile de la gambeta"
-                                                                              window.open(
-                                                                                "https://www.youtube.com/watch?v=ZLr13GElY9U"
-                                                                              ); //¡Tremendo recuerdo! El Insoportable con Diego Maradona - Videomatch 98
-                                                                              window.open(
-                                                                                "https://www.youtube.com/watch?v=1ds2k4sXy-g"
-                                                                              ); //El mensaje de Maradona a los argentinos
-                                                                              window.open(
-                                                                                "https://www.youtube.com/watch?v=DZDrBaSGq_Y"
-                                                                              ); //Mi vida junto a Maradona - Peter Capusotto y sus videos - Temporada 11
-                                                                              window.open(
-                                                                                "https://www.youtube.com/watch?v=GubcZPCpmjE"
-                                                                              ); //10 COSAS QUE NO SABIAS DE MARADONA
-                                                                              window.open(
-                                                                                "https://www.youtube.com/watch?v=ca6i6ViSVOM"
-                                                                              ); //Maradona - Volviendo
-                                                                              window.open(
-                                                                                "https://www.youtube.com/watch?v=WSL_vjcRumY"
-                                                                              ); //Maradona, enojado y tirando bombas: "Que me limpien la AFA, hasta hay cuadros de Grondona"
-                                                                              window.open(
-                                                                                "https://www.youtube.com/watch?v=fen7yR1eH1A"
-                                                                              ); //Maradona RE puesto
-                                                                              window.open(
-                                                                                "https://www.youtube.com/watch?v=YX28tRbKdAs"
-                                                                              ); //Diego Maradona vs Juan Sebastian Veron partita della pace 2016
-                                                                              window.open(
-                                                                                "https://www.youtube.com/watch?v=lf4bl68Wjm8"
-                                                                              ); //Live is Life - Diego Maradona - undiego.com
-                                                                              window.open(
-                                                                                "https://www.youtube.com/watch?v=kF8-CjbZCGI"
-                                                                              ); //Diego maradona bailando "El baile de la gambeta"
-                                                                              window.open(
-                                                                                "https://www.youtube.com/watch?v=ZLr13GElY9U"
-                                                                              ); //¡Tremendo recuerdo! El Insoportable con Diego Maradona - Videomatch 98
-                                                                              window.open(
-                                                                                "https://www.youtube.com/watch?v=1ds2k4sXy-g"
-                                                                              ); //El mensaje de Maradona a los argentinos
-                                                                              window.open(
-                                                                                "https://www.youtube.com/watch?v=DZDrBaSGq_Y"
-                                                                              ); //Mi vida junto a Maradona - Peter Capusotto y sus videos - Temporada 11
-                                                                              window.open(
-                                                                                "https://www.youtube.com/watch?v=GubcZPCpmjE"
-                                                                              ); //10 COSAS QUE NO SABIAS DE MARADONA
-                                                                              window.open(
-                                                                                "https://www.youtube.com/watch?v=ca6i6ViSVOM"
-                                                                              ); //Maradona - Volviendo
-                                                                              window.open(
-                                                                                "https://www.youtube.com/watch?v=WSL_vjcRumY"
-                                                                              ); //Maradona, enojado y tirando bombas: "Que me limpien la AFA, hasta hay cuadros de Grondona"
-                                                                              window.open(
-                                                                                "https://www.youtube.com/watch?v=fen7yR1eH1A"
-                                                                              ); //Maradona RE puesto
+                                                                                "https://youtu.be/n0byKhV9Av0"
+                                                                              ); //Perdoname - leo matioli
+
                                                                               bootbox.alert(
                                                                                 {
                                                                                   message:

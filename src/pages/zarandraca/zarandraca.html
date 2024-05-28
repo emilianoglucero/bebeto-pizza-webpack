@@ -2,7 +2,7 @@
 <html>
   <head>
     <!-- <base href="https://bebeto.pizza/pages/zarandraca/elflacovsbeltran.php" /> -->
-    <title>Σᄂ VIΛJΣ DΣ ZΛЯΛПDЯΛᄃΛ</title>
+    <title>☠️☠️☠️</title>
     <link href="../../favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <meta name="viewport" content="width=device-width, user-scalable=no" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -65,37 +65,169 @@
         url: "https://bebeto-pizza-backend.vercel.app/api/userScore",
         method: "GET",
         success: function (data) {
+          // Hide the loading div
+          $("#loading-score").hide();
           // Sort the data by score in descending order
           data.sort((a, b) => b.score - a.score);
 
-          let scoreList = "";
+          let scoreTable =
+            "<table><tr><th>#</th><th>puntaje</th><th>nombre</th><th>fecha</th><th>spirit animal</th></tr>";
           data.forEach((item, index) => {
-            scoreList += `
-        <div class="score__item">
-          <p>Puesto: ${index + 1}</p>
-          <p>Puntaje: ${item.score}</p>
-          <p>Nombre: ${item.userName}</p>
-          <p>Fecha: ${new Date(item.createdAt).toLocaleDateString("es-ES", {
-            day: "2-digit",
-            month: "2-digit",
-            year: "numeric",
-          })}</p>
-        </div>
-      `;
+            // Generate a random emoji
+            const emojis = [
+              "👻",
+              "💀",
+              "☠️",
+              "👽",
+              "👾",
+              "🤖",
+              "🎃",
+              "🔪",
+              "⚰️",
+              "⛓️",
+              "🕷",
+              "🕸",
+              "🦇",
+              "🌑",
+              "🌚",
+              "🌒",
+              "🌓",
+              "🌔",
+              "🌕",
+              "🌖",
+              "🌗",
+              "🌘",
+              "🌙",
+              "🌛",
+              "🌜",
+              "🌝",
+              "🌠",
+              "🌌",
+              "🔮",
+              "🧿",
+              "🧛‍♂️",
+              "🧛‍♀️",
+              "🧟‍♂️",
+              "🧟‍♀️",
+              "🧙‍♂️",
+              "🧙‍♀️",
+              "🧹",
+              "🧲",
+              "🧪",
+              "🧬",
+              "🧫",
+              "🧨",
+              "🔬",
+              "🔭",
+              "📡",
+              "💉",
+              "🩸",
+              "🧷",
+              "🕯",
+              "🪔",
+              "🖤",
+
+              "🏴‍☠️",
+              "🚬",
+              "💣",
+              "🧨",
+              "🪓",
+              "🪒",
+              "🪠",
+              "🪤",
+              "🪦",
+              "🪧",
+            ];
+            const randomEmoji =
+              emojis[Math.floor(Math.random() * emojis.length)];
+
+            scoreTable += `
+          <tr>
+            <td>${index + 1}</td>
+            <td>${item.score}</td>
+            <td>${item.userName}</td>
+            <td>${new Date(item.createdAt).toLocaleDateString("es-ES", {
+              day: "2-digit",
+              month: "2-digit",
+              year: "numeric",
+            })}</td>
+            <td>${randomEmoji}</td>
+          </tr>
+        `;
           });
 
-          $(".score").html(scoreList);
+          scoreTable += "</table>";
+
+          $(".score").html(scoreTable);
         },
         error: function (jqXHR, textStatus, errorThrown) {
+          // Hide the loading div
+          $("#loading-score").hide();
+
           console.error("Error:", textStatus, errorThrown);
         },
       });
     </script>
   </head>
   <body>
-    <div id="screen"></div>
-    <div class="main-score">
-      <div class="score"></div>
+    <div class="container">
+      <h1 class="title">
+        <span>☠️☠️☠️</span
+        >el<span>☠️</span>viaje<span>☠️</span>del<span>☠️</span>zarandraca
+        <span>☠️☠️☠️</span>
+      </h1>
+      <h1 id="loading">cargando...</h1>
+      <div id="screen"></div>
+      <div class="description">
+        <span>✞</span>
+        <p>
+          <span>☹</span> ayudalo en su viaje por la ciudad más sanguinaria y
+          despiadada del Cordón Industrial <span>☹</span>
+          <br />
+          ↓↓↓
+          <br />
+          <a href="https://maps.app.goo.gl/nSzigPsDfZHRyDC98" target="_blank"
+            >☣ Fray Luis Beltrán ☣</a
+          >
+        </p>
+        <span>✞</span>
+        <span>✞</span>
+        <div class="image-container">
+          <img src="./assets/flb.jpeg" alt="fray luis beltran" />
+        </div>
+        <span>✞</span>
+        <span>✞</span>
+
+        <span>✞</span>
+        <p>
+          <span>☹</span> con click si estás en la compu o tap desde una pantalla
+          táctil lo haces saltar <span>☹</span>
+        </p>
+        <span>✞</span>
+        <span>✞</span>
+        <p>
+          <span>☹</span> evitá los peligros y llegá lo más lejos que puedas!!
+          <span>☹</span>
+        </p>
+        <span>✞</span>
+        <span>✞</span>
+        <p>
+          <span>☹</span> si llegás a la cima del ranking pegate un tubazo a
+          666@bebeto.pizza.com con el asunto "SOMOS ZARANDRACA" y nuestro team
+          te regala algo <span>☹</span>
+        </p>
+        <span>✞</span>
+        <span>✞</span>
+      </div>
+      <div class="main-score">
+        <h1 class="score-title">
+          <div>🔥<span>☠</span>🔥</div>
+          <div>↓así está el ranking x ahora↓</div>
+          <div>🔥<span>☠</span>🔥</div>
+        </h1>
+        <h1 id="loading-score">cargando...</h1>
+        <div class="score"></div>
+      </div>
     </div>
   </body>
 </html>
