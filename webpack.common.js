@@ -43,7 +43,7 @@ module.exports = {
       template: `./src/pages/maradona/maradona.html`,
       filename: `maradona.html`,
       inject: true,
-      cache: false,
+      chunks: ["maradona"],
     }),
     // this plugin inject the correct assets as script tags in the html file otherwise the assets are not found
     new HtmlWebpackDeployPlugin({
