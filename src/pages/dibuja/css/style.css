@@ -1,10 +1,17 @@
 body {
   background-color: violet;
   color: yellow;
-  font-family: comic sans ms;
+  font-family: "comic sans", sans-serif;
   background: url("../assets/img/background/prettybluedotsbg.gif");
   cursor: auto; /* Default cursor */
   margin: 0;
+}
+
+@font-face {
+  font-family: "comic sans";
+  src: url("../../../fonts/COMICSANS.TTF") format("truetype");
+  font-weight: normal;
+  font-style: normal;
 }
 
 .content-container {

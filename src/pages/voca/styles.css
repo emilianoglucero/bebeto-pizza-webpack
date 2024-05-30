@@ -1,9 +1,16 @@
 body {
-  font-family: "Comic Sans MS";
-  background-color: aquamarine;
+  font-family: "comic sans", sans-serif;
+  background-color: seagreen;
   color: violet;
   margin: 0px auto;
   max-width: 1150px;
+}
+
+@font-face {
+  font-family: "comic sans";
+  src: url("../../fonts/COMICSANS.TTF") format("truetype");
+  font-weight: normal;
+  font-style: normal;
 }
 
 #loadingVoka {
@@ -132,12 +139,23 @@ h2 {
   font-family: "Lato";
   font-size: 16px;
 }
+@media (max-width: 550px) {
+  .btn {
+    font-size: 4rem;
+  }
+}
 
 #controls {
   position: absolute;
   right: 600px;
   text-align: center;
   top: 1300px;
+}
+@media (max-width: 550px) {
+  #controls {
+    right: 5%;
+    top: 86%;
+  }
 }
 
 #emotion_container {

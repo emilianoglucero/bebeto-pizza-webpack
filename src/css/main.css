@@ -1,10 +1,16 @@
 body {
   margin: 0;
   background: #000;
-  font-family: comic sans ms;
+  font-family: "comic sans", sans-serif;
   color: lightblue;
 }
 
+@font-face {
+  font-family: "comic sans";
+  src: url("../fonts/COMICSANS.TTF") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
 .video-container {
   position: fixed;
   top: 0;
