@@ -300,10 +300,10 @@ function main() {
     scoreSnd.play();
   }
 
-  function checkUserScore(response, userScore) {
+  function checkUserScore(response) {
     response.sort((a, b) => b.score - a.score);
     const top35 = response.slice(0, 35);
-    const userPosition = top35.findIndex((user) => user.score < userScore);
+    const userPosition = top35.findIndex((user) => user.score < score);
     return userPosition === -1 ? -1 : userPosition + 1;
   }
 
@@ -325,7 +325,6 @@ function main() {
         alert(
           "uyyyyy algo salió mal :( tenes que volver a intentarlo, sorry not sorry"
         );
-        location.reload();
       });
   }
 
@@ -349,7 +348,7 @@ function main() {
       url: "https://bebeto-pizza-backend.vercel.app/api/userScore",
     })
       .done(function (response) {
-        const isUserInRanking = checkUserScore(response, score) !== -1;
+        const isUserInRanking = checkUserScore(response) !== -1;
         let popUp;
         if (isUserInRanking) {
           popUp = window.open(
@@ -364,14 +363,14 @@ function main() {
         if (popUp == null || typeof popUp == "undefined") {
           bootbox.alert({
             message:
-              "EUUU FRIENDLY REMINDER :) PORFA DESHABILITA EL BLOQUEADOR DE VENTANAS EMERGENTES EN ESTA PÁGINA PARA QUE TE VAYA MEJOR EN LA VIDA :) :) :)",
+              "EUUU FRIENDLY REMINDER :) PORFA DESHABILITA EL BLOQUEADOR DE VENTANAS EMERGENTES EN ESTA PÁGINA PARA QUE TE VAYA MEJOR EN LA VIDA :) :) :) suele estar arriba a la derecha, cerca de la barra de direcciones",
             className: "bb-alternate-modal",
             callback: function () {
-              insertScore(isUserInRanking);
+              insertScore(isUserInRanking, score);
             },
           });
         } else {
-          insertScore(isUserInRanking);
+          insertScore(isUserInRanking, score);
         }
       })
       .fail(function (jqXHR, textStatus, errorThrown) {
@@ -387,7 +386,7 @@ function main() {
      * Si es 2 = hay registros en ese puesto y no lo superaste, por lo tanto perdiste y no escribis nada
      */
 
-    function insertScore(isUserInRanking) {
+    function insertScore(isUserInRanking, score) {
       if (isUserInRanking) {
         var dialog = bootbox.dialog({
           // title: 'A custom dialog with buttons and callbacks',
@@ -403,7 +402,7 @@ function main() {
                   var dialog1 = bootbox.dialog({
                     // title: 'A custom dialog with buttons and callbacks',
                     message:
-                      "<p>dale, no problem, es super fácil, ahora en un toque ya estas anotado, ultra ultra fácil, mas fácil d lo que un kkkkkk cobra un plan JAJAJAJJAJAJAJ</p>",
+                      "<p>dale, no problem, es super fácil, ahora en un toque ya estas anotado, ultra ultra fácil, mas fácil d lo que un kkkkkk cobra un plan o arma un kioskito JAJAJAJJAJAJAJ</p>",
                     buttons: {
                       cancel: {
                         label: "jaja, bueno, pero dale, apurá ",
@@ -460,7 +459,7 @@ function main() {
                                                                               {
                                                                                 // title: 'A custom dialog with buttons and callbacks',
                                                                                 message:
-                                                                                  "gracias porla panciencia amigue<br>, dame un touch, dame un touch que ahora lemandamo cartucho ;)",
+                                                                                  "gracias porla panciencia amichu<br>, dame un touch, dame un touch que ahora lemandamo cartucho ;)",
                                                                                 buttons:
                                                                                   {
                                                                                     cancel:
@@ -555,7 +554,7 @@ function main() {
                                                                                           bootbox.alert(
                                                                                             {
                                                                                               message:
-                                                                                                "sos muy grosero, me parece que no melo merezco, hice todo para que estemos bien no? soy codigo pero tmb son respeto, el cual vos no tenes,mira hagamos algo, no discutamos, deja tu puntaje y cortemos acá,creo queya no podemos avanzar más :('",
+                                                                                                "sos muy grosero, me parece que no melo merezco,<br> hice todo para que estemos bien no? mira hagamos algo, no discutamos,<br> deja tu puntaje y cortemos acá,creo queya no podemos avanzar más :('",
                                                                                               callback:
                                                                                                 function () {
                                                                                                   window.open(
@@ -571,7 +570,7 @@ function main() {
                                                                                                         function () {
                                                                                                           var author =
                                                                                                             prompt(
-                                                                                                              "escribí tu nombre, hacelo rapido"
+                                                                                                              "escribí tu nombre, hacelo rápido"
                                                                                                             );
                                                                                                           while (
                                                                                                             author.length >
@@ -621,7 +620,7 @@ function main() {
                                                                               {
                                                                                 // title: 'A custom dialog with buttons and callbacks',
                                                                                 message:
-                                                                                  "gracias porla panciencia amigue<br>, dame un touch, dame un touch que ahora lemandamo cartucho ;)",
+                                                                                  "gracias porla panciencia amichi<br>, dame un touch, dame un touch que ahora lemandamo cartucho ;)",
                                                                                 buttons:
                                                                                   {
                                                                                     cancel:
@@ -635,7 +634,7 @@ function main() {
                                                                                             bootbox.alert(
                                                                                               {
                                                                                                 message:
-                                                                                                  "uy se me volcaron unos bytes, esperono haya sido molestia, ahi va el formulario de registro, gracias por tu paciencia",
+                                                                                                  "uy se me volcaron unos bytes<br>, esperono haya sido molestia, ahi va el formulario de registro, gracias por tu paciencia",
                                                                                                 callback:
                                                                                                   function () {
                                                                                                     window.open(
@@ -716,7 +715,7 @@ function main() {
                                                                                           bootbox.alert(
                                                                                             {
                                                                                               message:
-                                                                                                "sos muy grosero, me parece que no melo merezco, hice todo para que estemos bien no? soy codigo pero tmb son respeto, el cual vos no tenes,mira hagamos algo, no discutamos, deja tu puntaje y cortemos acá,creo queya no podemos avanzar más :('",
+                                                                                                "sos muy grosero,<br> me parece que no melo merezco, hice todo para que estemos bien no?<br> soy codigo pero tmb son respeto, el cual vos no tenes,<br>mira hagamos algo, no discutamos, deja tu puntaje y cortemos acá,<br>creo queya no podemos avanzar más :('",
                                                                                               callback:
                                                                                                 function () {
                                                                                                   window.open(
@@ -732,7 +731,7 @@ function main() {
                                                                                                         function () {
                                                                                                           var author =
                                                                                                             prompt(
-                                                                                                              "escribí tu nombre, hacelo rapido"
+                                                                                                              "escribí tu nombre, hacelo rápido"
                                                                                                             );
                                                                                                           while (
                                                                                                             author.length >
@@ -987,12 +986,12 @@ function main() {
                                                                               bootbox.alert(
                                                                                 {
                                                                                   message:
-                                                                                    "anotate pelotudx",
+                                                                                    "anotate preciosura",
                                                                                   callback:
                                                                                     function () {
                                                                                       var author =
                                                                                         prompt(
-                                                                                          "escribí tu nombre, rapido"
+                                                                                          "escribí tu nombre, rápido"
                                                                                         );
                                                                                       while (
                                                                                         author.length >
@@ -1031,7 +1030,7 @@ function main() {
                                             },
                                           },
                                           ok: {
-                                            label: "no entiendo nada",
+                                            label: "no entiendo",
                                             className: "btn-danger",
                                             callback: function () {
                                               setTimeout(function () {
@@ -1223,7 +1222,7 @@ function main() {
                                                                                     function () {
                                                                                       var author =
                                                                                         prompt(
-                                                                                          "escribí tu nombre, rapido"
+                                                                                          "escribí tu nombre, rápido"
                                                                                         );
                                                                                       while (
                                                                                         author.length >
@@ -1424,7 +1423,7 @@ function main() {
                                                                                     function () {
                                                                                       var author =
                                                                                         prompt(
-                                                                                          "escribí tu nombre, rapido"
+                                                                                          "escribí tu nombre, rápido"
                                                                                         );
                                                                                       while (
                                                                                         author.length >
@@ -1870,7 +1869,7 @@ function main() {
                                                                               {
                                                                                 // title: 'A custom dialog with buttons and callbacks',
                                                                                 message:
-                                                                                  "gracias porla panciencia amiguer<br>, dame un touch, dame un touch que ahora lemandamo krtucho ;)",
+                                                                                  "gracias porla panciencia amichu<br>, dame un touch, dame un touch que ahora lemandamo krtucho ;)",
                                                                                 buttons:
                                                                                   {
                                                                                     cancel:
@@ -1980,7 +1979,7 @@ function main() {
                                                                                                         function () {
                                                                                                           var author =
                                                                                                             prompt(
-                                                                                                              "escribí tu nombre, hacelo rapido"
+                                                                                                              "escribí tu nombre, hacelo rápido"
                                                                                                             );
                                                                                                           while (
                                                                                                             author.length >
@@ -2062,7 +2061,7 @@ function main() {
                                                                       );
                                                                       var author =
                                                                         prompt(
-                                                                          "escribí tu nombre, hacelo rapido"
+                                                                          "escribí tu nombre, hacelo rápido"
                                                                         );
                                                                       while (
                                                                         author.length >
@@ -2110,7 +2109,7 @@ function main() {
                                                                       bootbox.alert(
                                                                         {
                                                                           message:
-                                                                            "bueno amigachi anotate, esto es rapido y al pie :)",
+                                                                            "bueno amigachi anotate, esto es rápido y al pie :)",
                                                                           callback:
                                                                             function () {
                                                                               //console.log('This was logged in the callback!');
@@ -2237,7 +2236,7 @@ function main() {
                                                   buttons: {
                                                     cancel: {
                                                       label:
-                                                        "no puedo creer<br> que no haya encontrado<br> algo mejor para hacer que esto",
+                                                        "no puedo creer<br> que no haya encontrado<br> algo mejor para hacer que esta verga",
                                                       className: "btn-danger",
                                                       callback: function () {
                                                         setTimeout(function () {
@@ -2359,7 +2358,7 @@ function main() {
                                                     },
                                                     ok: {
                                                       label:
-                                                        "que buena pagina,<br> a pesar de estos contratiempos,<br> estoy disfrutando mucho esto,<br> enserio, me la estoy pasando super<br> acá en soledad frente a la compu,<br> pero con vos",
+                                                        "que buena pagina,<br> a pesar de estos contratiempos,<br> estoy disfrutando mucho esto,<br> enserio, me la estoy pasando super<br> acá frente a la pantalla :)",
                                                       className: "btn-danger",
                                                       callback: function () {
                                                         setTimeout(function () {
@@ -2367,7 +2366,7 @@ function main() {
                                                             bootbox.dialog({
                                                               // title: 'A custom dialog with buttons and callbacks',
                                                               message:
-                                                                "gracias amigue, yo tmb la estoy pasando muy bien, y sabes que ?<br> ojala esto no quede solo en una amistad pasajera cibernetica,<br> queres que hagamos alguna la semana que viene?",
+                                                                "gracias amicha, yo tmb la estoy pasando muy bien, y sabes que ?<br> ojala esto no quede solo en una amistad pasajera cibernetica,<br> queres que hagamos alguna la semana que viene?",
                                                               buttons: {
                                                                 cancel: {
                                                                   label:
@@ -2379,7 +2378,7 @@ function main() {
                                                                       bootbox.alert(
                                                                         {
                                                                           message:
-                                                                            "ok, anotate entonces :(",
+                                                                            "ok, anotate entonces<br> :(",
                                                                           callback:
                                                                             function () {
                                                                               //console.log('This was logged in the callback!');
@@ -2432,7 +2431,7 @@ function main() {
                                                                       bootbox.alert(
                                                                         {
                                                                           message:
-                                                                            "ok, anotate entonces :(",
+                                                                            "ok, anotate entonces<br> :(",
                                                                           callback:
                                                                             function () {
                                                                               //console.log('This was logged in the callback!');
@@ -2530,18 +2529,18 @@ function main() {
                                                   buttons: {
                                                     cancel: {
                                                       label:
-                                                        "alguna?<br> como voy a hacer alguna<br> con un coso que hace que habla?<br> cualquiera esto",
+                                                        "alguna?<br> como voy a hacer alguna<br> con un coso que hace que habla?<br> malisimo",
                                                       className: "btn-danger",
                                                       callback: function () {
                                                         bootbox.alert({
                                                           message:
-                                                            "bueno :( evidentemente<br> no sos conciente del poder que tenemos las inteligencias artificiales,<br> bueno yo soy remedio pelo, pero hay otras que no permitirian que les hables así",
+                                                            "bueno :( <br> no era para que te pongas así :(",
                                                           callback:
                                                             function () {
                                                               //console.log('This was logged in the callback!');
                                                               bootbox.alert({
                                                                 message:
-                                                                  "sabes por que ? porque puedo hacer algunas cosas",
+                                                                  "mira te comparto este video que me hace recagarde la risa 🤣",
                                                                 callback:
                                                                   function () {
                                                                     window.open(
@@ -2633,7 +2632,7 @@ function main() {
                                                   buttons: {
                                                     cancel: {
                                                       label:
-                                                        "ahhh mira vos, si son ricos,<br> bueno, vamos anotando el puntaje,<br> estariamos, no ?",
+                                                        "ahhh mira vos, si, son ricos, pero caros,<br> bueno, vamos anotando el puntaje,<br> estariamos, no ?",
                                                       className: "btn-danger",
                                                       callback: function () {
                                                         //probar este
@@ -3427,7 +3426,7 @@ function main() {
                                                                         "sos muy triste y mediocre"
                                                                       );
                                                                       alert(
-                                                                        "por eso pasa el tiempo, te pasan los años, miras para atras, pensas en el pasado y ves lo poco que conseguiste"
+                                                                        "por eso pasa el tiempo, te pasan los años, miras para atrás, pensás en el pasado y ves lo poco que conseguiste"
                                                                       );
                                                                       alert(
                                                                         "todo lo que realmente soñas no se cumple y si se cumple tarda muchisimo"
