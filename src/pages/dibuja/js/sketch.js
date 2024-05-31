@@ -10,18 +10,95 @@ function setup() {
   song.loop(),
     (images = [
       {
-        src: "./dibuja/assets/img/delcano-min.png",
-        name: "Delcano",
+        src: "./dibuja/assets/img/subject/alberto-roemmers.png",
+        name: "Alberto Roemmers",
         description:
-          "La carrera empresarial de Macri comenzó en la empresa familiar, el Grupo Socma (Sociedad Macri), un conglomerado industrial diversificado que incluía sectores como la construcción, la automotriz y la alimentación. A finales de la década de 1980, Mauricio asumió roles de liderazgo dentro del grupo, demostrando habilidades para la gestión y la expansión de negocios.",
+          "Alberto Roemmers (Buenos Aires, 9 de enero de 1929) es un empresario argentino, presidente de Laboratorios Roemmers, uno de los laboratorios farmacéuticos más grandes de Argentina y América Latina. Su fortuna asciende a 2.300 millones de dólares (2024), manteniéndose entre los más ricos del país gracias a la expansión de su empresa en el mercado farmacéutico.",
       },
       {
-        src: "./dibuja/assets/img/macribw-min.png",
-        name: "Macri",
+        src: "./dibuja/assets/img/subject/alejandro-bulgheroni.png",
+        name: "Alejandro Bulgheroni",
         description:
-          "La carrera empresarial de Macri comenzó en la empresa familiar, el Grupo Socma (Sociedad Macri), un conglomerado industrial diversificado que incluía sectores como la construcción, la automotriz y la alimentación. A finales de la década de 1980, Mauricio asumió roles de liderazgo dentro del grupo, demostrando habilidades para la gestión y la expansión de negocios.",
+          "Alejandro Pedro Bulgheroni (Buenos Aires, 24 de octubre de 1944) es un empresario argentino del sector energético, cofundador y presidente de Pan American Energy, la mayor empresa privada de energía en Argentina. Bulgheroni ha diversificado sus inversiones en el sector vitivinícola. Su fortuna es estimada en 5.200 millones de dólares (2024), con un crecimiento notable debido a las operaciones en Vaca Muerta, una de las mayores reservas de shale gas del mundo.",
       },
-      // ... rest of the images
+      {
+        src: "./dibuja/assets/img/subject/marcos-galperin.png",
+        name: "Marcos Galperin",
+        description:
+          "Marcos Eduardo Galperín Lebach (Buenos Aires, 31 de octubre de 1971) es un empresario argentino conocido por ser fundador, presidente y director ejecutivo de Mercado Libre, además de heredero de la curtiembre SADESA.<br> Galperín aumentó su fortuna en 1400 millones de dólares el último año (2023) según Forbes y se ubica en el puesto número 764 con un total de 3.900 millones de dólares (2024).",
+      },
+      {
+        src: "./dibuja/assets/img/subject/paolo-rocca.png",
+        name: "Paolo Rocca",
+        description:
+          "Paolo Rocca (Milán, 14 de octubre de 1952) es un empresario ítalo-argentino, presidente y CEO del Grupo Techint, uno de los conglomerados industriales más grandes de Argentina y América Latina. Techint está presente en sectores como la siderurgia, la ingeniería y la construcción. Rocca ha enfrentado investigaciones por presunta corrupción en Brasil y Argentina en el marco del escándalo de los cuadernos de las coimas.<br>Paolo Rocca aumentó su fortuna en 2700 millones de dólares el último año (2023) y se ubica en el puesto 1.104 según Forbes.",
+      },
+      {
+        src: "./dibuja/assets/img/subject/gregorio-perez-companc.png",
+        name: "Gregorio Pérez Companc",
+        description:
+          "Gregorio Pérez Companc (Buenos Aires, 23 de agosto de 1934) es un empresario argentino conocido por su participación en la industria alimentaria y energética a través del Grupo Pérez Companc y Molinos Río de la Plata. En los años 90, vendió la mayor parte de su conglomerado energético a Petrobras. Su fortuna, que asciende a 2.400 millones de dólares (2024), se ha mantenido estable, ubicándolo entre los empresarios más acaudalados del país.",
+      },
+      {
+        src: "./dibuja/assets/img/subject/eduardo-eurnekian.png",
+        name: "Eduardo Eurnekian",
+        description:
+          "Eduardo Eurnekian (Buenos Aires, 4 de diciembre de 1932) es un empresario argentino de ascendencia armenia, conocido por su empresa Corporación América, que opera aeropuertos y se ha expandido a otros sectores como la agroindustria y las telecomunicaciones. Eurnekian ha incrementado su fortuna a 2.600 millones de dólares (2024) y es un activo inversor en diversos proyectos de infraestructura en América Latina y Europa.",
+      },
+      {
+        src: "./dibuja/assets/img/subject/eduardo-costantini.png",
+        name: "Eduardo Costantini",
+        description:
+          "Eduardo Costantini (Buenos Aires, 17 de septiembre de 1946) es un empresario y desarrollador inmobiliario argentino, fundador de Consultatio y creador del Museo de Arte Latinoamericano de Buenos Aires (MALBA). Su empresa es conocida por proyectos de alta gama como Nordelta y Puertos. Costantini posee una fortuna de aproximadamente 1.500 millones de dólares (2024), destacándose por su influencia en el mercado inmobiliario de lujo.",
+      },
+      {
+        src: "./dibuja/assets/img/subject/claudio-belocopitt.png",
+        name: "Claudio Belocopitt",
+        description:
+          "Claudio Belocopitt (Buenos Aires, 3 de octubre de 1963) es un empresario argentino conocido por ser el propietario del Grupo Swiss Medical, una de las principales empresas de salud en Argentina. Su fortuna está valuada en 1.200 millones de dólares (2024), impulsada por la expansión de su empresa en el sector de servicios de salud y seguros médicos.",
+      },
+      {
+        src: "./dibuja/assets/img/subject/mauricio-macri.png",
+        name: "Mauricio Macri",
+        description:
+          "Mauricio Macri (Tandil, 8 de febrero de 1959) es un empresario y político argentino, conocido por haber sido presidente de Argentina (2015-2019) y jefe de gobierno de la Ciudad de Buenos Aires (2007-2015). Antes de su carrera política, fue presidente de Boca Juniors y líder del grupo empresarial SOCMA. Su fortuna se ha visto afectada por su incursión en la política, aunque se estima en 500 millones de dólares (2024). Macri ha enfrentado múltiples acusaciones de corrupción, tanto en el ámbito empresarial como político.",
+      },
+      {
+        src: "./dibuja/assets/img/subject/eduardo-elsztain.png",
+        name: "Eduardo Elsztain",
+        description:
+          "Eduardo Sergio Elsztain (Buenos Aires, 26 de enero de 1960) es un empresario argentino, presidente de IRSA, la mayor empresa de bienes raíces del país, y de Cresud, una compañía agrícola. Su fortuna asciende a 1.800 millones de dólares (2024), con un crecimiento sostenido gracias a sus inversiones en el sector inmobiliario y agropecuario.",
+      },
+      {
+        src: "./dibuja/assets/img/subject/marcelo-mindlin.png",
+        name: "Marcelo Mindlin",
+        description:
+          "Marcelo Mindlin (Buenos Aires, 15 de enero de 1964) es un empresario argentino, presidente y CEO de Pampa Energía, una de las principales empresas de energía del país. Mindlin también es conocido por sus inversiones en infraestructura a través de su firma Inversora Dolphin. Su fortuna es de aproximadamente 1.700 millones de dólares (2024), con un crecimiento notable debido a sus inversiones en el sector energético.",
+      },
+      {
+        src: "./dibuja/assets/img/subject/luis-pagani.png",
+        name: "Luis Pagani",
+        description:
+          "Luis Pagani (Buenos Aires, 1955) es un empresario argentino, presidente de Arcor, uno de los mayores productores de alimentos y golosinas de América Latina. Bajo su liderazgo, Arcor se ha expandido internacionalmente. Su fortuna está estimada en 1.900 millones de dólares (2024), con un crecimiento sostenido gracias a la expansión y diversificación de sus negocios.",
+      },
+      {
+        src: "./dibuja/assets/img/subject/francisco-de-narvaez.png",
+        name: "Francisco de Narváez",
+        description:
+          "Francisco de Narváez (Bogotá, 22 de septiembre de 1953) es un empresario y político argentino de origen colombiano, conocido por su participación en el Grupo de Narváez y su carrera política como diputado nacional. Su fortuna está valuada en 900 millones de dólares (2024), aunque ha enfrentado diversas controversias y acusaciones de corrupción a lo largo de su carrera.",
+      },
+      {
+        src: "./dibuja/assets/img/subject/carlos-blaquier.png",
+        name: "Carlos Pedro Blaquier",
+        description:
+          "Carlos Pedro Blaquier (Buenos Aires, 28 de agosto de 1927 - ibídem, 13 de marzo de 2023) fue un empresario argentino. Uno de los hombres más ricos del país, fue conocido por ser el dueño de la empresa agroindustrial Ledesma, y su complicidad en los crímenes de lesa humanidad ocurridos en Jujuy durante la denominada 'Noche del Apagón', la cual fue parte de las acciones de terrorismo de Estado llevadas a cabo por la última dictadura cívico-militar argentina (1976-1983)3 y originó una investigación y un proceso judicial en su contra.",
+      },
+      {
+        src: "./dibuja/assets/img/subject/hugo-sigman.png",
+        name: "Hugo Sigman",
+        description:
+          "Hugo Sigman (Buenos Aires, 1 de enero de 1944) es un empresario y médico psiquiatra argentino, cofundador del Grupo Insud, con negocios en sectores como la salud, la biotecnología, y la industria cultural. Sigman ha incrementado su fortuna a 2.000 millones de dólares (2024), siendo uno de los empresarios más destacados en el ámbito farmacéutico y biotecnológico de Argentina.",
+      },
     ]);
   i = Math.floor(images.length * Math.random());
   loadImage(images[i].src, function (img) {
