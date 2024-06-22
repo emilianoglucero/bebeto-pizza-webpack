@@ -596,9 +596,8 @@ function onWindowResize() {
 function createControls(camera) {
   controls = new TrackballControls(camera, renderer.domElement);
 
-  controls.rotateSpeed = 1.0;
-  controls.zoomSpeed = 1.2;
   controls.panSpeed = 0.8;
+  controls.maxDistance = 800;
 
   controls.keys = ["KeyA", "KeyS", "KeyD"];
 }
