@@ -1,6 +1,6 @@
 import * as THREE from "three";
 
-// import Stats from "three/addons/libs/stats.module.js";
+import Stats from "three/addons/libs/stats.module.js";
 
 import { NURBSCurve } from "three/addons/curves/NURBSCurve.js";
 import { NURBSSurface } from "three/addons/curves/NURBSSurface.js";
@@ -18,12 +18,14 @@ import { gsap } from "https://cdn.skypack.dev/gsap";
 // const gui = new GUI.GUI();
 
 let container;
-// let stats;
+let stats;
 
 let camera, scene, renderer;
 let group;
 let controls;
 let text;
+
+let particleGroup;
 
 let targetRotation = 0;
 let targetRotationOnPointerDown = 0;
@@ -196,10 +198,10 @@ function init() {
   // Define your models
   const models = [
     {
-      path: "./screenshots/assets/img/screenshots/models/plastic_chair/scene.gltf",
-      position: { x: -418, y: -76, z: 1 },
-      rotation: { x: 0, y: 8, z: 0 },
-      scale: 1.5,
+      path: "./screenshots/assets/img/screenshots/models/monobloc_chair/scene.gltf",
+      position: { x: -41, y: 96, z: 1 },
+      rotation: { x: 0, y: 495, z: 0 },
+      scale: 100.5,
     },
     {
       path: "./screenshots/assets/img/screenshots/models/marlboro_cigarettes/scene.gltf",
@@ -211,7 +213,13 @@ function init() {
       path: "./screenshots/assets/img/screenshots/models/snake-plant/scene.gltf",
       position: { x: 67, y: 100, z: 133 },
       rotation: { x: 0, y: 0, z: 0 },
-      scale: 85,
+      scale: 55,
+    },
+    {
+      path: "./screenshots/assets/img/screenshots/models/trash_bag/scene.gltf",
+      position: { x: -127, y: 100, z: 45 },
+      rotation: { x: 0, y: 0, z: 0 },
+      scale: 14,
     },
   ];
 
@@ -250,6 +258,45 @@ function init() {
     );
   });
 
+  // Particles snow
+
+  // Assuming THREE.js is already included and initialized
+
+  // 1. Define sphere geometry and material outside the loop for efficiency
+  const sphereGeometry = new THREE.SphereGeometry(66, 32, 32); // Radius, widthSegments, heightSegments
+  // Load the texture
+  const textureLoader = new THREE.TextureLoader();
+  const texture = textureLoader.load(
+    "./screenshots/assets/img/screenshots/img/blue.png"
+  ); // Replace with the path to your image
+
+  // Step 2: Create the material with the texture
+  const sphereMaterial = new THREE.MeshBasicMaterial({
+    map: texture,
+  });
+
+  // 2. Create a group for all particles
+  particleGroup = new THREE.Group();
+
+  // 3. Create and position particles
+  const particles = 30; // Number of particles
+  for (let i = 0; i < particles; i++) {
+    const sphereMesh = new THREE.Mesh(sphereGeometry, sphereMaterial);
+    sphereMesh.position.set(
+      Math.random() * 2000 - 1000, // x
+      Math.random() * 2000 - 1000, // y
+      Math.random() * 2000 - 1000 // z
+    );
+    particleGroup.add(sphereMesh); // Add each sphere to the group
+  }
+
+  particleGroup.position.set(0, 0, 0); // Center the group (optional
+
+  // 4. Add the group to the scene
+  scene.add(particleGroup);
+
+  // Note: For animation, update positions or properties of particles in your animation loop
+
   // NURBS curve
 
   const nurbsControlPoints = [];
@@ -283,7 +330,7 @@ function init() {
   const nurbsGeometry = new THREE.BufferGeometry();
   nurbsGeometry.setFromPoints(nurbsCurve.getPoints(200));
 
-  const nurbsMaterial = new THREE.LineBasicMaterial({ color: 0x66ff66 });
+  const nurbsMaterial = new THREE.LineBasicMaterial({ color: 0x52b6f9 });
 
   const nurbsLine = new THREE.Line(nurbsGeometry, nurbsMaterial);
   nurbsLine.position.set(0, -100, 0);
@@ -293,7 +340,7 @@ function init() {
   nurbsControlPointsGeometry.setFromPoints(nurbsCurve.controlPoints);
 
   const nurbsControlPointsMaterial = new THREE.LineBasicMaterial({
-    color: 0x66ff66,
+    color: 0xffb6c1,
     // color: 0xff0000,
     opacity: 0.25,
     // transparent: true,
@@ -525,8 +572,8 @@ function init() {
 
   createControls(camera);
 
-  // stats = new Stats();
-  // container.appendChild(stats.dom);
+  stats = new Stats();
+  container.appendChild(stats.dom);
 
   container.style.touchAction = "none";
   container.style.position = "fixed";
@@ -600,9 +647,34 @@ function animate() {
   if (text) {
     text.rotation.y += 0.01;
   }
+  // For more complex animations, iterate over each particle
+  // and update properties like position, rotation, or scale
+  for (let i = 0; i < particleGroup.children.length; i++) {
+    const particle = particleGroup.children[i];
+
+    // Example: Move particles up and reset after they reach a certain height
+    particle.position.y += 1;
+    if (particle.position.y > 1000) {
+      particle.position.y = -1000;
+    }
+
+    // Add random rotation
+    if (!particle.rotationSpeed) {
+      // Assign a random rotation speed if not already assigned
+      particle.rotationSpeed = {
+        x: (Math.random() - 0.5) * 0.02,
+        y: (Math.random() - 0.5) * 0.02,
+        z: (Math.random() - 0.5) * 0.02,
+      };
+    }
+    // Apply the rotation speed
+    particle.rotation.x += particle.rotationSpeed.x;
+    particle.rotation.y += particle.rotationSpeed.y;
+    particle.rotation.z += particle.rotationSpeed.z;
+  }
 
   render();
-  // stats.update();
+  stats.update();
 }
 
 function render() {
