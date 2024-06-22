@@ -597,7 +597,7 @@ function createControls(camera) {
   controls = new TrackballControls(camera, renderer.domElement);
 
   controls.panSpeed = 0.8;
-  controls.maxDistance = 800;
+  controls.maxDistance = 1200;
 
   controls.keys = ["KeyA", "KeyS", "KeyD"];
 }
