@@ -126,7 +126,7 @@ function popupWindow() {
     "https://pbs.twimg.com/media/F6BB9rZXMAABMGW?format=jpg&name=small",
     "https://pbs.twimg.com/media/GQSormWWAAAP7JQ?format=jpg&name=900x900",
     "https://pbs.twimg.com/media/GNFhKGMWkAAmjvo?format=jpg&name=900x900",
-    "https://pbs.twimg.com/media/GILvUwBX0AAMki6?format=jpg&name=900x900"
+    "https://pbs.twimg.com/media/GILvUwBX0AAMki6?format=jpg&name=900x900",
     "https://pbs.twimg.com/media/GHWKc46WQAAr4iY?format=jpg&name=large",
     "https://pbs.twimg.com/media/GCT2X3oXAAA_4Xt?format=jpg&name=medium",
     "https://pbs.twimg.com/media/F7SVwRRXUAATbWT?format=jpg&name=large",
@@ -151,11 +151,7 @@ function popupWindow() {
     "https://pbs.twimg.com/media/FyJi7XsWAAAuPsg?format=png&name=900x900",
     "https://pbs.twimg.com/media/FyDUrJZWIAQJl6g?format=jpg&name=medium",
     "https://pbs.twimg.com/media/Fx8BwTGWAAU653R?format=jpg&name=900x900",
-    "https://pbs.twimg.com/media/Fx3TrXOWwAAmbvp?format=jpg&name=medium"
-
-
-
-
+    "https://pbs.twimg.com/media/Fx3TrXOWwAAmbvp?format=jpg&name=medium",
   ];
 
   const randomDiegoImage =
