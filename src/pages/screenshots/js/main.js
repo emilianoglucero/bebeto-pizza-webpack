@@ -260,25 +260,23 @@ function init() {
 
   // Particles snow
 
-  // Assuming THREE.js is already included and initialized
-
-  // 1. Define sphere geometry and material outside the loop for efficiency
+  // Define sphere geometry and material outside the loop for efficiency
   const sphereGeometry = new THREE.SphereGeometry(66, 32, 32); // Radius, widthSegments, heightSegments
-  // Load the texture
+
   const textureLoader = new THREE.TextureLoader();
   const texture = textureLoader.load(
     "./screenshots/assets/img/screenshots/img/blue.png"
-  ); // Replace with the path to your image
+  );
 
-  // Step 2: Create the material with the texture
+  // Create the material with the texture
   const sphereMaterial = new THREE.MeshBasicMaterial({
     map: texture,
   });
 
-  // 2. Create a group for all particles
+  // Create a group for all particles
   particleGroup = new THREE.Group();
 
-  // 3. Create and position particles
+  // Create and position particles
   const particles = 30; // Number of particles
   for (let i = 0; i < particles; i++) {
     const sphereMesh = new THREE.Mesh(sphereGeometry, sphereMaterial);
@@ -292,10 +290,8 @@ function init() {
 
   particleGroup.position.set(0, 0, 0); // Center the group (optional
 
-  // 4. Add the group to the scene
+  // Add the group to the scene
   scene.add(particleGroup);
-
-  // Note: For animation, update positions or properties of particles in your animation loop
 
   // NURBS curve
 
@@ -341,7 +337,6 @@ function init() {
 
   const nurbsControlPointsMaterial = new THREE.LineBasicMaterial({
     color: 0xffb6c1,
-    // color: 0xff0000,
     opacity: 0.25,
     // transparent: true,
   });
