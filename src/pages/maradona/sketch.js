@@ -80,8 +80,20 @@ function draw() {
   image(img11, random(width), random(height), random(25, 150), random(25, 150));
 
   // boton que abre ventanitas con frases del diego
-  // button = createButton("hola, como andamos? hace click");
-  // button.position(300, 100);
+  button = createButton(
+    "hola, como andamos? hace clik o tocá donde quieras, recuerda sos una persona libre"
+  );
+  button.position(100, 100);
+  button2 = createButton("deshabilita el bloqueador de popups");
+  button2.position(100, 120);
+  button3 = createButton("y desmutea esta pagina");
+  button3.position(100, 137);
+  button.mousePressed(popupWindow);
+  button.mousePressed(song.play);
+  button2.mousePressed(popupWindow);
+  button2.mousePressed(song.play);
+  button3.mousePressed(popupWindow);
+  button3.mousePressed(song.play);
   // button.mousePressed(videos);
 
   //llena el cursor cuando apretas
