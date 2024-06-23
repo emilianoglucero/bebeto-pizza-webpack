@@ -1,17 +1,17 @@
 //ocultamos el boton de mostrar muchos videos en chromw porque es cheto y no funca
 var is_chrome = navigator.userAgent.toLowerCase().indexOf("chrome") > -1;
 
-$(document).ready(function () {
-  if (is_chrome) {
-    console.log("no uses chrome careta, abrí firefox");
-    //document.getElementById( 'videitos' ).style.display = 'none';
-    $("#videitos").hide();
-  } else {
-    console.log("otro navegador");
-    $("#videitos").show();
-    //document.getElementById( 'videitos' ).style.display = 'none';
-  }
-});
+// $(document).ready(function () {
+//   if (is_chrome) {
+//     console.log("no uses chrome careta, abrí firefox");
+//     //document.getElementById( 'videitos' ).style.display = 'none';
+//     $("#videitos").hide();
+//   } else {
+//     console.log("otro navegador");
+//     $("#videitos").show();
+//     //document.getElementById( 'videitos' ).style.display = 'none';
+//   }
+// });
 //imagenes a ser cargadas en el canvas de forma dinamica
 var img1;
 var img2;
@@ -32,6 +32,24 @@ let button;
 
 //imagen del puntero del mouse
 var mouseImg;
+
+function triggerActions() {
+  console.log("triggerActions");
+  // trigger sound
+  clickSound.play();
+  // trigger song
+  song.play();
+  // triggerr popup
+  popupWindow();
+}
+
+function touchStarted() {
+  triggerActions();
+}
+
+function mousePressed() {
+  triggerActions();
+}
 
 function preload() {
   //randomNumber = Math.floor((Math.random() * 4));
@@ -80,32 +98,28 @@ function draw() {
   image(img11, random(width), random(height), random(25, 150), random(25, 150));
 
   // boton que abre ventanitas con frases del diego
-  button = createButton(
-    "hola, como andamos? hace clik o tocá donde quieras, recuerda sos una persona libre"
-  );
-  button.position(100, 100);
-  button2 = createButton("deshabilita el bloqueador de popups");
-  button2.position(100, 120);
-  button3 = createButton("y desmutea esta pagina");
-  button3.position(100, 137);
-  button.mousePressed(popupWindow);
-  button.mousePressed(song.play);
-  button2.mousePressed(popupWindow);
-  button2.mousePressed(song.play);
-  button3.mousePressed(popupWindow);
-  button3.mousePressed(song.play);
+  // button = createButton(
+  //   "hola, como andamos? hace clik o tocá donde quieras, recuerda sos una persona libre"
+  // );
+  // button.position(100, 100);
+  // button2 = createButton("deshabilita el bloqueador de popups");
+  // button2.position(100, 120);
+  // button3 = createButton("y desmutea esta pagina");
+  // button3.position(100, 137);
+  // button.mousePressed(popupWindow);
+  // button.mousePressed(song.play);
+
+  // button2.mousePressed(popupWindow);
+  // button2.mousePressed(song.play);
+
+  // button3.mousePressed(popupWindow);
+  // button3.mousePressed(song.play);
+
   // button.mousePressed(videos);
 
   //llena el cursor cuando apretas
   if (mouseIsPressed) {
-    fill(0);
-    // trigger sound
-    clickSound.play();
-    // trigger song
-    song.play();
-
-    // triggerr popup
-    popupWindow();
+    triggerActions();
   } else {
     fill(255);
   }
