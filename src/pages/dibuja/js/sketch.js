@@ -105,7 +105,7 @@ function setup() {
     // Hide the loading div
     loadingDivPaint.style.display = "none";
     if (windowWidth <= 550) {
-      image(img, 0, 0, 300, 200);
+      image(img, 0, 0, 270, 200);
     } else {
       image(img, 0, 0, 600, 400);
     }
@@ -117,7 +117,7 @@ function setup() {
   });
   // Create the canvas with different dimensions based on the window width
   if (windowWidth <= 550) {
-    c = createCanvas(300, 200);
+    c = createCanvas(270, 200);
   } else {
     c = createCanvas(600, 400);
   }

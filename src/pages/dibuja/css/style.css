@@ -2,7 +2,10 @@ body {
   background-color: violet;
   color: yellow;
   font-family: "comic sans", sans-serif;
-  background: url("../assets/img/background/prettybluedotsbg.gif");
+  /* background: url("../assets/img/background/prettybluedotsbg.gif"); */
+  background: url("../assets/img/background/kitty-background.jpg") no-repeat;
+  background-size: 100% auto; /* Make the image fit the width */
+  background-repeat: repeat-y; /* Repeat the image vertically */
   cursor: auto; /* Default cursor */
   margin: 0;
 }
@@ -22,7 +25,7 @@ body {
 
 .save-button {
   display: flex;
-  gap: 22rem;
+  gap: 8rem;
   padding-top: 4rem;
 }
 
@@ -128,7 +131,7 @@ body {
 @media (max-width: 550px) {
   /* Phones */
   #color-title {
-    gap: 1.4rem;
+    gap: 1rem;
   }
 }
 
@@ -162,9 +165,17 @@ body {
 
 .description-container {
   display: flex;
-  max-width: 80%;
+  max-width: 68%;
   padding-top: 4rem;
   font-size: 1.4rem;
+}
+
+@media (max-width: 1100px) {
+  /* Phones */
+  .description-container {
+    text-align: start;
+    max-width: 64%;
+  }
 }
 
 .description-container h3 {
@@ -299,7 +310,7 @@ div.desc {
 #img-dibuja-8 {
   position: absolute;
   top: 153%;
-  left: 20%;
+  left: 23%;
 }
 #img-dibuja-9 {
   position: absolute;
@@ -319,7 +330,7 @@ div.desc {
 #img-dibuja-12 {
   position: absolute;
   top: 158%;
-  left: 73%;
+  left: 68%;
 }
 
 @media (max-width: 1350px) {
@@ -387,8 +398,8 @@ div.desc {
 @media (max-width: 550px) {
   /* Phones */
   .circle {
-    width: 3rem;
-    height: 3rem;
+    width: 2.6rem;
+    height: 2.6rem;
   }
 }
 
@@ -415,12 +426,13 @@ div.desc {
 .page-explanation-container {
   font-size: 1.4rem;
   text-align: center;
+  max-width: 68%;
 }
 @media (max-width: 1100px) {
   /* Phones */
   .page-explanation-container {
-    text-align: start;
-    max-width: 80%;
+    max-width: 64%;
+    text-align: center;
   }
 }
 
@@ -447,7 +459,7 @@ div.desc {
 @media (max-width: 550px) {
   /* Phones */
   #stroke-width {
-    font-size: 1rem;
+    font-size: 0.9rem;
   }
 }
 .paint-container {
@@ -455,7 +467,7 @@ div.desc {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  max-width: 80%;
+  max-width: 68%;
   padding-top: 8rem;
   padding-bottom: 4rem;
 }
