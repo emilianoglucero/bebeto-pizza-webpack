@@ -42,7 +42,7 @@ function preload() {
   img4 = loadImage("./maradona/assets/img/maradonacopola.jpg");
   img5 = loadImage("./maradona/assets/img/maradonadroga.jpg");
   img6 = loadImage("./maradona/assets/img/maradonagabi.jpg");
-  img8 = loadImage("./maradona/assets/img/maradonahipster.jpeg");
+  img8 = loadImage("./maradona/assets/img/maradonahipster.jpg");
   img7 = loadImage("./maradona/assets/img/maradonaloco.jpg");
   img9 = loadImage("./maradona/assets/img/maradonapapanoel.jpg");
   img10 = loadImage("./maradona/assets/img/maradonarodrigo.jpg");
@@ -56,12 +56,10 @@ function preload() {
 }
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  //hace sonar el sonido precargado de fondo
-  song.loop(); // song is ready to play during setup() because it was loaded during preload
 
   //setInterval ejecuta una funcion cada cierto intervalo de tiempo
-  var intervalID = window.setInterval(scrollDown, 150);
-  var intervalID2 = window.setInterval(popupWindow, 200);
+  // var intervalID = window.setInterval(scrollDown, 150);
+  // var intervalID2 = window.setInterval(popupWindow, 200);
 }
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
@@ -82,15 +80,20 @@ function draw() {
   image(img11, random(width), random(height), random(25, 150), random(25, 150));
 
   // boton que abre ventanitas con frases del diego
-  button = createButton("clickea para cambiar tu vida");
-  button.position(300, 100);
-  button.mousePressed(videos);
+  // button = createButton("hola, como andamos? hace click");
+  // button.position(300, 100);
+  // button.mousePressed(videos);
 
   //llena el cursor cuando apretas
   if (mouseIsPressed) {
     fill(0);
     // trigger sound
     clickSound.play();
+    // trigger song
+    song.play();
+
+    // triggerr popup
+    popupWindow();
   } else {
     fill(255);
   }
@@ -161,22 +164,12 @@ function popupWindow() {
 
 //new tabs con videos del diego
 function videos() {
-  window.open("https://www.youtube.com/watch?v=f3Sp75Dphrs"); //El mejor vídeo de Diego Maradona
-  window.open("https://www.youtube.com/watch?v=YX28tRbKdAs"); //Diego Maradona vs Juan Sebastian Veron partita della pace 2016
-  window.open("https://www.youtube.com/watch?v=lf4bl68Wjm8"); //Live is Life - Diego Maradona - undiego.com
-  window.open("https://www.youtube.com/watch?v=kF8-CjbZCGI"); //Diego maradona bailando "El baile de la gambeta"
   window.open("https://www.youtube.com/watch?v=ZLr13GElY9U"); //¡Tremendo recuerdo! El Insoportable con Diego Maradona - Videomatch 98
-  window.open("https://www.youtube.com/watch?v=1ds2k4sXy-g"); //El mensaje de Maradona a los argentinos
   window.open("https://www.youtube.com/watch?v=DZDrBaSGq_Y"); //Mi vida junto a Maradona - Peter Capusotto y sus videos - Temporada 11
-  window.open("https://www.youtube.com/watch?v=GubcZPCpmjE"); //10 COSAS QUE NO SABIAS DE MARADONA
   window.open("https://www.youtube.com/watch?v=ca6i6ViSVOM"); //Maradona - Volviendo
   window.open("https://www.youtube.com/watch?v=WSL_vjcRumY"); //Maradona, enojado y tirando bombas: "Que me limpien la AFA, hasta hay cuadros de Grondona"
-  window.open("https://www.youtube.com/watch?v=fen7yR1eH1A"); //Maradona RE puesto
-  window.open("https://www.youtube.com/watch?v=pgv6mxRTVQY"); //Increible caño de Maradona a una asistente • 2016
   window.open("https://www.youtube.com/watch?v=auVgp3HcYaY"); //Diego Armando Maradona bailando Psy Trance "Vini Vici - The Tribe"
-  window.open("https://www.youtube.com/watch?v=MtnzH8uTgx4"); //El dia que Maradona jugo para el Tottenham (1986)
   window.open("https://www.youtube.com/watch?v=kAJYpJx9uu0"); //Diego Maradona indignado con la organización del mundial y el sorteo: "no vengo nunca mas"
-  window.open("https://www.youtube.com/watch?v=qcIA8S1Q2Qg"); //maradona la pelicula
   window.open("https://www.youtube.com/watch?v=KLylty7mZys"); //El saludo de Maradona por Navidad
   window.open("https://www.youtube.com/watch?v=y9qveBt1Q6E"); //MARADONA - CHARLY GARCIA, (entrevista 2004)
   window.open("https://www.youtube.com/watch?v=o_Iu_Gm7ylI"); //El saludo navideño de Maradona con "palito" incluído para Macri
@@ -197,7 +190,6 @@ function videos() {
   window.open("https://www.youtube.com/watch?v=HvHCp30OGCA"); //Diego Maradona entrenando en la estancia El sosiego, en Arrecifes 1992
   window.open("https://www.youtube.com/watch?v=WAQJJBdcxXI"); //La Bronca de Maradona contra Verón Durante el Partido Unidos por la Paz 2016
   window.open("https://www.youtube.com/watch?v=gpgE_Hx15GE"); //Mar de fondo 2004 Tyc Sports Ortega,Maradona y el Turco Garcia.
-  window.open("https://www.youtube.com/watch?v=GOXa-HZvTVg"); //Alejandro Dolina: la diferencia entre Messi y Maradona.
   window.open("https://www.youtube.com/watch?v=ZLr13GElY9U"); //¡Tremendo recuerdo! El Insoportable con Diego Maradona - Videomatch 98
   window.open("https://www.youtube.com/watch?v=f3Sp75Dphrs"); //El mejor vídeo de Diego Maradona
   window.open("https://www.youtube.com/watch?v=AlCzdmYmpIY"); //La última vez que Diego Armando Maradona jugó por Barcelona - Final Copa del Rey 1984
