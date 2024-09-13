@@ -24,7 +24,7 @@ module.exports = {
           to: "screenshots/assets/img/screenshots",
         },
         { from: "src/pages/maradona/assets", to: "maradona/assets" },
-        { from: "src/pages/compraventa/static/media", to: "static/media" },
+        { from: "src/pages/compraventa/assets", to: "assets" },
         { from: "src/pages/zarandraca/assets", to: "zarandraca/assets" },
         {
           from: "src/pages/dibuja/assets",
@@ -246,20 +246,20 @@ module.exports = {
       assets: {
         copy: [
           {
-            from: "./src/pages/compraventa/static/js/2.357e6aad.chunk.js",
+            from: "./src/pages/compraventa/static/js/453.cba48af4.chunk.js",
             to: "compraventa/js",
           },
           {
-            from: "./src/pages/compraventa/static/js/main.1395158f.chunk.js",
+            from: "./src/pages/compraventa/static/js/main.ce665d6b.js",
             to: "compraventa/js",
           },
         ],
         scripts: [
           {
-            path: "compraventa/js/2.357e6aad.chunk.js",
+            path: "compraventa/js/453.cba48af4.chunk.js",
           },
           {
-            path: "compraventa/js/main.1395158f.chunk.js",
+            path: "compraventa/js/main.ce665d6b.js",
           },
         ],
       },
