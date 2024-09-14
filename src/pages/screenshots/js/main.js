@@ -1,17 +1,14 @@
 import * as THREE from "three";
-
 import Stats from "three/addons/libs/stats.module.js";
-
 import { NURBSCurve } from "three/addons/curves/NURBSCurve.js";
 import { NURBSSurface } from "three/addons/curves/NURBSSurface.js";
 import { NURBSVolume } from "three/addons/curves/NURBSVolume.js";
 import { ParametricGeometry } from "three/addons/geometries/ParametricGeometry.js";
-import { TrackballControls } from "https://cdn.jsdelivr.net/npm/three/examples/jsm/controls/TrackballControls.js";
-import { TextGeometry } from "https://cdn.jsdelivr.net/npm/three/examples/jsm/geometries/TextGeometry.js";
-import { FontLoader } from "https://cdn.jsdelivr.net/npm/three/examples/jsm/loaders/FontLoader.js";
-
-import { DRACOLoader } from "https://cdn.jsdelivr.net/npm/three/examples/jsm/loaders/DRACOLoader.js";
-import { GLTFLoader } from "https://cdn.jsdelivr.net/npm/three/examples/jsm/loaders/GLTFLoader.js";
+import { TrackballControls } from "three/addons/controls/TrackballControls.js";
+import { TextGeometry } from "three/addons/geometries/TextGeometry.js";
+import { FontLoader } from "three/addons/loaders/FontLoader.js";
+import { DRACOLoader } from "three/addons/loaders/DRACOLoader.js";
+import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 import { gsap } from "https://cdn.skypack.dev/gsap";
 // import GUI from "https://cdn.jsdelivr.net/npm/three/examples/jsm/libs/dat.gui.module.js";
 
