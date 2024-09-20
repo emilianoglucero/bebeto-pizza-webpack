@@ -10,8 +10,6 @@ module.exports = merge(common, {
   devServer: {
     static: path.resolve(__dirname, "dist"),
     hot: true,
-    // watchFiles: ["src/*.html", "src/*/*/*.html"],
-    // open: true,
   },
   watchOptions: {
     poll: 1000,
