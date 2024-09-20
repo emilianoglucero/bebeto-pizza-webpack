@@ -12,20 +12,31 @@ function setup() {
       {
         src: "./dibuja/assets/img/subject/alberto-roemmers.png",
         name: "Alberto Roemmers",
-        description:
-          "Alberto Roemmers (Buenos Aires, 9 de enero de 1929) es un empresario argentino, presidente de Laboratorios Roemmers, uno de los laboratorios farmacéuticos más grandes de Argentina y América Latina. Su fortuna asciende a 2.300 millones de dólares (2024), manteniéndose entre los más ricos del país gracias a la expansión de su empresa en el mercado farmacéutico.",
+        description: `
+    <b>Alberto Roemmers</b> (Buenos Aires, 9 de enero de 1929) fue un destacado empresario del sector farmacéutico.<br>
+    Es conocido principalmente por su rol como presidente de Laboratorios Roemmers, una empresa fundada por su padre en 1921 y que él heredó, convirtiéndola en uno de los laboratorios farmacéuticos más grandes e influyentes de Argentina y América Latina.<br>
+    Durante la pandemia de 2020, Roemmers aumentó considerablemente sus ganancias, lo que se reflejó en su posición en el ranking de multimillonarios de Forbes.<br>
+    En 2021, ocupó el puesto 1.444, y en 2022 escaló al lugar 1292 según la misma publicación.<br>
+    En octubre de 2021, el nombre de Roemmers apareció en los Pandora Papers, documentos que lo vinculaban a actividades financieras en paraísos fiscales.<br>
+    Más recientemente, en agosto de 2024, su hijo Alejandro Roemmers ha sido objeto de una acusación pública.<br>
+    Durante la jornada ‘Trata Infantil: ¿Qué hay detrás de la desaparición de niños?’, realizada en el Senado de la Nación, Roberto Mazzoni acusó a Alejandro Roemmers de presunta participación en una red de trata infantil para explotación sexual.
+  `,
       },
       {
         src: "./dibuja/assets/img/subject/alejandro-bulgheroni.png",
         name: "Alejandro Bulgheroni",
-        description:
-          "Alejandro Pedro Bulgheroni (Buenos Aires, 24 de octubre de 1944) es un empresario argentino del sector energético, cofundador y presidente de Pan American Energy, la mayor empresa privada de energía en Argentina. Bulgheroni ha diversificado sus inversiones en el sector vitivinícola. Su fortuna es estimada en 5.200 millones de dólares (2024), con un crecimiento notable debido a las operaciones en Vaca Muerta, una de las mayores reservas de shale gas del mundo.",
+        description: `<b>Alejandro Pedro Bulgheroni</b> (Buenos Aires, 24 de octubre de 1944) es un empresario argentino del sector energético, cofundador y presidente de Pan American Energy, la mayor empresa privada de energía en Argentina.<br>
+        Bulgheroni ha diversificado sus inversiones en el sector vitivinícola.<br>
+        Su fortuna es estimada en 5.200 millones de dólares (2024), con un crecimiento notable debido a las operaciones en Vaca Muerta, una de las mayores reservas de shale gas del mundo.
+      `,
       },
       {
         src: "./dibuja/assets/img/subject/marcos-galperin.png",
         name: "Marcos Galperin",
-        description:
-          "Marcos Eduardo Galperín Lebach (Buenos Aires, 31 de octubre de 1971) es un empresario argentino conocido por ser fundador, presidente y director ejecutivo de Mercado Libre, además de heredero de la curtiembre SADESA.<br> Galperín aumentó su fortuna en 1400 millones de dólares el último año (2023) según Forbes y se ubica en el puesto número 764 con un total de 3.900 millones de dólares (2024).",
+        description: `
+        <b>Marcos Eduardo Galperín Lebach</b> (Buenos Aires, 31 de octubre de 1971) es un empresario argentino conocido por ser fundador, presidente y director ejecutivo de Mercado Libre, además de heredero de la curtiembre SADESA.<br>
+        Galperín aumentó su fortuna en 1400 millones de dólares el último año (2023) según Forbes y se ubica en el puesto número 764 con un total de 3.900 millones de dólares (2024).
+      `,
       },
       {
         src: "./dibuja/assets/img/subject/paolo-rocca.png",
@@ -37,7 +48,7 @@ function setup() {
         src: "./dibuja/assets/img/subject/gregorio-perez-companc.png",
         name: "Gregorio Pérez Companc",
         description:
-          "Gregorio Pérez Companc (Buenos Aires, 23 de agosto de 1934) es un empresario argentino conocido por su participación en la industria alimentaria y energética a través del Grupo Pérez Companc y Molinos Río de la Plata. En los años 90, vendió la mayor parte de su conglomerado energético a Petrobras. Su fortuna, que asciende a 2.400 millones de dólares (2024), se ha mantenido estable, ubicándolo entre los empresarios más acaudalados del país.",
+          "Gregorio Pérez Companc (Buenos Aires, 23 de agosto de 1934) fue un empresario argentino conocido por su participación en la industria alimentaria y energética a través del Grupo Pérez Companc y Molinos Río de la Plata. En los años 90, vendió la mayor parte de su conglomerado energético a Petrobras. Según Forbes era la 4.ª persona más rica de Argentina.",
       },
       {
         src: "./dibuja/assets/img/subject/eduardo-eurnekian.png",
@@ -66,26 +77,34 @@ function setup() {
       {
         src: "./dibuja/assets/img/subject/eduardo-elsztain.png",
         name: "Eduardo Elsztain",
-        description:
-          "Eduardo Sergio Elsztain (Buenos Aires, 26 de enero de 1960) es un empresario argentino, presidente de IRSA, la mayor empresa de bienes raíces del país, y de Cresud, una compañía agrícola. Su fortuna asciende a 1.800 millones de dólares (2024), con un crecimiento sostenido gracias a sus inversiones en el sector inmobiliario y agropecuario.",
+        description: `
+<p><strong>Eduardo Sergio Elsztain</strong> (Buenos Aires, 26 de enero de 1960) es un empresario argentino, presidente de <strong>IRSA</strong>, la mayor empresa de bienes raíces del país, y de <strong>Cresud</strong>, una compañía agrícola. Su fortuna asciende a 1.800 millones de dólares (2024), con un crecimiento sostenido gracias a sus inversiones en los sectores inmobiliario y agropecuario.</p>
+
+<p>En 2017, Elsztain figuró en los <strong>Paradise Papers</strong>, una investigación periodística que reveló su presunta implicación en casos de evasión fiscal, lavado de activos y corrupción. La investigación indaga sobre mecanismos complejos utilizados por empresarios y multinacionales para ocultar patrimonio y evitar el pago de impuestos mediante fondos de inversión y fideicomisos en jurisdicciones offshore. Estas prácticas permitieron evadir las obligaciones tributarias correspondientes en diversas administraciones fiscales.</p>
+`,
       },
       {
         src: "./dibuja/assets/img/subject/marcelo-mindlin.png",
         name: "Marcelo Mindlin",
-        description:
-          "Marcelo Mindlin (Buenos Aires, 15 de enero de 1964) es un empresario argentino, presidente y CEO de Pampa Energía, una de las principales empresas de energía del país. Mindlin también es conocido por sus inversiones en infraestructura a través de su firma Inversora Dolphin. Su fortuna es de aproximadamente 1.700 millones de dólares (2024), con un crecimiento notable debido a sus inversiones en el sector energético.",
+        description: `
+<p><strong>Marcelo Mindlin</strong> (Buenos Aires, 15 de enero de 1964) es un empresario argentino, presidente y CEO de <strong>Pampa Energía</strong>, una de las principales empresas de energía del país. Mindlin también es conocido por sus inversiones en infraestructura a través de su firma <strong>Inversora Dolphin</strong>. Su fortuna es de aproximadamente 1.700 millones de dólares (2024), con un crecimiento notable debido a sus inversiones en el sector energético.</p>
+
+<p>Mindlin figura en los <strong>Paradise Papers</strong> al frente de una offshore en las Islas Caimán, utilizada para adquirir activos en Argentina por 302 millones de dólares. En 2017, fue el empresario energético que más creció en el país, destacándose por la compra de la constructora <strong>Iecsa</strong>, de Ángelo Calcaterra, primo del expresidente Mauricio Macri, con quien mantiene una buena relación. Esta empresa es responsable del soterramiento del tren Sarmiento y está bajo sospecha de haber participado en casos de coimas.</p>
+
+<p>Mindlin aparece en los documentos en representación de la empresa <strong>Emerging Dolphin Limited</strong>, una sociedad establecida bajo las leyes de la Isla de Man. También fue identificado en los **Argenpapers**, junto con su socio, el magnate británico y terrateniente patagónico <strong>Joseph Lewis</strong>, quien posee dos offshore en Bahamas llamadas <strong>Lago Escondido Inc</strong> y <strong>Lago Escondido Corp</strong>. Mindlin y Eduardo Elsztain están vinculados al <strong>Dolphin Global Fund</strong>, registrado en la Isla de Man, con activos por 400 millones de dólares.</p>
+`,
       },
       {
         src: "./dibuja/assets/img/subject/luis-pagani.png",
         name: "Luis Pagani",
         description:
-          "Luis Pagani (Buenos Aires, 1955) es un empresario argentino, presidente de Arcor, uno de los mayores productores de alimentos y golosinas de América Latina. Bajo su liderazgo, Arcor se ha expandido internacionalmente. Su fortuna está estimada en 1.900 millones de dólares (2024), con un crecimiento sostenido gracias a la expansión y diversificación de sus negocios.",
+          "Luis Pagani (Buenos Aires, 1955) es un empresario argentino, ex-presidente de Arcor, empresa que fundó su abuelo y es uno de los mayores productores de alimentos y golosinas de América Latina. Bajo su liderazgo, Arcor se ha expandido internacionalmente. Su fortuna está estimada en 1.900 millones de dólares (2024), con un crecimiento sostenido gracias a la expansión y diversificación de sus negocios.",
       },
       {
         src: "./dibuja/assets/img/subject/francisco-de-narvaez.png",
         name: "Francisco de Narváez",
         description:
-          "Francisco de Narváez (Bogotá, 22 de septiembre de 1953) es un empresario y político argentino de origen colombiano, conocido por su participación en el Grupo de Narváez y su carrera política como diputado nacional. Su fortuna está valuada en 900 millones de dólares (2024), aunque ha enfrentado diversas controversias y acusaciones de corrupción a lo largo de su carrera.",
+          "Francisco de Narváez (Bogotá, 1953) es un empresario y político argentino de origen colombiano. Destacado por su carrera en el Grupo de Narváez y como diputado nacional, su fortuna se estima en 900 millones de dólares (2024). Ha enfrentado denuncias por ocultamiento patrimonial, tráfico de efedrina, evasión fiscal y controversias vinculadas a los Panama Papers, pero ninguna ha resultado en condenas judiciales.",
       },
       {
         src: "./dibuja/assets/img/subject/carlos-blaquier.png",

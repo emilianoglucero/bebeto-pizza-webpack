@@ -182,6 +182,10 @@ body {
   text-align: center;
 }
 
+.description {
+  text-wrap: balance;
+}
+
 .kitty-image {
   padding-bottom: 0.7rem;
 }
@@ -279,98 +283,6 @@ div.img img {
 div.desc {
   padding: 15px;
   text-align: center;
-}
-
-#img-dibuja-1 {
-  position: absolute;
-  top: 24%;
-  left: 9%;
-}
-
-#img-dibuja-4 {
-  position: absolute;
-  top: 32%;
-  left: 84%;
-}
-#img-dibuja-5 {
-  position: absolute;
-  top: 65%;
-  left: 81%;
-}
-#img-dibuja-6 {
-  position: absolute;
-  top: 79%;
-  left: 91%;
-}
-#img-dibuja-7 {
-  position: absolute;
-  top: 57%;
-  left: 7%;
-}
-#img-dibuja-8 {
-  position: absolute;
-  top: 153%;
-  left: 23%;
-}
-#img-dibuja-9 {
-  position: absolute;
-  top: 100%;
-  left: 15%;
-}
-#img-dibuja-10 {
-  position: absolute;
-  top: 88%;
-  left: 3%;
-}
-#img-dibuja-11 {
-  position: absolute;
-  top: 86%;
-  left: 76%;
-}
-#img-dibuja-12 {
-  position: absolute;
-  top: 158%;
-  left: 68%;
-}
-
-@media (max-width: 1350px) {
-  /* Phones */
-  #img-dibuja-1 {
-    display: none;
-  }
-  #img-dibuja-2 {
-    display: none;
-  }
-  #img-dibuja-3 {
-    display: none;
-  }
-  #img-dibuja-4 {
-    display: none;
-  }
-  #img-dibuja-5 {
-    display: none;
-  }
-  #img-dibuja-6 {
-    display: none;
-  }
-  #img-dibuja-7 {
-    display: none;
-  }
-  #img-dibuja-8 {
-    display: none;
-  }
-  #img-dibuja-9 {
-    display: none;
-  }
-  #img-dibuja-10 {
-    display: none;
-  }
-  #img-dibuja-11 {
-    display: none;
-  }
-  #img-dibuja-12 {
-    display: none;
-  }
 }
 
 /* color circles */
