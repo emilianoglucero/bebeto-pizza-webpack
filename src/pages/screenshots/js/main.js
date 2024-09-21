@@ -255,7 +255,7 @@ function init() {
     );
   });
 
-  // Particles snow
+  // Particles
 
   // Define sphere geometry and material outside the loop for efficiency
   const sphereGeometry = new THREE.SphereGeometry(66, 32, 32); // Radius, widthSegments, heightSegments
