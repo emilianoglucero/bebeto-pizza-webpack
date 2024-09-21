@@ -250,7 +250,7 @@ module.exports = {
             to: "compraventa/js",
           },
           {
-            from: "./src/pages/compraventa/static/js/main.5a409408.js",
+            from: "./src/pages/compraventa/static/js/main.988f776f.js",
             to: "compraventa/js",
           },
         ],
