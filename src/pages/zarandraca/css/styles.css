@@ -29,6 +29,11 @@ a {
   padding-top: 4rem;
 }
 
+.container ::selection {
+  background: red;
+  color: yellow;
+}
+
 .title {
   text-align: center;
 }
