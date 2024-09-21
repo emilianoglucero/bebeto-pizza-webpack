@@ -259,7 +259,7 @@ module.exports = {
             path: "compraventa/js/453.cba48af4.chunk.js",
           },
           {
-            path: "compraventa/js/main.5a409408.js",
+            path: "compraventa/js/main.988f776f.js",
           },
         ],
       },
