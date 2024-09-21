@@ -6,6 +6,11 @@ body {
   max-width: 1150px;
 }
 
+body ::selection {
+  background: floralwhite;
+  color: blueviolet;
+}
+
 @font-face {
   font-family: "comic sans";
   src: url("../../fonts/COMICSANS.TTF") format("truetype");
