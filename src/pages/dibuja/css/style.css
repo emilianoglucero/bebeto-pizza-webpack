@@ -23,6 +23,11 @@ body {
   align-items: center;
 }
 
+.content-container ::selection {
+  background-color: yellow;
+  color: black;
+}
+
 .save-button {
   display: flex;
   gap: 8rem;
