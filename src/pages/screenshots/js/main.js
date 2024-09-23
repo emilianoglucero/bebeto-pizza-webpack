@@ -1,5 +1,5 @@
 import * as THREE from "three";
-import Stats from "three/addons/libs/stats.module.js";
+// import Stats from "three/addons/libs/stats.module.js";
 import { NURBSCurve } from "three/addons/curves/NURBSCurve.js";
 import { NURBSSurface } from "three/addons/curves/NURBSSurface.js";
 import { NURBSVolume } from "three/addons/curves/NURBSVolume.js";
@@ -15,7 +15,7 @@ import { gsap } from "https://cdn.skypack.dev/gsap";
 // const gui = new GUI.GUI();
 
 let container;
-let stats;
+// let stats;
 
 let camera, scene, renderer;
 let group;
@@ -564,8 +564,8 @@ function init() {
 
   createControls(camera);
 
-  stats = new Stats();
-  container.appendChild(stats.dom);
+  // stats = new Stats();
+  // container.appendChild(stats.dom);
 
   container.style.touchAction = "none";
   container.style.position = "fixed";
@@ -665,7 +665,7 @@ function animate() {
   }
 
   render();
-  stats.update();
+  // stats.update();
 }
 
 function render() {
