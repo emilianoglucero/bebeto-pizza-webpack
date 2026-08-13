@@ -1,0 +1,53 @@
+/* Photo-loop background replacing the WebGL noise shader.
+   Tweak the speed here: total time for one pass through all 56 photos. */
+:root {
+  --bg-loop-duration: 8s;
+}
+
+/* Hide the React app's shader canvas (attribute selector survives hashed
+   class-name changes if the React bundle is ever rebuilt). */
+div[class*="background_container"] {
+  display: none;
+}
+
+#photo-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+}
+
+#photo-bg img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  /* steps(1, end) holds each frame fully visible for its slot, then hard-cuts.
+     Paused until JS adds .ready (all images decoded) so no blank frames show. */
+  animation: photo-bg-flip var(--bg-loop-duration) steps(1, end) infinite;
+  animation-play-state: paused;
+}
+
+/* While loading, show the first photo as a static backdrop */
+#photo-bg:not(.ready) img:first-child {
+  opacity: 1;
+}
+
+#photo-bg.ready img {
+  animation-play-state: running;
+}
+
+@keyframes photo-bg-flip {
+  0% {
+    opacity: 1;
+  }
+  /* 1/56 of the cycle ≈ 1.7857% — each photo owns one slot */
+  1.7857% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
